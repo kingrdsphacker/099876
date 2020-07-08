@@ -3074,67 +3074,9 @@ client.on("message", async message => {
   if (!message.channel.guild) return;
   let room = message.content.split(" ").slice(1);
   let findroom = message.guild.channels.find(r => r.name == room);
-  if (message.content.startsWith(prefix + "setWelcomer")) {
-    if (!welcome[message.guild.id]) {
-      if (!message.channel.guild)
-        return message.reply("**This Command Only For Servers**");
-      if (!message.member.hasPermission("MANAGE_GUILD"))
-        return message.channel.send(
-          "**Sorry But You Dont Have Permission** `MANAGE_GUILD`"
-        );
-      if (!room) return message.channel.send("Please Type The Channel Name");
-      if (!findroom) return message.channel.send("Cant Find This Channel");
-      let embed = new Discord.RichEmbed()
-        .setTitle("**Done The Welcome Has Been Setup**")
-        .addField("Channel:", `${room}`)
-        .addField("Requested By:", `${message.author}`)
-        .addField(
-          "Default Message:",
-          `**Welcome [member], You Joined by [inviter] invite**`
-        )
-        .setThumbnail(message.author.avatarURL)
-        .setFooter(`${client.user.username}`);
-      message.channel.sendEmbed(embed);
-      welcome[message.guild.id] = {
-        channel: room,
-        onoff: "On",
-        by: "On",
-        msg: `**Welcome [member], You Joined by [inviter] invite**`
-      };
-      fs.writeFile("./welcomer.json", JSON.stringify(welcome), err => {
-        if (err) console.error(err);
-      });
-    } else if (welcome[message.guild.id].channel) {
-      let msg = await welcome[message.guild.id].msg;
-      let by = await welcome[message.guild.id].by;
-      if (!message.channel.guild)
-        return message.reply("**This Command Only For Servers**");
-      if (!message.member.hasPermission("MANAGE_GUILD"))
-        return message.channel.send(
-          "**Sorry But You Dont Have Permission** `MANAGE_GUILD`"
-        );
-      if (!room) return message.channel.send("Please Type The Channel Name");
-      if (!findroom) return message.channel.send("Cant Find This Channel");
-      let embed = new Discord.RichEmbed()
-        .setTitle("**Done The Welcome Has Been Setup**")
-        .addField("Channel:", `${room}`)
-        .addField("Requested By:", `${message.author}`)
-        .addField("Default Message:", msg)
-        .setThumbnail(message.author.avatarURL)
-        .setFooter(`${client.user.username}`);
-      message.channel.sendEmbed(embed);
-      welcome[message.guild.id] = {
-        channel: room,
-        onoff: "On",
-        by: by,
-        msg: msg
-      };
-      fs.writeFile("./welcomer.json", JSON.stringify(welcome), err => {
-        if (err) console.error(err);
-      });
-    }
-  }
-});
+  if (message.content.startsWith(prefix +"setWelcomer"));
+
+  });
 
 client.on("message", async message => {
   let messageArray = message.content.split(" ");
