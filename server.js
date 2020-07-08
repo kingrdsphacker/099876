@@ -544,7 +544,7 @@ client.on("message", message => {
       .setTimestamp()
       .addField("الأستعمال:", "اسكت/احكي")
       .addField(
-        "تم ميوت:",
+        "تم ميوت  :__2:",
         `${user.username}#${user.discriminator} (${user.id})`
       )
       .addField(
