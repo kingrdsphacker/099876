@@ -3028,11 +3028,11 @@ var gg2;
 client.on("guildMemberAdd", async member => {
   if (!welcome[member.guild.id])
     welcome[member.guild.id] = {
-      by: "Off",
+      by: "off",
       channel: null
     };
 
-  if (welcome[member.guild.id].by === "Off") return;
+  if (welcome[member.guild.id].by === "off") return;
   let channel = member.guild.channels.find(
     c => c.name == welcome[member.guild.id].channel
   );
