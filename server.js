@@ -2854,7 +2854,7 @@ type these numbers to confirm: `
               })
               .then(collected => {
                 if (collected.first().content === num) {
-                  essss.delete()
+                  essss.delete();
                   message.channel.send(
                     `**:moneybag: | ${
                       message.author.username
@@ -4340,15 +4340,6 @@ client.on("message", message => {
     if (s) throw s;
   });
 });
-
-
-
-
-
-
-
-
-
 
 //// مهم
 /// {} عند عمل ريمكس للبوت احذف مايوجد بملفات الجيسون وحط قوسين مثل
