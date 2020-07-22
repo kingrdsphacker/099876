@@ -36,10 +36,10 @@ const { get } = require("snekfetch");
 const guild = require("guild");
 const dateFormat = require("dateformat");
 const YouTube = require("simple-youtube-api");
-const youtube = new YouTube("AIzaSyDgw82Y8wV84AJizmUIgVimfR2Dsqyaq9Q"); //تعديل اساسي سوي اي بي اي جديد
+const youtube = new YouTube("AIzaSyB1QqsuVEl7EnfkAKVz5Lv6Gn20rKQeQko"); //تعديل اساسي سوي اي بي اي جديد
 const hastebins = require("hastebin-gen");
 const getYoutubeID = require("get-youtube-id");
-const yt_api_key = "AIzaSyDgw82Y8wV84AJizmUIgVimfR2Dsqyaq9Q"; ///تعديل اساسي سوي اي بي اي جديد
+const yt_api_key = "AIzaSyB1QqsuVEl7EnfkAKVz5Lv6Gn20rKQeQko"; ///تعديل اساسي سوي اي بي اي جديد
 const pretty = require("pretty-ms");
 client.login(process.env.TOKEN);
 const queue = new Map();
@@ -323,7 +323,7 @@ client.on("message", async message => {
             inviteCode.code &&
             inviteCode.code.includes("discord.gg")
               ? inviteCode.code
-              : `https://discord.gg/${inviteCode.code || "vHmbKTE"}`
+              : `https://discord.gg/${inviteCode.code || "unZ34A"}`
           }** ]   `
         )
         .setImage("")
@@ -335,7 +335,7 @@ client.on("message", async message => {
     });
   }
 });
-
+//https://discord.gg/unZ34A
 client.on("message", message => {
   if (message.author.x5bz) return;
   if (!message.content.startsWith(prefix)) return;
