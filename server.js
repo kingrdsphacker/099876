@@ -3240,7 +3240,7 @@ client.on("message", message => {
 ////لايحتاج تعديل
 ////كود الفويس اونلاين
 
-let vojson = JSON.parse(fs.readFileSync("vojson.json", "utf8")); // ملف تخزين الفويس اونلاين
+
 client.on("message", message => {
   if (message.content.startsWith(prefix + "setVc")) {
     let channel = message.content
@@ -4340,7 +4340,6 @@ client.on("message", message => {
     if (s) throw s;
   });
 });
-
 
 
 
