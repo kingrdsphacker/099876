@@ -4345,23 +4345,6 @@ client.on("message", message => {
 
 
 
-/////show guild emojis
-client.on("message", message => {
-  if (message.content.toLowerCase() === prefix + "emojis") {
-    let emojis = message.guild.emojis.cache.map(e => ` ${e}`).join("\n");
-    let embed = new Discord.MessageEmbed()
-      .setTitle("Server Emojis")
-      .setDescription(emojis);
-    message.channel.send(embed);
-  }
-  if (message.content.toLowerCase() === prefix + "help emojis") {
-    let emojis = new Discord.MessageEmbed()
-      .setTitle(`Command: emojis `)
-      .addField("Usage", `${prefix}emojis`)
-      .addField("Information", "Show All Emojis For Server");
-    message.channel.send(emojis);
-  }
-});
 
 
 
@@ -4382,6 +4365,7 @@ client.on("message", message =>{
     }
     }
 })
+
 
 
 
