@@ -4365,6 +4365,26 @@ client.on("message", message => {
 
 
 
+client.on("message", message =>{
+    if(message.channel.id == "731705399455121472"){
+    let args = message.content.split
+    if(args){
+        message.react(":white_check_mark: ");
+    }
+    }
+})
+
+client.on("message", message =>{
+    if(message.channel.id == "731705399455121472"){
+    let args = message.content.split
+    if(args){
+        message.react(":negative_squared_cross_mark:");
+    }
+    }
+})
+
+
+
 //// مهم
 /// {} عند عمل ريمكس للبوت احذف مايوجد بملفات الجيسون وحط قوسين مثل
 //// يجب ان يكون البوت رتبة اقل من رتبة البوتات الموثوقة والكبيرة مثل داينو بوت وبروبوت والاخرى لكي لا يعطيهم باند
