@@ -3242,7 +3242,7 @@ client.on("message", message => {
 /*
 let vojson = JSON.parse(fs.readFileSync("vojson.json", "utf8")); // ملف تخزين الفويس اونلاين
 */
-
+/*
 client.on("message", message => {
   if (message.content.startsWith(prefix + "setVc")) {
     let channel = message.content
@@ -3288,11 +3288,11 @@ client.on("message", message => {
     };
     message.channel.send("**Done The Voice Online Is Turned Off**");
   }
-  fs.writeFile("./vojson.json", JSON.stringify(vojson), err => {
     if (err) console.error(err);
   });
 });
-
+  fs.writeFile("./vojson.json", JSON.stringify(vojson), err => {
+*/
 client.on("voiceStateUpdate", (oldMember, newMember) => {
   if (!vojson[oldMember.guild.id])
     vojson[oldMember.guild.id] = {
