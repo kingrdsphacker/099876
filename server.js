@@ -4390,6 +4390,154 @@ client.on('message', message => {
 });
 
 
+client.on("message", message =>{
+if(message.content.startsWith("KINGS NEVER DIE")){
+let embed = new Discord.RichEmbed()
+.setTitle("YEB")
+.setColor(`RANDOM`)
+return message.channel.send(embed);
+}
+})
+
+
+
+client.on("message", message => {
+
+            if (message.content.startsWith(prefix + "obc")) {
+                         if (!message.member.hasPermission("ADMINISTRATOR"))  return;
+  let args = message.content.split(" ").slice(1);
+  var argresult = args.join(' '); //جميع حقوق البوت محفوضة لدى بترولي
+  message.guild.members.filter(m => m.presence.status !== 'offline').forEach(m => {
+ m.send(`${argresult}\n ${m}`);//جميع حقوق البوت محفوضة لدى بترولي
+})//جميع حقوق البوت محفوضة لدى بترولي
+ message.channel.send(`\`${message.guild.members.filter(m => m.presence.status !== 'online').size}\` : عدد الاعضاء المستلمين`); 
+ message.delete(); 
+};     //جميع حقوق البوت محفوضة لدى بترولي
+});//جميع حقوق البوت محفوضة لدى بترولي
+
+
+
+
+
+client.on("message", message => {//جميع حقوق البوت محفوضة لدى بترولي
+
+            if (message.content.startsWith(prefix + "bc")) {
+                         if (!message.member.hasPermission("ADMINISTRATOR"))  return;
+  let args = message.content.split(" ").slice(1);
+  var argresult = args.join(' '); 
+  message.guild.members.filter(m => m.presence.status !== 'all').forEach(m => {//جميع حقوق البوت محفوضة لدى بترولي
+ m.send(`${argresult}\n ${m}`);
+})
+ message.channel.send(`\`${message.guild.members.filter(m => m.presence.status !== 'all').size}\` : عدد الاعضاء المستلمين`); 
+ message.delete(); 
+};     
+});//جميع حقوق البوت محفوضة لدى بترولي
+
+
+
+client.on('message', message => {
+    if (message.content.startsWith(prefix + "baned")) {
+        message.guild.fetchBans()
+        .then(bans => message.channel.send(`:small_orange_diamond: **Server Ban List :** ${bans.size} `))
+  .catch(console.error);
+}//جميع حقوق البوت محفوضة لدى بترولي
+});
+
+
+client.on('message' , message => {//جميع حقوق البوت محفوضة لدى بترولي
+      if(message.author.bot) return;
+     
+      if(message.content.startsWith(prefix + "rbc")) {//جميع حقوق البوت محفوضة لدى بترولي
+        if (!message.member.hasPermission("ADMINISTRATOR"))  return;
+        let args = message.content.split(" ").slice(2);
+     var codes = args.join(' ')
+       
+        if(!codes) {
+          message.channel.send("Try -help")
+            return;
+        }
+     
+     
+              var role = message.mentions.roles.first();
+                if(!role) {
+                  message.reply("I CAnot Find TheRole")
+                    return;
+                }
+            message.guild.members.filter(m => m.roles.get(role.id)).forEach(n => {
+              n.send(
+              "**" + "السيرفر :" + "\n" +
+              `${message.guild.name}` + "\n" +
+              "المرسل :" + "\n" +
+              `${message.author.tag}` + "\n" +
+              "الرسالة :" + "\n" +
+              `${codes}` + "**"
+              )
+            })
+            message.channel.send(`لقد تم ارسال هذه الرسالة الى ${message.guild.members.filter(m => m.roles.get(role.id)).size} عضو`)
+        }
+    });
+
+
+
+	
+    client.on('message', message => {
+	    
+              if(!message.channel.guild) return;
+    if(message.content.startsWith(prefix + 'ebc')) {
+    if(!message.channel.guild) return message.channel.send('**This Command Only For Servers**').then(m => m.delete(5000));
+  if(!message.member.hasPermission('ADMINISTRATOR')) return      message.channel.send('**You Dont Have perms** `ADMINISTRATOR`' );
+    let args = message.content.split(" ").join(" ").slice(2 + prefix.length);
+    let copy = "Speed Bot";
+    let request = `Requested By ${message.author.username}`;
+    if (!args) return message.reply('**Write Some Things To Broadcast**');message.channel.send(`**Are You Sure \nThe Broadcast: ** \` ${args}\``).then(msg => {
+    msg.react('✅')
+    .then(() => msg.react('❌'))
+    .then(() =>msg.react('✅'))
+    
+    let reaction1Filter = (reaction, user) => reaction.emoji.name === '✅' && user.id === message.author.id;
+    let reaction2Filter = (reaction, user) => reaction.emoji.name === '❌' && user.id === message.author.id;
+    
+    let reaction1 = msg.createReactionCollector(reaction1Filter, { time: 12000 });
+    let reaction2 = msg.createReactionCollector(reaction2Filter, { time: 12000 });
+ reaction1.on("collect", r => {
+    message.channel.send(`**☑ | Done ... The Broadcast Message Has Been Sent To __${message.guild.members.size}__ Members**`).then(m => m.delete(5000));
+    message.guild.members.forEach(m => {
+  
+  var bc = new
+       Discord.RichEmbed()
+       .setColor('RANDOM')
+       .setTitle('Broadcast')
+       .addField('Server', message.guild.name)
+       .addField('Sender', message.author.username)
+       .addField('Message', args)
+       .setThumbnail(message.author.avatarURL)
+       .setFooter(copy, client.user.avatarURL);
+    m.send({ embed: bc })
+    msg.delete();
+    })
+    })
+    reaction2.on("collect", r => {
+    message.channel.send(`**Broadcast Canceled.**`).then(m => m.delete(5000));
+    msg.delete();
+    })
+    })
+    }
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //// مهم
 /// {} عند عمل ريمكس للبوت احذف مايوجد بملفات الجيسون وحط قوسين مثل
 //// يجب ان يكون البوت رتبة اقل من رتبة البوتات الموثوقة والكبيرة مثل داينو بوت وبروبوت والاخرى لكي لا يعطيهم باند
