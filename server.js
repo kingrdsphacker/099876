@@ -4483,7 +4483,7 @@ client.on('message' , message => {//جميع حقوق البوت محفوضة ل
     client.on('message', message => {
 	    
               if(!message.channel.guild) return;
-    if(message.content.startsWith(prefix + 'ebc')) {
+    if(message.content.startsWith(prefix + 'eb')) {
     if(!message.channel.guild) return message.channel.send('**This Command Only For Servers**').then(m => m.delete(5000));
   if(!message.member.hasPermission('ADMINISTRATOR')) return      message.channel.send('**You Dont Have perms** `ADMINISTRATOR`' );
     let args = message.content.split(" ").join(" ").slice(2 + prefix.length);
@@ -4523,8 +4523,6 @@ client.on('message' , message => {//جميع حقوق البوت محفوضة ل
     })
     }
     });
-
-
 
 
 
