@@ -760,7 +760,7 @@ client.on("message", message => {
 
 
 
-\`الاوامر الإدارية\` :stars:
+\`الاوامر الإدارية\` :stars: :4E_P249:
 \`${prefix}clear\` : لمسح الشات 
 \`${prefix}ban\` : لحظر شخص من السيرفر
 \`${prefix}kick\` : لطرد شخص من السيرفر
@@ -796,7 +796,7 @@ client.on("message", message => {
         .then(() => {
           message.author.send(`
 
-\`أوامر الكريدت\` :credit_card: 
+\`أوامر الكريدت\` :credit_card: :4E_P249:
 \`${prefix}credits\` : لمعرفة رصيدك  
 \`${prefix}daily\` : لأخذ جائزة يومية
 \`يمكن التحويل من شخص لشخص + يزيد الكريدت فقط من امر دايلي\`
@@ -814,7 +814,7 @@ client.on("message", message => {
 \`${prefix}np\` : عرض مايتم تشغيله الان [np] 
 \`${prefix}repeat\` : تكرار الاغنية 
 
-\`أوامر الحماية\` :closed_lock_with_key:
+\`أوامر الحماية\` :closed_lock_with_key: :4E_P249:
 \`${prefix}settings limitsban\` : تحدد العدد الي تبيه لو حد بند  البوت يبنده 
 \`${prefix}settings limitskick\` : تحدد العدد الي تبيه لو حد طرد 3 او 4 البوت يبنده 
 \`${prefix}settings limitsroleD\` : تحدد العدد الي تبيه لو حد مسح رول 3 او 4 البوت يبنده 
@@ -842,7 +842,7 @@ client.on("message", message => {
       message.author
         .send(
           `   
-\`الاوامر العامة\` :postbox:
+\`الاوامر العامة\` :postbox: :4E_P249:
 \`${prefix}bot\` : لعرض معلومات عن البوت 
 \`${prefix}user\` : لعرض معلومات عنك 
 \`${prefix}avt\` :يعرض لك صورت  اي شخص عن طريق الايدي
@@ -851,8 +851,11 @@ client.on("message", message => {
 \`${prefix}colors\` : غير لونك 
 \`${prefix}inf\` : عدد الدعوات للسيرفر
 \`${prefix}رابط\` : اكتب رابط بالشات يجيك رابط السيرفر خاص
+\`${prefix}short\` : 『 اختصار روابط 』
 
-\`الاوامر الإدارية\` :stars:
+
+
+\`الاوامر الإدارية\` :stars: 
 \`${prefix}clear\` : لمسح الشات 
 \`${prefix}ban\` : لحظر شخص من السيرفر
 \`${prefix}kick\` : لطرد شخص من السيرفر
@@ -890,12 +893,12 @@ client.on("message", message => {
         .then(() => {
           message.author.send(`
 
-\`أوامر الكريدت\` :credit_card: 
+\`أوامر الكريدت\` :credit_card: :
 \`${prefix}credits\` : لمعرفة رصيدك  
 \`${prefix}daily\` : لأخذ جائزة يومية
 \`يمكن التحويل من شخص لشخص + يزيد الكريدت فقط من امر دايلي\`
 
-\`أوامر الموسيقى \` :notes:
+\`أوامر الموسيقى \` :notes: :4E_P249:
 \`${prefix}Play\` : تشغيل الاغنية او اضافتها للقائمة او اكمال الاغنية [p]
 \`${prefix}Pause\` : ايقاف مؤقت الاغنية
 \`${prefix}Resume\` : اكمال الاغنية 
