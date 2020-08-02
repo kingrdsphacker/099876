@@ -230,8 +230,7 @@ client.on("message", message => {
       .addField("**Users** : ", `» ${client.users.size} `, true)
       .addField("**Bot Name** :  ", `» ${client.user.tag} `, true)
       .addField("**Bot Owner** :  ", `» <@451284036049043467>`, true) // تعديل اساسي غير الايدي لايدي حسابك
-      .setImage("https://cdn.glitch.com/04dce029-f3f1-4501-b111-9b940a205b96%2Fimage_processing20190906-30742-n8r0wt.gif?v=1596409002637")
-      .setFooter(message.author.username, message.client.avatarURL);
+     .setFooter(message.author.username, message.client.avatarURL);
     message.channel.send(bot);
   }
 });
@@ -4576,6 +4575,25 @@ client.on('guildMemberAdd', member => {
 
 
 
+client.on("message", message => {
+  if (message.content.split(" ")[0] === prefix + "inf2") {
+    if (message.author.bot || message.channel.type == "dm") return;
+    var args = message.content.split(" ")[1];
+    var avt = args || message.author.id;
+    client
+      .fetchUser(avt)
+      .then(user => {
+        avt = user;
+        let avtEmbed = new Discord.RichEmbed()
+          .setColor("#36393e")
+          .setAuthor(`${avt.username}'s `, message.author.avatarURL)
+          .setImage(avt.avatarURL)
+          .setFooter(`Avatar`, message.client.user.avatarURL);
+        message.channel.send(avtEmbed);
+      })
+      .catch(() => message.channel.send(`يجب عليك وضع ايدي الشخص`));
+  } // Julian
+}); // Codes - Toxic Codes
 
 
 
