@@ -327,7 +327,7 @@ client.on("message", async message => {
               : `https://discord.gg/${inviteCode.code || "unZ34A"}`
           }** ]   `
         )
-        .setImage("https://cdn.discordapp.com/attachments/731502595213885503/739624361614508042/714537074132254740.gif")
+        .setImage("https://cdn.discordapp.com/attachments/696116356189519882/739627053565083658/Animated_GIF-downsized_large_1.gif")
 
 
 
@@ -4578,25 +4578,6 @@ client.on('guildMemberAdd', member => {
 
 
 
-client.on("message", message => {
-  if (message.content.split(" ")[0] === prefix + "infof") {
-    if (message.author.bot || message.channel.type == "dm") return;
-    var args = message.content.split(" ")[1];
-    var avt = args || message.author.id;
-    client
-      .fetchUser(avt)
-      .then(user => {
-        avt = user;
-        let avtEmbed = new Discord.RichEmbed()
-          .setColor("#36393e")
-          .setAuthor(`${avt.username}'s `, message.author.avatarURL)
-          .setImage(avt.avatarURL)
-          .setFooter(`Avatar`, message.client.user.avatarURL);
-        message.channel.send(avtEmbed);
-      })
-      .catch(() => message.channel.send(`يجب عليك وضع ايدي الشخص`));
-  } // Julian
-}); // Codes - Toxic Codes
 
 
 
