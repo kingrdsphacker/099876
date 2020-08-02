@@ -195,6 +195,7 @@ client.on("message", pixelbot => {
         .addField("**✽ Name :**   ", pixelbot.author.username, true)
         .addField("**✽ Tag :**   ", pixelbot.author.discriminator, true)
         .addField("**✽ ID :** ", pixelbot.author.id, true) // itzZa1D - Codes Team.
+        .setImage("https://cdn.glitch.com/04dce029-f3f1-4501-b111-9b940a205b96%2Fimage_processing20190906-30742-n8r0wt.gif?v=1596409002637")
         .addField(
           "**✽ Joined At :**   ",
           moment(pixelbot.joinedAt).format("D/M/YYYY h:mm a "),
@@ -229,7 +230,7 @@ client.on("message", message => {
       .addField("**Users** : ", `» ${client.users.size} `, true)
       .addField("**Bot Name** :  ", `» ${client.user.tag} `, true)
       .addField("**Bot Owner** :  ", `» <@451284036049043467>`, true) // تعديل اساسي غير الايدي لايدي حسابك
-      .setImage("")
+      .setImage("https://cdn.glitch.com/04dce029-f3f1-4501-b111-9b940a205b96%2Fimage_processing20190906-30742-n8r0wt.gif?v=1596409002637")
       .setFooter(message.author.username, message.client.avatarURL);
     message.channel.send(bot);
   }
@@ -4397,7 +4398,7 @@ client.on('message', message => {
 client.on("message", message =>{
 if(message.content.startsWith("KINGS NEVER DIE")){
 let embed = new Discord.RichEmbed()
-.setTitle("YEB")
+.setTitle("YEB ")
 .setColor(`RANDOM`)
 return message.channel.send(embed);
 }
@@ -4548,7 +4549,6 @@ client.on("guildMemberAdd", member => {
         }
         });
 		
-
 
 
 client.on('ready', () => {
