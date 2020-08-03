@@ -3080,6 +3080,7 @@ client.on("guildMemberAdd", async member => {
     });
   });
 });
+
 client.on("message", async message => {
   if (!message.channel.guild) return;
   let room = message.content.split(" ").slice(1);
