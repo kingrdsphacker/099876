@@ -4510,7 +4510,7 @@ client.on('message' , message => {//جميع حقوق البوت محفوضة ل
  reaction1.on("collect", r => {
     message.channel.send(`**☑ | Done ... The Broadcast Message Has Been Sent To __${message.guild.members.size}__ Members**`).then(m => m.delete(5000));
     message.guild.members.forEach(m => {
-  
+ 
   var bc = new
        Discord.RichEmbed()
        .setColor('RANDOM')
