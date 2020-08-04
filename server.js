@@ -187,12 +187,13 @@ client.on("message", pixelbot => {
         .join(` `);
       let pixeluser = new Discord.RichEmbed() // itzZa1D - Codes Team.
         .setColor("#00000")
-        .setTitle(" :beginner: :heartpulse:   | Use  r Info") // itzZa1D - Codes Team.
+        .setTitle(" :beginner: <a:2222:620297078249095169>   | Use  r Info") // itzZa1D - Codes Team.
         .setAuthor(pixelbot.author.username, pixelbot.author.avatarURL)
         .addField("**✽ Name :<a:6666:619599574100869124>**   ", pixelbot.author.username, true)
         .addField("**✽ Tag :<a:6666:619599574100869124>**   ", pixelbot.author.discriminator, true)
         .addField("**✽ ID :<a:6666:619599574100869124>** ", pixelbot.author.id, true) // itzZa1D - Codes Team.
         .setImage("https://images-ext-1.discordapp.net/external/rMlchtcKahJOQXBhZmrKcKxBW_bcoqqeqf7VN1KuFYY/%3Fsize%3D1024/https/cdn.discordapp.com/icons/445003651077898241/a_002f53ede132ba59c9f389eb1e6617db.gif")
+        
         .addField(
           "**✽ Joined At :<a:6666:619599574100869124>**   ",
           moment(pixelbot.joinedAt).format("D/M/YYYY h:mm a "),
@@ -205,7 +206,7 @@ client.on("message", pixelbot => {
         )
         .addField("**✽ Total invites :<a:6666:619599574100869124>**    ", inviteCount, true)
         .setTimestamp(); // itzZa1D - Codes Team.
-
+    
       pixelbot.channel.sendEmbed(pixeluser).then(c => {}); // itzZa1D - Codes Team.
     });
   }
