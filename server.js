@@ -4531,5 +4531,45 @@ client.on('message' , message => {//جميع حقوق البوت محفوضة ل
 
 
 
+client.on("ready", () => {
+  function lol() {
+    client.guilds.get('691679990248374362').roles.find("name", "Rainbow").setColor("RANDOM");
+  };
+  setInterval(lol, 1600);
+});
 
- 
+
+
+  client.on('guildMemberAdd', (member) => {
+    var channel = member.guild.channels.find('name', 'logs-ranks');
+channel.send(`Has Give A Rank Member For
+${member} `)
+member.addRole(member.guild.roles.find('name', 'Clan » Member'));
+});
+client.on('guildMemberAdd', (member) => {
+    var channel = member.guild.channels.find('name', 'logs-ranks');
+channel.send(`Has Give A Rank RainBow For
+${member} `)
+member.addRole(member.guild.roles.find('name', 'Rainbow'));
+});
+
+
+ client.on("ready", () => {
+  function lol() {
+    client.guilds.get('691679990248374362').roles.find("name", "Founder").setColor("RANDOM");
+  };
+  setInterval(lol, 1600);
+});
+
+ client.on('guildMemberAdd', (member) => {
+    var channel = member.guild.channels.find('name', 'logs-ranks');
+channel.send(`Has Give A Rank Member For
+${member} `)
+member.addRole(member.guild.roles.find('name', 'Clan » Member'));
+});
+client.on('guildMemberAdd', (member) => {
+    var channel = member.guild.channels.find('name', 'logs-ranks');
+channel.send(`Has Give A Rank RainBow For
+${member} `)
+member.addRole(member.guild.roles.find('name', 'Founder'));
+});
