@@ -4530,6 +4530,18 @@ client.on('message' , message => {//جميع حقوق البوت محفوضة ل
     }
     });
 
+client.on('message', async message => {
+if(message.content.startsWith(prefix + "Owner")) {
+  let i = client.users.size;
+  if(message.author.id !== '407882511784607748') return message.channel.send('**<a:737704678468354119:740319662415282266>» انت لست صاحب البوت**');
+  message.channel.send("**انت صاحب البوت تم الاثبات<a:740286757672714282:740319836453732393>**")
+}
+})
+
+
+
+
+
 
 /*
 client.on("ready", () => {
