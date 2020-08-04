@@ -4539,14 +4539,29 @@ if(message.content.startsWith(prefix + "Owner")) {
 })
 
 
+/////show guild emojis
+client.on("message", message => {
+  if (message.content.toLowerCase() === prefix + "emojis") {
+    let emojis = message.guild.emojis.cache.map(e => ` ${e}`).join("\n");
+    let embed = new Discord.MessageEmbed()
+      .setTitle("Server Emojis")
+      .setDescription(emojis);
+    message.channel.send(embed);
+  }
+  if (message.content.toLowerCase() === prefix + "help emojis") {
+    let emojis = new Discord.MessageEmbed()
+      .setTitle(`Command: emojis `)
+      .addField("Usage", `${prefix}emojis`)
+      .addField("Information", "Show All Emojis For Server");
+    message.channel.send(emojis);
+  }
+});
 
 
 
-
-/*
 client.on("ready", () => {
   function lol() {
-    client.guilds.get('614401235268927489').roles.find("name", "Rainbow").setColor("RANDOM");
+    client.guilds.get('614401235268927489').roles.find("name", "Founder").setColor("RANDOM");
   };
   setInterval(lol, 120);
 });
@@ -4563,29 +4578,5 @@ client.on('guildMemberAdd', (member) => {
     var channel = member.guild.channels.find('name', 'logs-ranks');
 channel.send(`Has Give A Rank RainBow For
 ${member} `)
-member.addRole(member.guild.roles.find('name', 'Rainbow'));
+member.addRole(member.guild.roles.find('name', 'Founder'));
 });
-
-client.on("ready", () => {
-  function lol() {
-    client.guilds.get('614401235268927489').roles.find("name", "BoTs").setColor("RANDOM");
-  };
-  setInterval(lol, 120);
-});
-
-
-
-  client.on('guildMemberAdd', (member) => {
-    var channel = member.guild.channels.find('name', 'logs-ranks');
-channel.send(`Has Give A Rank Member For
-${member} `)
-member.addRole(member.guild.roles.find('name', 'Clan » Member'));
-});
-client.on('guildMemberAdd', (member) => {
-    var channel = member.guild.channels.find('name', 'logs-ranks');
-channel.send(`Has Give A Rank RainBow For
-${member} `)
-member.addRole(member.guild.roles.find('name', 'BoTs'));
-});
-
-*/
