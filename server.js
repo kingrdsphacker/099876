@@ -4532,6 +4532,4 @@ client.on('message' , message => {//جميع حقوق البوت محفوضة ل
 
 
 
-client.on("guildMemberAdd", (member) => {
-  newUsers.set(member.id, member.user);
-});
+ 
