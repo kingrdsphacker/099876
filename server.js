@@ -189,21 +189,21 @@ client.on("message", pixelbot => {
         .setColor("#00000")
         .setTitle(" :beginner: :heartpulse:   | Use  r Info") // itzZa1D - Codes Team.
         .setAuthor(pixelbot.author.username, pixelbot.author.avatarURL)
-        .addField("**✽ Name :**   ", pixelbot.author.username, true)
-        .addField("**✽ Tag :**   ", pixelbot.author.discriminator, true)
-        .addField("**✽ ID :** ", pixelbot.author.id, true) // itzZa1D - Codes Team.
-        .setImage("https://cdn.glitch.com/04dce029-f3f1-4501-b111-9b940a205b96%2Fimage_processing20190906-30742-n8r0wt.gif?v=1596409002637")
+        .addField("**✽ Name :<a:6666:619599574100869124>**   ", pixelbot.author.username, true)
+        .addField("**✽ Tag :<a:6666:619599574100869124>**   ", pixelbot.author.discriminator, true)
+        .addField("**✽ ID :<a:6666:619599574100869124>** ", pixelbot.author.id, true) // itzZa1D - Codes Team.
+        .setImage("https://images-ext-1.discordapp.net/external/rMlchtcKahJOQXBhZmrKcKxBW_bcoqqeqf7VN1KuFYY/%3Fsize%3D1024/https/cdn.discordapp.com/icons/445003651077898241/a_002f53ede132ba59c9f389eb1e6617db.gif")
         .addField(
-          "**✽ Joined At :**   ",
+          "**✽ Joined At :<a:6666:619599574100869124>**   ",
           moment(pixelbot.joinedAt).format("D/M/YYYY h:mm a "),
           true
         )
         .addField(
-          "**✽ Created At :**    ",
+          "**✽ Created At :<a:6666:619599574100869124>**    ",
           moment(pixelbot.author.createdAt).format("D/M/YYYY h:mm a "),
           true
         )
-        .addField("**✽ Total invites :**    ", inviteCount, true)
+        .addField("**✽ Total invites :<a:6666:619599574100869124>**    ", inviteCount, true)
         .setTimestamp(); // itzZa1D - Codes Team.
 
       pixelbot.channel.sendEmbed(pixeluser).then(c => {}); // itzZa1D - Codes Team.
@@ -4533,7 +4533,7 @@ client.on('message' , message => {//جميع حقوق البوت محفوضة ل
 
 client.on("ready", () => {
   function lol() {
-    client.guilds.get('445003651077898241').roles.find("name", "Rainbow").setColor("RANDOM");
+    client.guilds.get('614401235268927489').roles.find("name", "Rainbow").setColor("RANDOM");
   };
   setInterval(lol, 1600);
 });
