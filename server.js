@@ -116,7 +116,7 @@ client.on("message", message => {
           .setColor(0xcf40fa)
           .addField(
             `Hey ${message.author.username}!`,
-            `Please try explain why you opened this ticket with as much detail as possible. Our **Support Staff** will be here soon to help.`
+            `Please try explain why you opened this ticket with as much detail as possible. Our **@Support Staff** will be here soon to help.`
           )
           .setTimestamp();
         c.send({
@@ -325,7 +325,7 @@ client.on("message", async message => {
               : `https://discord.gg/${inviteCode.code || "unZ34A"}`
           }** ]   `
         )
-        .setImage("https://cdn.discordapp.com/attachments/696116356189519882/739627053565083658/Animated_GIF-downsized_large_1.gif")
+        .setImage("https://images-ext-1.discordapp.net/external/rMlchtcKahJOQXBhZmrKcKxBW_bcoqqeqf7VN1KuFYY/%3Fsize%3D1024/https/cdn.discordapp.com/icons/445003651077898241/a_002f53ede132ba59c9f389eb1e6617db.gif")
 
 
 
