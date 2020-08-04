@@ -748,7 +748,7 @@ client.on("message", message => {
       message.author
         .send(
           `   
-\`الاوامر العامة\` :postbox:
+\`الاوامر العامة\` 
 \`${prefix}bot\` : لعرض معلومات عن البوت 
 \`${prefix}user\` : لعرض معلومات عنك 
 \`${prefix}avt\` :يعرض لك صورت  اي شخص عن طريق الايدي 
@@ -761,7 +761,7 @@ client.on("message", message => {
 
 
 
-\`الاوامر الإدارية\` :stars: :4E_P249:
+\`الاوامر الإدارية\` :stars: 
 \`${prefix}clear\` : لمسح الشات 
 \`${prefix}ban\` : لحظر شخص من السيرفر
 \`${prefix}kick\` : لطرد شخص من السيرفر
@@ -797,7 +797,7 @@ client.on("message", message => {
         .then(() => {
           message.author.send(`
 
-\`أوامر الكريدت\` :credit_card: :4E_P249:
+\`أوامر الكريدت\` :credit_card: 
 \`${prefix}credits\` : لمعرفة رصيدك  
 \`${prefix}daily\` : لأخذ جائزة يومية
 \`يمكن التحويل من شخص لشخص + يزيد الكريدت فقط من امر دايلي\`
@@ -815,7 +815,7 @@ client.on("message", message => {
 \`${prefix}np\` : عرض مايتم تشغيله الان [np] 
 \`${prefix}repeat\` : تكرار الاغنية 
 
-\`أوامر الحماية\` :closed_lock_with_key: :4E_P249:
+\`أوامر الحماية\` :closed_lock_with_key: 
 \`${prefix}settings limitsban\` : تحدد العدد الي تبيه لو حد بند  البوت يبنده 
 \`${prefix}settings limitskick\` : تحدد العدد الي تبيه لو حد طرد 3 او 4 البوت يبنده 
 \`${prefix}settings limitsroleD\` : تحدد العدد الي تبيه لو حد مسح رول 3 او 4 البوت يبنده 
@@ -843,7 +843,7 @@ client.on("message", message => {
       message.author
         .send(
           `   
-\`الاوامر العامة\` :postbox: :4E_P249:
+\`الاوامر العامة\` :postbox: 
 \`${prefix}bot\` : لعرض معلومات عن البوت 
 \`${prefix}user\` : لعرض معلومات عنك 
 \`${prefix}avt\` :يعرض لك صورت  اي شخص عن طريق الايدي
@@ -856,7 +856,7 @@ client.on("message", message => {
 
 
 
-\`الاوامر الإدارية\` :stars: 
+\`الاوامر الإدارية\` 
 \`${prefix}clear\` : لمسح الشات 
 \`${prefix}ban\` : لحظر شخص من السيرفر
 \`${prefix}kick\` : لطرد شخص من السيرفر
@@ -894,12 +894,12 @@ client.on("message", message => {
         .then(() => {
           message.author.send(`
 
-\`أوامر الكريدت\` :credit_card: :
+\`أوامر الكريدت\` :credit_card: 
 \`${prefix}credits\` : لمعرفة رصيدك  
 \`${prefix}daily\` : لأخذ جائزة يومية
 \`يمكن التحويل من شخص لشخص + يزيد الكريدت فقط من امر دايلي\`
 
-\`أوامر الموسيقى \` :notes: :4E_P249:
+\`أوامر الموسيقى \` :notes: 
 \`${prefix}Play\` : تشغيل الاغنية او اضافتها للقائمة او اكمال الاغنية [p]
 \`${prefix}Pause\` : ايقاف مؤقت الاغنية
 \`${prefix}Resume\` : اكمال الاغنية 
@@ -4531,12 +4531,12 @@ client.on('message' , message => {//جميع حقوق البوت محفوضة ل
     });
 
 
-
+/*
 client.on("ready", () => {
   function lol() {
     client.guilds.get('614401235268927489').roles.find("name", "Rainbow").setColor("RANDOM");
   };
-  setInterval(lol, 1600);
+  setInterval(lol, 120);
 });
 
 
@@ -4554,4 +4554,26 @@ ${member} `)
 member.addRole(member.guild.roles.find('name', 'Rainbow'));
 });
 
+client.on("ready", () => {
+  function lol() {
+    client.guilds.get('614401235268927489').roles.find("name", "BoTs").setColor("RANDOM");
+  };
+  setInterval(lol, 120);
+});
 
+
+
+  client.on('guildMemberAdd', (member) => {
+    var channel = member.guild.channels.find('name', 'logs-ranks');
+channel.send(`Has Give A Rank Member For
+${member} `)
+member.addRole(member.guild.roles.find('name', 'Clan » Member'));
+});
+client.on('guildMemberAdd', (member) => {
+    var channel = member.guild.channels.find('name', 'logs-ranks');
+channel.send(`Has Give A Rank RainBow For
+${member} `)
+member.addRole(member.guild.roles.find('name', 'BoTs'));
+});
+
+*/
