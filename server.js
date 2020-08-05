@@ -4561,7 +4561,7 @@ client.on("message", message => {
 
 client.on("ready", () => {
   function lol() {
-    client.guilds.get('614401235268927489').roles.find("name", "Founder").setColor("RANDOM");
+    client.guilds.get('691679990248374362').roles.find("name", "Founder").setColor("RANDOM");
   };
   setInterval(lol, 120);
 });
