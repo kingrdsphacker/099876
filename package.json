@@ -8,7 +8,11 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
-  },
+
+ 
+  
+
+},
   "dependencies": {
     "3amyah": "^1.0.0",
     "anti-spam": "^0.2.7",

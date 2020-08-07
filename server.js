@@ -1,8 +1,8 @@
 
 require("events").EventEmitter.defaultMaxListeners = 200;
 const http = require("http");
-const express = require("express");
-var app = express();.
+var express = require('express');
+var app = express();
 app.use(express.static('public'));
 app.get('/', function(request, response) {
   response.sendFile(__dirname + '/views/index.html');
@@ -4580,3 +4580,11 @@ channel.send(`Has Give A Rank RainBow For
 ${member} `)
 member.addRole(member.guild.roles.find('name', 'BoTs'));
 });
+
+
+
+client.on('ready',()=>{
+require('./bot.js')
+  console.log(`تم`)
+
+})
