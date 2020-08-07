@@ -4583,8 +4583,3 @@ member.addRole(member.guild.roles.find('name', 'BoTs'));
 
 
 
-client.on('ready',()=>{
-require('./bot.js')
-  console.log(`تم`)
-
-})
