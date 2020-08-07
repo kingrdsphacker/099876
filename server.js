@@ -4558,7 +4558,7 @@ client.on("message", message => {
 });
 
 
-
+/*
 client.on("ready", () => {
   function lol() {
     client.guilds.get('614401235268927489').roles.find("name", "THE OWN").setColor("RANDOM");
@@ -4582,4 +4582,4 @@ member.addRole(member.guild.roles.find('name', 'THE OWN'));
 });
 
 
-
+*/
