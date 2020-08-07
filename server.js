@@ -271,6 +271,7 @@ client.on("message", message => {
     );
   }
 });
+/*
 client.on("message", async message => {
   if (message.content.startsWith(prefix + "inf")) {
     //// وهون الامر طبعا
@@ -294,7 +295,9 @@ client.on("message", async message => {
       let link = urll.reduce(
         (p, v) =>
           v.url + ` , Total de membros recrutados no convite: ${v.uses}.\n` + p,
-        `\nServidor: ${message.guild.name} \n `
+        `\nServidor: ${message.guild.name} \n `*
+
+      
       );
       let inviteCount = personalInvites.reduce((p, v) => v.uses + p, 0);
       let inviteCode = personalInvites.reduce((p, v) => v.code);
@@ -337,6 +340,7 @@ client.on("message", async message => {
     });
   }
 });
+*/
 //https://discord.gg/unZ34A
 client.on("message", message => {
   if (message.author.x5bz) return;
