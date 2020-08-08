@@ -1,6 +1,17 @@
 
-require("events").EventEmitter.defaultMaxListeners = 200;
 const http = require("http");
+const express = require("express");
+const app = express();
+app.get("/", (request, response) => {
+  response.sendStatus(200);
+});
+app.listen(process.env.PORT);
+setInterval(() => {
+  http.get(`http://${process.env.PROJECT_DOMAIN}.glitch.me/`);
+}, 280000);
+
+
+/*
 var express = require('express');
 /*
 var app = express();
@@ -272,7 +283,7 @@ client.on("message", message => {
     );
   }
 });
-/*
+
 client.on("message", async message => {
   if (message.content.startsWith(prefix + "inf")) {
     //// وهون الامر طبعا
@@ -299,7 +310,7 @@ client.on("message", async message => {
         `\nServidor: ${message.guild.name} \n `*
 
       
-      );
+            );
       let inviteCount = personalInvites.reduce((p, v) => v.uses + p, 0);
       let inviteCode = personalInvites.reduce((p, v) => v.code);
       let possibleInvites = [["Total de membros recrutados:"]];
@@ -341,7 +352,7 @@ client.on("message", async message => {
     });
   }
 });
-*/
+
 //https://discord.gg/unZ34A
 client.on("message", message => {
   if (message.author.x5bz) return;
@@ -1883,7 +1894,7 @@ client.on("message", message => {
 */
 
 ///// كود خروج الاعضاء
-/*
+
 client.on("message", message => {
   if (message.content.startsWith(prefix + "setby")) {
     let args = message.mentions.channels.first();
@@ -1916,7 +1927,6 @@ client.on("message", message => {
     });
   }
 });
-*/
 /////كود سرعة البوت او البينق
 client.on("message", message => {
   if (!message.channel.guild) return;
@@ -3270,11 +3280,8 @@ client.on("message", message => {
 });
 
 ////لايحتاج تعديل
-////كود الفويس اونلاين
-/*
+
 let vojson = JSON.parse(fs.readFileSync("vojson.json", "utf8")); // ملف تخزين الفويس اونلاين
-*/
-/*
 client.on("message", message => {
   if (message.content.startsWith(prefix + "setVc")) {
     let channel = message.content
@@ -3320,11 +3327,11 @@ client.on("message", message => {
     };
     message.channel.send("**Done The Voice Online Is Turned Off**");
   }
+  fs.writeFile("./vojson.json", JSON.stringify(vojson), err => {
     if (err) console.error(err);
   });
 });
-  fs.writeFile("./vojson.json", JSON.stringify(vojson), err => {
-*/
+
 client.on("voiceStateUpdate", (oldMember, newMember) => {
   if (!vojson[oldMember.guild.id])
     vojson[oldMember.guild.id] = {
