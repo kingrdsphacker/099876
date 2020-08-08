@@ -307,14 +307,13 @@ client.on("message", async message => {
       let link = urll.reduce(
         (p, v) =>
           v.url + ` , Total de membros recrutados no convite: ${v.uses}.\n` + p,
-        `\nServidor: ${message.guild.name} \n `*
-
-      
-            );
+        `\nServidor: ${message.guild.name} \n `
+      );            
       let inviteCount = personalInvites.reduce((p, v) => v.uses + p, 0);
       let inviteCode = personalInvites.reduce((p, v) => v.code);
       let possibleInvites = [["Total de membros recrutados:"]];
-      possibleInvites.push([inviteCount, inviteCode]);
+            possibleInvites.push([inviteCount, inviteCode]);
+
       let user = message.mentions.users.first() || message.author;
       let mem = message.guild.member(user);
       let millisJoined = new Date().getTime() - mem.joinedAt.getTime();
