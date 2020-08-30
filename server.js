@@ -4598,7 +4598,7 @@ client.on("message", message => {
 /*
 client.on("ready", () => {
   function lol() {
-    client.guilds.get('614401235268927489').roles.find("name", "THE OWN").setColor("RANDOM");
+    client.guilds.get('744887254304161883').roles.find("name", "𝑴𝒆𝒎𝒃𝒆𝒓𝒔♧︎︎︎").setColor("RANDOM");
   };
   setInterval(lol, 1);
 });
@@ -4615,7 +4615,7 @@ client.on('guildMemberAdd', (member) => {
     var channel = member.guild.channels.find('name', 'logs-ranks');
 channel.send(`Has Give A Rank RainBow For
 ${member} `)
-member.addRole(member.guild.roles.find('name', 'THE OWN'));
+member.addRole(member.guild.roles.find('name', '𝑴𝒆𝒎𝒃𝒆𝒓𝒔♧︎︎︎'));
 });
 
 
