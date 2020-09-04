@@ -1,81 +1,89 @@
-<!-- this script got from www.htmlbestcodes.com coded by: Kerixa Inc. -->
-<!-- this script got from www.htmlbestcodes.com-Coded by: Krishna Eydat -->
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Awesome Search Box</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  </head>
+  <!-- Coded with love by Mutiullah Samim-->
+  <body>
+    <div class="container h-100">
+      <div class="d-flex justify-content-center h-100">
+        <div class="searchbar">
+          <input class="search_input" type="text" name="" placeholder="Search...">
+          <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
 <html>
 <head>
+<style>
+
+    body,html{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background: #FFFFF !important;
+    }
+
+    .searchbar{
+    margin-bottom: auto;
+    margin-top: auto;
+    height: 60px;
+    background-color: #353b48;
+    border-radius: 30px;
+    padding: 10px;
+    }
+
+    .search_input{
+    color: white;
+    border: 0;
+    outline: 0;
+    background: none;
+    width: 0;
+    caret-color:transparent;
+    line-height: 40px;
+    transition: width 0.4s linear;
+    }
+
+    .searchbar:hover > .search_input{
+    padding: 0 10px;
+    width: 450px;
+    caret-color:red;
+    transition: width 0.4s linear;
+    }
+
+    .searchbar:hover > .search_icon{
+    background: white;
+    color: #e74c3c;
+    }
+
+    .search_icon{
+    height: 40px;
+    width: 40px;
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color:white;
+    text-decoration:none;
+    }
+</style>
 </head>
 <body>
-<b>
-<br>
-<center>
-<script>
-var text="KINGHACKER"
-var speed=80 // SPEED OF FADE
 
-// ********** LEAVE THE NEXT BIT ALONE!
+<h1></h1>
+<p></p>
 
-
-if (document.all||document.getElementById){
-document.write('<span id="highlight">' + text + '</span>')
-var storetext=document.getElementById? document.getElementById("highlight") : document.all.highlight
-}
-else
-document.write(text)
-var hex=new Array("00","14","28","3C","50","64","78","8C","A0","B4","C8","DC","F0")
-var r=1
-var g=1
-var b=1
-var seq=1
-function changetext(){
-rainbow="#"+hex[r]+hex[g]+hex[b]
-storetext.style.color=rainbow
-}
-function change(){
-if (seq==6){
-b--
-if (b==0)
-seq=1
-}
-if (seq==5){
-r++
-if (r==12)
-seq=6
-}
-if (seq==4){
-g--
-if (g==0)
-seq=5
-}
-if (seq==3){
-b++
-if (b==12)
-seq=4
-}
-if (seq==2){
-r--
-if (r==0)
-seq=3
-}
-if (seq==1){
-g++
-if (g==12)
-seq=2
-}
-changetext()
-}
-function starteffect(){
-if (document.all||document.getElementById)
-flash=setInterval("change()",speed)
-}
-starteffect()
-</script>
-</b>
-
-
-<!-- Page Content -->
-<div class="w3-padding-large" id="main">
-  <!-- Header/Home -->
-  <header class="w3-container w3-padding-32 w3-center w3-black" id="home">
-    <h1 class="w3-jumbo"><span class="w3-hide-small">welcome to</span> KINGHACKER WEBSITE.</h1>
-    <p> do not forget to subscribe to my YouTube channel  sub to my channel:<a href="https://is.gd/EPE8wA" target="blank"> click here to sub</a>
-</p>
-  </header>
+</body>
+</html>
