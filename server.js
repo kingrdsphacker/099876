@@ -50,6 +50,7 @@ const YouTube = require("simple-youtube-api");
 const youtube = new YouTube("AIzaSyB1QqsuVEl7EnfkAKVz5Lv6Gn20rKQeQko"); //تعديل اساسي سوي اي بي اي جديد
 const hastebins = require("hastebin-gen");
 const getYoutubeID = require("get-youtube-id");
+client.login(process.env.BOT_TOKEN);
 const yt_api_key = "AIzaSyB1QqsuVEl7EnfkAKVz5Lv6Gn20rKQeQko"; ///تعديل اساسي سوي اي بي اي جديد
 ;
 
@@ -4777,4 +4778,6 @@ const Sra7a = [
    message.react("??")
  }
 });
+
+
 
