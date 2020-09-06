@@ -3854,7 +3854,13 @@ client.on("message", async msg => {
 
       for (const video of Object.values(videos)) {
         const video2 = await youtube.getVideoByID(video.id); // eslint-disable-line no-await-in-loop
-        await handleVideo(video2, msg, voiceChannel, true); // eslint-disable-line no-await-in-loop
+        
+        
+        
+        
+        
+        
+        handleVideo(video2, msg, voiceChannel, true); // eslint-disable-line no-await-in-loop
       }
       return msg.channel.send(`Added to queue: ${playlist.title}`);
     } else {
