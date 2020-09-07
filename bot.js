@@ -40,7 +40,7 @@ const youtube = new YouTube("AIzaSyB1QqsuVEl7EnfkAKVz5Lv6Gn20rKQeQko"); //تعد
 const hastebins = require("hastebin-gen");
 const getYoutubeID = require("get-youtube-id");
 
-client.login(process.env.BOT_TOKEN);
+client.login(process.env.BOT_TOKEN2);
 const yt_api_key = "AIzaSyB1QqsuVEl7EnfkAKVz5Lv6Gn20rKQeQko"; ///تعديل اساسي سوي اي بي اي جديد
 ;
 
