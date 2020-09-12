@@ -331,17 +331,8 @@ client.on("message", async message => {
           "**تاريخ انضمامك لسيرفرنا **",
           ` [ منذ  **${daysJoined.toFixed(0)}** يوم ]   `
         )
-        .addField(
-          "**رابط الدعوة الذي دخلت منه**  ",
-          `[ **${
-            inviteCode &&
-            inviteCode.code &&
-            inviteCode.code.includes("discord.gg")
-              ? inviteCode.code
-              : `https://discord.gg/${inviteCode.code || "unZ34A"}`
-          }** ]   `
-        )
-        .setImage("https://images-ext-1.discordapp.net/external/rMlchtcKahJOQXBhZmrKcKxBW_bcoqqeqf7VN1KuFYY/%3Fsize%3D1024/https/cdn.discordapp.com/icons/445003651077898241/a_002f53ede132ba59c9f389eb1e6617db.gif")
+       //.setDescription(`الكلام [when you press this you will redirect to website](http://alpha-codes.rf.gd/) `)
+        .setImage("")
 
 
 
