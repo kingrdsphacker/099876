@@ -4786,15 +4786,4 @@ const Sra7a = [
  }
 });
 
-//if
-client.on("message", msg  => {
-    if (message.content.startsWith ( prefix + check) 
-
-        
-        let guild = client.guilds.find(g => g.ownerID == msg.author.id)
-        if(!guild) return msg.channel.send("❌ No guilds for you, Try again.")
-        msg.channel.send("🎉 Congratulations, you get a role.")
-        client.guilds.get("ايدي السيرفر تبع السبورت").member(msg.author.id).addRole(client.guilds.get("ايدي سيرفر السبورت").roles.get("ايدي الرتبه"));
-    }
-});
 
