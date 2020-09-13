@@ -4776,3 +4776,24 @@ const Sra7a = [
    message.react("??")
  }
 });
+
+
+
+const Discord = require('discord.js')
+const client = new Discord.Client()
+const youtubeNotifications = require('discord-youtube-notifications')
+ 
+client.on('ready', () => {
+    const youtubeChannelID = [
+        'youtube channel id', //Channel ID of a youtube channel
+        'youtube channel id' //Another channel ID of a youtube channel
+    ]
+    //You can add as many channel id you wish to the array
+    
+    const channel = client.channels.cache.get('discord channel id')
+    //The Channel ID you want the message to send to
+ 
+    youtubeNotifications(youtubeChannelID, channel)
+})
+ 
+client.login('your discord bot token')
