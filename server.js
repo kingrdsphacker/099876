@@ -47,11 +47,11 @@ const { get } = require("snekfetch");
 const guild = require("guild");
 const dateFormat = require("dateformat");
 const YouTube = require("simple-youtube-api");
-const youtube = new YouTube("AIzaSyB1QqsuVEl7EnfkAKVz5Lv6Gn20rKQeQko"); //تعديل اساسي سوي اي بي اي جديد
+const youtube = new YouTube("AIzaSyD48nYmWLiyOaJ_Cc7Ig6L9eNoXJk3vlVk"); //تعديل اساسي سوي اي بي اي جديد
 const hastebins = require("hastebin-gen");
 const getYoutubeID = require("get-youtube-id");
 client.login(process.env.BOT_TOKEN);
-const yt_api_key = "AIzaSyB1QqsuVEl7EnfkAKVz5Lv6Gn20rKQeQko"; ///تعديل اساسي سوي اي بي اي جديد
+const yt_api_key = "AIzaSyD48nYmWLiyOaJ_Cc7Ig6L9eNoXJk3vlVk"; ///تعديل اساسي سوي اي بي اي جديد
 ;
 
 var table = require("table").table;
