@@ -107,14 +107,14 @@ function handleUploads() {
                 let parsed = client.db.fetch(`videoData`);
                 let channel = client.channels.cache.get(client.yt.channel);
                 if (!channel) return;
-                let message = client.config.messageTemplate
+                let message = client.yt.messageTemplate
                     .replace(/{author}/g, parsed.author)
                     .replace(/{title}/g, Discord.Util.escapeMarkdown(parsed.title))
                     .replace(/{url}/g, parsed.link);
                 channel.send(message);
             }
         });
-    }, client.config.watchInterval);
+    }, client.yt.watchInterval);
 }
 
 ////كود تيكت

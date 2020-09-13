@@ -58,6 +58,7 @@ dependencies:
   queue: 6.0.1
   quick.db: 7.1.1
   replace: 1.1.5
+  rss-parser: 3.9.0
   short-number: 1.0.7
   simple-youtube-api: 5.2.1
   snekfetch: 4.0.4
@@ -2117,6 +2118,10 @@ packages:
     dev: false
     resolution:
       integrity: sha512-D9f7V0JSRwIxlRI2mjMqufDrRDnx8p+eEOz7aUM9SuvF8gsBzra0/6tbjl1m8eQHrZlYj6PxqE00hZ1SAIKPLw==
+  /entities/2.0.3:
+    dev: false
+    resolution:
+      integrity: sha512-MyoZ0jgnLvB2X3Lg5HqpFmn1kybDiIfEQmKzTb5apr51Rb+T3KdmMiqa70T+bhGnyv7bQ6WMj2QMHpGMmlrUYQ==
   /env-variable/0.0.6:
     dev: false
     resolution:
@@ -5551,6 +5556,13 @@ packages:
     dev: false
     resolution:
       integrity: sha1-8z/pz7Urv9UgqhgyO8ZdsRCht2w=
+  /rss-parser/3.9.0:
+    dependencies:
+      entities: 2.0.3
+      xml2js: 0.4.23
+    dev: false
+    resolution:
+      integrity: sha512-wlRSfGrotOXuWo19Dtl2KmQt7o9i5zzCExUrxpechE0O54BAx7JD+xhWyGumPPqiJj771ndflV3sE3bTHen0HQ==
   /safe-buffer/5.1.2:
     dev: false
     resolution:
@@ -6974,6 +6986,7 @@ specifiers:
   queue: ^6.0.1
   quick.db: ^7.1.1
   replace: ^1.1.0
+  rss-parser: ^3.9.0
   short-number: ^1.0.6
   simple-youtube-api: ^5.1.1
   snekfetch: ^4.0.4
