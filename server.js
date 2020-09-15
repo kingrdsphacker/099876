@@ -82,6 +82,8 @@ client.on("message", message => {
   }
 });
 
+
+
 ////كود تيكت
 client.on("message", message => {
   if (message.content.startsWith(prefix + "new")) {
@@ -4858,3 +4860,9 @@ client.on("message", message => {
     message.react("??");
   }
 });
+
+
+client.on('message', massage => {   if (message.content === "<@736727142804619286>") 
+{     massage.channel.send('My Prefix is );  
+ 
+ } });
