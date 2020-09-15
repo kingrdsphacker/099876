@@ -77,7 +77,7 @@ client.on("message", message => {
         "**ADMINISTRATOR ليس لديك صلاحيات :rolling_eyes:**"
       );
 
-    message.channel.send("`#` " + args.join("  "));
+    message.channel.send("``" + args.join("  "));
     message.delete();
   }
 });
@@ -4861,8 +4861,3 @@ client.on("message", message => {
   }
 });
 
-
-client.on('message', massage => {   if (message.content === "<@736727142804619286>") 
-{     massage.channel.send('My Prefix is );  
- 
- } });
