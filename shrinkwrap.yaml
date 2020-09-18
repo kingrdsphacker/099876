@@ -9,6 +9,7 @@ dependencies:
   canvas-prebuilt: 1.6.11
   cleverbot.io: 1.0.4
   common-tags: 1.8.0
+  cookiesdb: 2.1.2
   dateformat: 3.0.3
   delay: 4.3.0
   discord-anti-spam: 2.4.0
@@ -1552,6 +1553,12 @@ packages:
     dev: false
     resolution:
       integrity: sha512-Mw+adcfzPxcPeI+0WlvRrr/3lGVO0bD75SxX6811cxSh1Wbxx7xZBGK1eVtDf6si8rg2lhnUjsVLMFMfbRIuwA==
+  /cookiesdb/2.1.2:
+    dependencies:
+      sqlite3: 3.1.13
+    dev: false
+    resolution:
+      integrity: sha512-zx290S9eKwq5JxCIHE5rPc3+jCiZzFzuqmeOvVkMy44oJNdvR5rLQcjDOxXhaws+DWdC1KqFF2C2EDKSgIULew==
   /copy-descriptor/0.1.1:
     dev: false
     engines:
@@ -4283,6 +4290,10 @@ packages:
     dev: false
     resolution:
       integrity: sha512-INOFj37C7k3AfaNTtX8RhsTw7qRy7eLET14cROi9+5HAVbbHuIWUHEauBv5qT4Av2tWasiTY1Jw6puUNqRJXQg==
+  /nan/2.7.0:
+    dev: false
+    resolution:
+      integrity: sha1-2Vv3IeyHfgjbJ27T/G63j5CDrUY=
   /nanomatch/1.2.13:
     dependencies:
       arr-diff: 4.0.0
@@ -6053,6 +6064,15 @@ packages:
       sql-template-strings: 2.2.2
     resolution:
       integrity: sha512-DpofdtBibbiOObtdADGZYE6bvnLpjRG4ut/MDTDau2nK40htOLj1E0c55aOkvbnRVqQ0ZPtjj7PJuKKyS0Ypww==
+  /sqlite3/3.1.13:
+    bundledDependencies:
+      - node-pre-gyp
+    dependencies:
+      nan: 2.7.0
+    dev: false
+    requiresBuild: true
+    resolution:
+      integrity: sha512-JxXKPJnkZ6NuHRojq+g2WXWBt3M1G9sjZaYiHEWSTGijDM3cwju/0T2XbWqMXFmPqDgw+iB7zKQvnns4bvzXlw==
   /sqlite3/4.1.1:
     dependencies:
       nan: 2.14.0
@@ -7067,6 +7087,7 @@ specifiers:
   canvas-prebuilt: ^1.6.11
   cleverbot.io: ^1.0.4
   common-tags: ^1.8.0
+  cookiesdb: ^2.1.2
   dateformat: ^3.0.3
   delay: ^4.1.0
   discord-anti-spam: ^2.0.0
