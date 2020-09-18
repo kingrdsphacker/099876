@@ -21,6 +21,7 @@ var listener = app.listen(process.env.PORT, function() {
 });*/
 
 ////
+
 const { Client, RichEmbed } = require("discord.js");
 var { Util } = require("discord.js");
 const { prefix, devs } = require("./config");
@@ -52,6 +53,10 @@ const Discord = require("discord.js");
 client.on("ready", () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
+
+
+
+
 
 //كود تغيير الحالة
 client.on("ready", () => {
