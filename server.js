@@ -82,7 +82,7 @@ client.on("message", message => {
         "**ADMINISTRATOR ليس لديك صلاحيات :rolling_eyes:**"
       );
 
-    message.channel.send("``" + args.join("  "));
+    message.channel.send("  " + args.join("  "));
     message.delete();
   }
 });
@@ -4865,3 +4865,6 @@ client.on("message", message => {
     message.react("??");
   }
 });
+
+
+
