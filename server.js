@@ -55,6 +55,7 @@ client.on("ready", () => {
 });
 
 
+const {  , devs } = require("./config.json");
 
 
 
@@ -66,6 +67,51 @@ client.on("ready", () => {
 
   client.user.setActivity(`${prefix}help`, { type: "WATCHING" });
 });
+
+
+ 
+const { aPrefix } = require('discord_auto_prefix')
+ 
+client.on('ready', () => {
+    console.log(`${client.user.tag} is now online!`)
+})
+ 
+client.on('guildCreate', async guild => {
+    prefix.defaultPrefix(guild, "=") //Sets the bots default prefix when it joins a new guild
+})
+ 
+client.on('guildDelete', async guild => {
+    prefix.deletePrefix(guild) //Deletes the bots prefix data when leaving a guild
+})
+ 
+client.on('message', async message => {
+    if (message.author.bot) return;
+    if (message.channel.type === 'dm') return;
+ 
+    const PREFIX = await prefix.fetchPrefix(message)
+ 
+    if (!message.content.startsWith(PREFIX)) return; //If mesage isn't start with prefix then return
+    const args = message.content.slice(PREFIX.length).split(" "); //Config Args(Arguements)
+    const command = args.shift().toLowerCase();
+ 
+    if (command === "ping") {
+        message.channel.send(`PONG! my prefix is ${PREFIX}`)
+    }
+ 
+    if (command === "setprefix") {
+        if (!message.member.hasPermission("MANAGE_GUILD")) return;
+        if (!args) return message.channel.send("No prefix was provided!")
+ 
+        prefix.setPrefix(message, args)
+    }
+    
+    if (command == "prefix") {
+      prefix.getGuildPrefix(message, client, args)//Fetch the prefix for a guild through name/id or the current guild
+    }
+ 
+})
+
+
 
 client.on("message", message => {
   if (message.author.bot) return;
@@ -86,6 +132,8 @@ client.on("message", message => {
     message.delete();
   }
 });
+
+
 
 
 
