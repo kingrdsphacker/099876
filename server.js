@@ -26,7 +26,7 @@ var listener = app.listen(process.env.PORT, function() {
 const { Client, RichEmbed } = require("discord.js");
 const mongoose = require('mongoose');
 var { Util } = require("discord.js");
-const {  devs } = require("./config");
+const {  default_prefix, devs } = require("./config");
 const client = new Client({ disableEveryone: true });
 const ytdl = require("ytdl-core");
 const canvas = require("canvas");
@@ -77,90 +77,7 @@ client.on("ready", () => {
   client.user.setActivity(`${default_prefix}help`, { type: "WATCHING" });
 });
 
-client.on("message", async message => {
-  
-if(message.author.bot) return;
-  if(!message.guild) return;
-  let prefix = db.get(`prefix_${message.guild.id}`)
-  if(prefix === null) prefix = default_prefix;
-  
-  if(!message.content.startsWith(prefix)) return;
-  
-     if (!message.member) message.member = await message.guild.fetchMember(message);
 
-    const args = message.content.slice(prefix.length).trim().split(/ +/g);
-    const cmd = args.shift().toLowerCase();
-    
-    if (cmd.length === 0) return;
-    
-    // Get the command
-    let command = client.commands.get(cmd);
-    // If none is found, try to find it by alias
-    if (!command) command = client.commands.get(client.aliases.get(cmd));
-
-    // If a command is finally found, run the command
-    if (command) 
-        command.run(client, message, args);
-  
-return addexp(message)
-
- }) //All codes link in description
-
-//GONNA USE EVENT HERE
-
-client.on("guildMemberAdd", (member) => {
-  let chx = db.get(`welchannel_${member.guild.id}`);
-  
-  if(chx === null) {
-    return;
-  }
-
-  let wembed = new discord.MessageEmbed()
-  .setAuthor(member.user.username, member.user.avatarURL())
-  .setColor("#ff2050")
-  .setThumbnail(member.user.avatarURL())
-  .setDescription(`We are very happy to have you in our server`);
-  
-  client.channels.cache.get(chx).send(wembed)
-})
-
-
-
-const { default_prefix } = require("./config.js")
-
-module.exports = {
-  name: "prefix",
-  category: "moderation",
-  usage: "prefix <new-prefix>",
-  description: "Change the guild prefix",
-  run: async (client, message, args) => {
-    //PERMISSION
-    if(!message.member.hasPermission("ADMINISTRATOR")) {
-      return message.channel.send("You are not allowed or do not have permission to change prefix")
-    }
-    
-    if(!args[0]) {
-      return message.channel.send("Please give the prefix that you want to set")
-    } 
-    
-    if(args[1]) {
-      return message.channel.send("You can not set prefix a double argument")
-    }
-    
-    if(args[0].length > 3) {
-      return message.channel.send("You can not send prefix more than 3 characters")
-    }
-    
-    if(args.join("") === default_prefix) {
-      db.delete(`prefix_${message.guild.id}`)
-     return await message.channel.send("Reseted Prefix ✅")
-    }
-    
-    db.set(`prefix_${message.guild.id}`, args[0])
-  await message.channel.send(`Seted Bot Prefix to ${args[0]}`)
-    
-  }
-}
 
   
 
