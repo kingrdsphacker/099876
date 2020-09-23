@@ -22,7 +22,9 @@ var listener = app.listen(process.env.PORT, function() {
 
 ////
 
+
 const { Client, RichEmbed } = require("discord.js");
+const mongoose = require('mongoose');
 var { Util } = require("discord.js");
 const { prefix, devs } = require("./config");
 const client = new Client({ disableEveryone: true });
