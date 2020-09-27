@@ -3552,7 +3552,7 @@ client.on("message", message => {
   if (!msg.startsWith(default_prefix + "role")) return;
   if (!message.member.hasPermission("MANAGE_ROLES"))
     return message.channel.send(" **ليس لديك صلاحيات :rolling_eyes:**");
-  if (msg.toLowerCase().startsWith(default_prefix + "rerole")) {
+  if (msg.toLowerCase().startsWith(default_prefix + "rrole")) {
     if (!args[0])
       return message.reply("**:x: يرجى وضع الشخص المراد سحب منه الرتبة**");
     if (!args[1])
