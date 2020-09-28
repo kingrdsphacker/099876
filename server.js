@@ -1156,6 +1156,7 @@ client.on("message", message => {
 
 
 \`${findprefix}setprefix\` : لي تغير البريفيكس 
+ \`${findprefix}antilink on/off\` -->  『 حماية روابط 』
 \`${findprefix}settings limitsban\` : تحدد العدد الي تبيه لو حد بند  البوت يبنده 
 \`${findprefix}settings limitskick\` : تحدد العدد الي تبيه لو حد طرد 3 او 4 البوت يبنده 
 \`${findprefix}settings limitsroleD\` : تحدد العدد الي تبيه لو حد مسح رول 3 او 4 البوت يبنده 
@@ -5713,3 +5714,150 @@ client.on("message", message => {
   }
 });
 
+
+ let spread = JSON.parse(fs.readFileSync('./spread.json' , 'utf8'));
+client.on('message', message => {
+        var findprefix;
+    if(message.channel.guild && !pref[message.guild.id]) {
+        pref[message.guild.id] = { 
+         prefix: prefix 
+        };
+     fs.writeFileSync('./prefixs.json', JSON.stringify(pref, null, 4));
+     findprefix = prefix;
+    }
+    if(message.channel.guild && pref[message.guild.id]){
+        findprefix = pref[message.guild.id].prefix;
+    }
+
+    if(message.content.startsWith(findprefix + "antilink off")) {
+        if(!message.channel.guild) return message.reply('**This Command Only For Servers**');
+        if(!message.member.hasPermission('MANAGE_GUILD')) return message.channel.send('**Sorry But You Dont Have Permission** `MANAGE_GUILD`' );
+spread[message.guild.id] = {
+onoff: 'Off',
+}
+message.channel.send(`**⛔ The AntiLink Is __𝐎𝐅𝐅__ !**`)
+          fs.writeFile("./spread.json", JSON.stringify(spread), (err) => {
+            if (err) console.error(err)
+            .catch(err => {
+              console.error(err);
+          });
+            });
+          }
+
+        })
+        client.on('message', message => {
+                  var findprefix;
+    if(message.channel.guild && !pref[message.guild.id]) {
+        pref[message.guild.id] = { 
+         prefix: prefix 
+        };
+     fs.writeFileSync('./prefixs.json', JSON.stringify(pref, null, 4));
+     findprefix = prefix;
+    }
+    if(message.channel.guild && pref[message.guild.id]){
+        findprefix = pref[message.guild.id].prefix;
+    }
+    if(message.content.startsWith(findprefix + "antilink on")) {
+        if(!message.channel.guild) return message.reply('**This Command Only For Servers**');
+        if(!message.member.hasPermission('MANAGE_GUILD')) return message.channel.send('**Sorry But You Dont Have Permission** `MANAGE_GUILD`' );
+spread[message.guild.id] = {
+onoff: 'On',
+}
+message.channel.send(`**✅ The AntiLink Is __𝐎𝐍__ !**`)
+          fs.writeFile("./spread.json", JSON.stringify(spread), (err) => {
+            if (err) console.error(err)
+            .catch(err => {
+              console.error(err);
+          });
+            });
+          }
+
+        })
+    client.on('message', message => {
+    var args = message.content.split(/[ ]+/)
+    if(message.content.includes('http://www.gmail.com/')){
+            if(!spread[message.guild.id]) spread[message.guild.id] = {
+        onoff: 'Off'
+            }
+        if(spread[message.guild.id].onoff === 'Off') return;
+        message.delete()
+    return message.reply(`**⛔ The Antispread ON ! So You Cant spread Here !**`)
+    }
+});
+
+client.on('message', message => {
+    var args = message.content.split(/[ ]+/)
+    if(message.content.includes('https://www.snapchat.com/')){
+            if(!spread[message.guild.id]) spread[message.guild.id] = {
+        onoff: 'Off'
+
+            }
+        if(spread[message.guild.id].onoff === 'Off') return;
+        message.delete()
+    return message.reply(`**⛔ The Antispread ON ! So You Cant spread Here !**`)
+    }
+});
+
+
+client.on('message', message => {
+    var args = message.content.split(/[ ]+/)
+    if(message.content.includes('https://www.instagram.com/')){
+            if(!spread[message.guild.id]) spread[message.guild.id] = {
+        onoff: 'Off'
+            }
+        if(spread[message.guild.id].onoff === 'Off') return;
+        message.delete()
+    return message.reply(`**⛔ The Antispread ON ! So You Cant spread Here !**`)
+    }
+});
+
+
+client.on('message', message => {
+    var args = message.content.split(/[ ]+/)
+    if(message.content.includes('https://www.twitter.com/')){
+            if(!spread[message.guild.id]) spread[message.guild.id] = {
+        onoff: 'Off'
+            }
+        if(spread[message.guild.id].onoff === 'Off') return;
+        message.delete()
+    return message.reply(`**⛔ The Antispread ON ! So You Cant spread Here !**`)
+    }
+});
+
+
+client.on('message', message => {
+    var args = message.content.split(/[ ]+/)
+    if(message.content.includes('http://www.facebook.com/')){
+            if(!spread[message.guild.id]) spread[message.guild.id] = {
+        onoff: 'Off'
+            }
+        if(spread[message.guild.id].onoff === 'Off') return;
+        message.delete()
+    return message.reply(`**⛔ The Antispread ON ! So You Cant spread Here !**`)
+    }
+});
+
+client.on('message', message => {
+    var args = message.content.split(/[ ]+/)
+    if(message.content.includes('https://www.discordapp.com/')){
+            if(!spread[message.guild.id]) spread[message.guild.id] = {
+        onoff: 'Off'
+            }
+        if(spread[message.guild.id].onoff === 'Off') return;
+        message.delete()
+    return message.reply(`**⛔ The Antispread ON ! So You Cant spread Here !**`)
+    }
+
+});
+client.on('message', message => {
+    var args = message.content.split(/[ ]+/)
+    if(message.content.includes('https://discord.gg/')){
+            if(!spread[message.guild.id]) spread[message.guild.id] = {
+        onoff: 'Off'
+            }
+        if(spread[message.guild.id].onoff === 'Off') return;
+        message.delete()
+    return message.reply(`**⛔ The Antispread ON ! So You Cant spread Here !**`)
+    }
+
+});
