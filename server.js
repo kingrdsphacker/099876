@@ -55,10 +55,45 @@ client.on("ready", () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
 
-
-// هذه الأسطر توضع في السورس الاساسي
+const pref = require('./prefixs.json');
 const fs = require('fs');
 const prefix = "="; 
+
+
+
+client.on('message', message => {
+    var args = message.content.split(" ")
+    var findprefix;
+    if(message.channel.guild && !pref[message.guild.id]) {
+        pref[message.guild.id] = { 
+         prefix: prefix 
+        };
+    // By AboKhalil - Alpha Codes 22/8/2019.
+     fs.writeFileSync('./prefixs.json', JSON.stringify(pref, null, 4));
+     findprefix = prefix;
+    }
+    if(message.channel.guild && pref[message.guild.id]){
+        findprefix = pref[message.guild.id].prefix;
+    }
+    if (args[0] === findprefix + "setprefix") {
+        // By AboKhalil - Alpha Codes 22/8/2019.
+        if (!args[1]){
+            message.channel.send("Insert a new prefix");
+        }else if (message.guild.member(message.author).hasPermission("SERVER_OWNER")){
+            pref[message.guild.id].prefix = args[1];
+        fs.writeFileSync('./prefixs.json', JSON.stringify(pref, null, 4));
+        message.channel.send("Changed !");
+        message.channel.send("Your new Prefix : `" + args[1] +"`");
+    } else {
+        message.channel.send("This Command Only For Server Owner");
+    }
+}
+});
+
+
+
+
+
 
 //كود تغيير الحالة
 client.on("ready", () => {
@@ -75,6 +110,19 @@ client.on("ready", () => {
 
 
 client.on("message", message => {
+   var findprefix;
+    if(message.channel.guild && !pref[message.guild.id]) {
+        pref[message.guild.id] = { 
+         prefix: prefix 
+        };
+    // By AboKhalil - Alpha Codes 22/8/2019.
+     fs.writeFileSync('./prefixs.json', JSON.stringify(pref, null, 4));
+     findprefix = prefix;
+    }
+    if(message.channel.guild && pref[message.guild.id]){
+        findprefix = pref[message.guild.id].prefix;
+    }
+ 
 
   if (message.author.bot) return;
   if (!message.content.startsWith(prefix)) return;
@@ -104,6 +152,19 @@ client.on("message", message => {
 
 ////كود تيكت
 client.on("message", message => {
+   var findprefix;
+    if(message.channel.guild && !pref[message.guild.id]) {
+        pref[message.guild.id] = { 
+         prefix: prefix 
+        };
+    // By AboKhalil - Alpha Codes 22/8/2019.
+     fs.writeFileSync('./prefixs.json', JSON.stringify(pref, null, 4));
+     findprefix = prefix;
+    }
+    if(message.channel.guild && pref[message.guild.id]){
+        findprefix = pref[message.guild.id].prefix;
+    }
+ 
    
  
   if (message.content.startsWith(prefix + "new")) {
