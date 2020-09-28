@@ -4833,18 +4833,7 @@ var memes = [
   "https://cdn.discordapp.com/attachments/422454766468202511/426488491359338516/fkk14.png"
 ];
 client.on("message", message => {
-         var findprefix;
-    if(message.channel.guild && !pref[message.guild.id]) {
-        pref[message.guild.id] = { 
-         prefix: prefix 
-        };
-    // By AboKhalil - Alpha Codes 22/8/2019.
-     fs.writeFileSync('./prefixs.json', JSON.stringify(pref, null, 4));
-     findprefix = prefix;
-    }
-    if(message.channel.guild && pref[message.guild.id]){
-        findprefix = pref[message.guild.id].prefix;
-    }
+
   if (message.content.startsWith(prefix + "فكك")) {
     if (!message.channel.guild)
       return message.reply("** ممنوع كتابة الاوامر في خاص البوت**");
@@ -4868,18 +4857,7 @@ var viper = [
   "https://imgur.com/kIiz33v.png"
 ];
 client.on("message", message => {
-         var findprefix;
-    if(message.channel.guild && !pref[message.guild.id]) {
-        pref[message.guild.id] = { 
-         prefix: prefix 
-        };
-    // By AboKhalil - Alpha Codes 22/8/2019.
-     fs.writeFileSync('./prefixs.json', JSON.stringify(pref, null, 4));
-     findprefix = prefix;
-    }
-    if(message.channel.guild && pref[message.guild.id]){
-        findprefix = pref[message.guild.id].prefix;
-    }
+
   var args = message.content.split(" ").slice(1);
   if (message.content.startsWith(prefix + "اسرع")) {
     if (!message.channel.guild)
@@ -4954,18 +4932,7 @@ const Sra7a = [
   "صراحه | هل قبلت فتاه؟"
 ];
 client.on("message", message => {
-         var findprefix;
-    if(message.channel.guild && !pref[message.guild.id]) {
-        pref[message.guild.id] = { 
-         prefix: prefix 
-        };
-    // By AboKhalil - Alpha Codes 22/8/2019.
-     fs.writeFileSync('./prefixs.json', JSON.stringify(pref, null, 4));
-     findprefix = prefix;
-    }
-    if(message.channel.guild && pref[message.guild.id]){
-        findprefix = pref[message.guild.id].prefix;
-    }
+
   if (message.content.startsWith(prefix + "صراحه")) {
     if (!message.channel.guild)
       return message.reply("** ممنوع كتابة الاوامر في خاص البوت**");
