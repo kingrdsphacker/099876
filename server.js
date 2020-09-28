@@ -60,24 +60,27 @@ client.on("ready", () => {
 
 const pref = require('./prefixs.json');
 const prefix = "=";
+const kk = "=";
+
 
 
 // هذا كود الست بريفكس 
 client.on('message', message => {
+
     var args = message.content.split(" ")
     var findprefix;
     if(message.channel.guild && !pref[message.guild.id]) {
         pref[message.guild.id] = { 
-         prefix: prefix 
+         prefix: kk 
         };
     // By AboKhalil - Alpha Codes 22/8/2019.
      fs.writeFileSync('./prefixs.json', JSON.stringify(pref, null, 4));
-     findprefix = prefix;
+     findprefix = kk;
     }
     if(message.channel.guild && pref[message.guild.id]){
         findprefix = pref[message.guild.id].prefix;
     }
-    if (args[0] === prefix + "setprefix") {
+    if (args[0] === findprefix + "setprefix") {
         // By AboKhalil - Alpha Codes 22/8/2019.
         if (!args[1]){
             message.channel.send("Insert a new prefix");
