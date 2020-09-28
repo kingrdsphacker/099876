@@ -59,6 +59,34 @@ const pref = require('./prefixs.json');
 const fs = require('fs');
 const prefix = "="; 
 
+client.on('message', message => {
+    var args = message.content.split(" ")
+    var findprefix;
+    if(message.channel.guild && !pref[message.guild.id]) {
+        pref[message.guild.id] = { 
+         prefix: prefix 
+        };
+     fs.writeFileSync('./prefixs.json', JSON.stringify(pref, null, 4));
+     findprefix = prefix;
+    }
+    if(message.channel.guild && pref[message.guild.id]){
+        findprefix = pref[message.guild.id].prefix;
+    }
+    if (args[0] === findprefix + "setprefix") {
+        if (!args[1]){
+            message.channel.send("Insert a new prefix");
+        }else if (message.guild.member(message.author).hasPermission("SERVER_OWNER")){
+            pref[message.guild.id].prefix = args[1];
+        fs.writeFileSync('./prefixs.json', JSON.stringify(pref, null, 4));
+        message.channel.send("Changed !");
+        message.channel.send("Your new Prefix : `" + args[1] +"`");
+    } else {
+        message.channel.send("This Command Only For Server Owner");
+    }
+}
+});
+
+
 
 
 client.on('message', message => {
@@ -231,6 +259,18 @@ client.on("message", message => {
 });
 
 client.on("message", async message => {
+  var findprefix;
+    if(message.channel.guild && !pref[message.guild.id]) {
+        pref[message.guild.id] = { 
+         prefix: prefix 
+        };
+    // By AboKhalil - Alpha Codes 22/8/2019.
+     fs.writeFileSync('./prefixs.json', JSON.stringify(pref, null, 4));
+     findprefix = prefix;
+    }
+    if(message.channel.guild && pref[message.guild.id]){
+        findprefix = pref[message.guild.id].prefix;
+    }
    
   if (!message.guild || message.author.bot) return;
   let args = message.content.split(" ");
@@ -262,6 +302,17 @@ client.on("message", async message => {
 //// كود معلومات الشخص او اليوزر
 //client.on("message", pixelbot => {
 client.on("message", async message => {
+  var findprefix;
+    if(message.channel.guild && !pref[message.guild.id]) {
+        pref[message.guild.id] = { 
+         prefix: prefix 
+        };
+     fs.writeFileSync('./prefixs.json', JSON.stringify(pref, null, 4));
+     findprefix = prefix;
+    }
+    if(message.channel.guild && pref[message.guild.id]){
+        findprefix = pref[message.guild.id].prefix;
+    }
 
    
   // itzZa1D - Codes Team.
@@ -326,6 +377,18 @@ client.on("message", async message => {
 
 ////كود معلومات البوت
 client.on("message", message => {
+    var findprefix;
+    if(message.channel.guild && !pref[message.guild.id]) {
+        pref[message.guild.id] = { 
+         prefix: prefix 
+        };
+     fs.writeFileSync('./prefixs.json', JSON.stringify(pref, null, 4));
+     findprefix = prefix;
+    }
+    if(message.channel.guild && pref[message.guild.id]){
+        findprefix = pref[message.guild.id].prefix;
+    }
+
  
   if (message.content === prefix + "bot") {
     const bot = new Discord.RichEmbed()
@@ -347,6 +410,18 @@ client.on("message", message => {
 });
 
 client.on("message", message => {
+    var findprefix;
+    if(message.channel.guild && !pref[message.guild.id]) {
+        pref[message.guild.id] = { 
+         prefix: prefix 
+        };
+     fs.writeFileSync('./prefixs.json', JSON.stringify(pref, null, 4));
+     findprefix = prefix;
+    }
+    if(message.channel.guild && pref[message.guild.id]){
+        findprefix = pref[message.guild.id].prefix;
+    }
+
  
  
   if (message.author.codes) return;
@@ -388,7 +463,18 @@ client.on("message", message => {
 });
 
 client.on("message", async message => {
- 
+      var findprefix;
+    if(message.channel.guild && !pref[message.guild.id]) {
+        pref[message.guild.id] = { 
+         prefix: prefix 
+        };
+     fs.writeFileSync('./prefixs.json', JSON.stringify(pref, null, 4));
+     findprefix = prefix;
+    }
+    if(message.channel.guild && pref[message.guild.id]){
+        findprefix = pref[message.guild.id].prefix;
+    }
+
  
   if (message.content.startsWith(prefix + "inf")) {
     //// وهون الامر طبعا
@@ -448,6 +534,18 @@ client.on("message", async message => {
 
 //https://discord.gg/unZ34A
 client.on("message", message => {
+      var findprefix;
+    if(message.channel.guild && !pref[message.guild.id]) {
+        pref[message.guild.id] = { 
+         prefix: prefix 
+        };
+     fs.writeFileSync('./prefixs.json', JSON.stringify(pref, null, 4));
+     findprefix = prefix;
+    }
+    if(message.channel.guild && pref[message.guild.id]){
+        findprefix = pref[message.guild.id].prefix;
+    }
+
  
   if (message.author.x5bz) return;
   if (!message.content.startsWith(prefix)) return;
@@ -498,6 +596,18 @@ client.on("message", message => {
   }
 });
 client.on("message", message => {
+      var findprefix;
+    if(message.channel.guild && !pref[message.guild.id]) {
+        pref[message.guild.id] = { 
+         prefix: prefix 
+        };
+     fs.writeFileSync('./prefixs.json', JSON.stringify(pref, null, 4));
+     findprefix = prefix;
+    }
+    if(message.channel.guild && pref[message.guild.id]){
+        findprefix = pref[message.guild.id].prefix;
+    }
+
   
   if (message.content.split(" ")[0] === prefix + "avt") {
     if (message.author.bot || message.channel.type == "dm") return;
@@ -524,6 +634,18 @@ const invites = {}; // Codes
 
 ////كود معلومات السيرفر
 client.on("message", message => {
+      var findprefix;
+    if(message.channel.guild && !pref[message.guild.id]) {
+        pref[message.guild.id] = { 
+         prefix: prefix 
+        };
+     fs.writeFileSync('./prefixs.json', JSON.stringify(pref, null, 4));
+     findprefix = prefix;
+    }
+    if(message.channel.guild && pref[message.guild.id]){
+        findprefix = pref[message.guild.id].prefix;
+    }
+
  
   if (message.content.startsWith(prefix + "server")) {
     if (!message.channel.guild)
@@ -565,6 +687,18 @@ client.on("message", message => {
 });
 
 client.on("message", message => {
+      var findprefix;
+    if(message.channel.guild && !pref[message.guild.id]) {
+        pref[message.guild.id] = { 
+         prefix: prefix 
+        };
+     fs.writeFileSync('./prefixs.json', JSON.stringify(pref, null, 4));
+     findprefix = prefix;
+    }
+    if(message.channel.guild && pref[message.guild.id]){
+        findprefix = pref[message.guild.id].prefix;
+    }
+
   
   if (message.author.bot) return;
 
@@ -630,6 +764,18 @@ client.on("message", message => {
 
 ////كود ميوت او اسكات
 client.on("message", message => {
+      var findprefix;
+    if(message.channel.guild && !pref[message.guild.id]) {
+        pref[message.guild.id] = { 
+         prefix: prefix 
+        };
+     fs.writeFileSync('./prefixs.json', JSON.stringify(pref, null, 4));
+     findprefix = prefix;
+    }
+    if(message.channel.guild && pref[message.guild.id]){
+        findprefix = pref[message.guild.id].prefix;
+    }
+
   
   if (message.author.bot) return;
 
@@ -696,6 +842,18 @@ client.on("message", message => {
 
 //// كود فتح واغلاق الروم
 client.on("message", message => {
+      var findprefix;
+    if(message.channel.guild && !pref[message.guild.id]) {
+        pref[message.guild.id] = { 
+         prefix: prefix 
+        };
+     fs.writeFileSync('./prefixs.json', JSON.stringify(pref, null, 4));
+     findprefix = prefix;
+    }
+    if(message.channel.guild && pref[message.guild.id]){
+        findprefix = pref[message.guild.id].prefix;
+    }
+
   
   if (message.content === prefix + "close") {
     if (!message.channel.guild)
@@ -732,6 +890,18 @@ client.on("error", err => {
 });
 
 client.on("messageCreate", async message => {
+      var findprefix;
+    if(message.channel.guild && !pref[message.guild.id]) {
+        pref[message.guild.id] = { 
+         prefix: prefix 
+        };
+     fs.writeFileSync('./prefixs.json', JSON.stringify(pref, null, 4));
+     findprefix = prefix;
+    }
+    if(message.channel.guild && pref[message.guild.id]){
+        findprefix = pref[message.guild.id].prefix;
+    }
+
  
   let args = message.cleanContent.split(" ");
   if (args[0] == `${prefix}roles`) {
@@ -754,6 +924,18 @@ client.on("messageCreate", async message => {
 
 //// كود سحب شخص
 client.on("message", message => {
+      var findprefix;
+    if(message.channel.guild && !pref[message.guild.id]) {
+        pref[message.guild.id] = { 
+         prefix: prefix 
+        };
+     fs.writeFileSync('./prefixs.json', JSON.stringify(pref, null, 4));
+     findprefix = prefix;
+    }
+    if(message.channel.guild && pref[message.guild.id]){
+        findprefix = pref[message.guild.id].prefix;
+    }
+
   
   if (!message.channel.guild) return;
   if (message.content.startsWith(prefix + "move")) {
@@ -803,6 +985,18 @@ client.on("message", message => {
 });
 
 client.on("message", function(message) {
+      var findprefix;
+    if(message.channel.guild && !pref[message.guild.id]) {
+        pref[message.guild.id] = { 
+         prefix: prefix 
+        };
+     fs.writeFileSync('./prefixs.json', JSON.stringify(pref, null, 4));
+     findprefix = prefix;
+    }
+    if(message.channel.guild && pref[message.guild.id]){
+        findprefix = pref[message.guild.id].prefix;
+    }
+
   
  
   if (!message.channel.guild) return;
@@ -861,6 +1055,18 @@ client.on("message", function(message) {
 ///تعديل غير اساسي
 ////كود هيلب
 client.on("message", message => {
+      var findprefix;
+    if(message.channel.guild && !pref[message.guild.id]) {
+        pref[message.guild.id] = { 
+         prefix: prefix 
+        };
+     fs.writeFileSync('./prefixs.json', JSON.stringify(pref, null, 4));
+     findprefix = prefix;
+    }
+    if(message.channel.guild && pref[message.guild.id]){
+        findprefix = pref[message.guild.id].prefix;
+    }
+
  
  
   if (message.author.bot) return;
@@ -1072,6 +1278,18 @@ client.on("message", message => {
 
 ////كود قيف اوي
 client.on("message", async message => {
+      var findprefix;
+    if(message.channel.guild && !pref[message.guild.id]) {
+        pref[message.guild.id] = { 
+         prefix: prefix 
+        };
+     fs.writeFileSync('./prefixs.json', JSON.stringify(pref, null, 4));
+     findprefix = prefix;
+    }
+    if(message.channel.guild && pref[message.guild.id]){
+        findprefix = pref[message.guild.id].prefix;
+    }
+
  
   var room;
   var title; //HactorMC
@@ -1202,10 +1420,24 @@ client.on("message", async message => {
 ///تقدر الصورة الخلفية ، شوف الشرح الرابط فوق اول الكود
 /// كود الوان
 client.on("message", async message => {
+      var findprefix;
+    if(message.channel.guild && !pref[message.guild.id]) {
+        pref[message.guild.id] = { 
+         prefix: prefix 
+        };
+     fs.writeFileSync('./prefixs.json', JSON.stringify(pref, null, 4));
+     findprefix = prefix;
+    }
+    if(message.channel.guild && pref[message.guild.id]){
+        findprefix = pref[message.guild.id].prefix;
+    }
+
 
  
   if (!message.guild || message.author.bot) return;
   if (message.content == prefix + "colors") {
+
+
     var fsn = require("fs-nextra");
     fs.readdir("./colors", async (err, files) => {
       var f = files[Math.floor(Math.random() * files.length)];
@@ -1265,6 +1497,18 @@ client.on("message", async message => {
 const log = JSON.parse(fs.readFileSync("./log.json", "utf8"));
 
 client.on("message", message => {
+      var findprefix;
+    if(message.channel.guild && !pref[message.guild.id]) {
+        pref[message.guild.id] = { 
+         prefix: prefix 
+        };
+     fs.writeFileSync('./prefixs.json', JSON.stringify(pref, null, 4));
+     findprefix = prefix;
+    }
+    if(message.channel.guild && pref[message.guild.id]){
+        findprefix = pref[message.guild.id].prefix;
+    }
+
   
  
   if (!message.channel.guild) return;
@@ -1298,6 +1542,18 @@ client.on("message", message => {
 });
 
 client.on("message", message => {
+      var findprefix;
+    if(message.channel.guild && !pref[message.guild.id]) {
+        pref[message.guild.id] = { 
+         prefix: prefix 
+        };
+     fs.writeFileSync('./prefixs.json', JSON.stringify(pref, null, 4));
+     findprefix = prefix;
+    }
+    if(message.channel.guild && pref[message.guild.id]){
+        findprefix = pref[message.guild.id].prefix;
+    }
+
   
   if (message.content.startsWith(prefix + "toggleLog")) {
     if (!message.channel.guild)
@@ -1330,6 +1586,7 @@ client.on("message", message => {
 });
 
 client.on("messageDelete", message => {
+
   
  
   if (message.author.bot) return;
@@ -1960,6 +2217,18 @@ client.on("message", message => {
 /// كود اختيار لون
 
 client.on("message", message => {
+      var findprefix;
+    if(message.channel.guild && !pref[message.guild.id]) {
+        pref[message.guild.id] = { 
+         prefix: prefix 
+        };
+     fs.writeFileSync('./prefixs.json', JSON.stringify(pref, null, 4));
+     findprefix = prefix;
+    }
+    if(message.channel.guild && pref[message.guild.id]){
+        findprefix = pref[message.guild.id].prefix;
+    }
+
   
   let args = message.content.split(" ").slice(1);
   if (message.content.split(" ")[0] == prefix + "color") {
@@ -2015,6 +2284,18 @@ client.on("message", message => {
 ///// كود خروج الاعضاء
 
 client.on("message", message => {
+      var findprefix;
+    if(message.channel.guild && !pref[message.guild.id]) {
+        pref[message.guild.id] = { 
+         prefix: prefix 
+        };
+     fs.writeFileSync('./prefixs.json', JSON.stringify(pref, null, 4));
+     findprefix = prefix;
+    }
+    if(message.channel.guild && pref[message.guild.id]){
+        findprefix = pref[message.guild.id].prefix;
+    }
+
 
  
   if (message.content.startsWith(prefix + "setby")) {
@@ -2050,6 +2331,18 @@ client.on("message", message => {
 });
 /////كود سرعة البوت او البينق
 client.on("message", message => {
+      var findprefix;
+    if(message.channel.guild && !pref[message.guild.id]) {
+        pref[message.guild.id] = { 
+         prefix: prefix 
+        };
+     fs.writeFileSync('./prefixs.json', JSON.stringify(pref, null, 4));
+     findprefix = prefix;
+    }
+    if(message.channel.guild && pref[message.guild.id]){
+        findprefix = pref[message.guild.id].prefix;
+    }
+
 
   if (!message.channel.guild) return;
   if (message.content.startsWith(prefix + "ping")) {
@@ -2643,6 +2936,18 @@ let saveSteve = () => {
   );
 };
 client.on("message", message => {
+      var findprefix;
+    if(message.channel.guild && !pref[message.guild.id]) {
+        pref[message.guild.id] = { 
+         prefix: prefix 
+        };
+     fs.writeFileSync('./prefixs.json', JSON.stringify(pref, null, 4));
+     findprefix = prefix;
+    }
+    if(message.channel.guild && pref[message.guild.id]){
+        findprefix = pref[message.guild.id].prefix;
+    }
+
 
  
   if (!message.guild) return;
@@ -2873,6 +3178,18 @@ function saveReplay() {
 
 /////كود صنع رد تلقائي
 client.on("message", async message => {
+      var findprefix;
+    if(message.channel.guild && !pref[message.guild.id]) {
+        pref[message.guild.id] = { 
+         prefix: prefix 
+        };
+     fs.writeFileSync('./prefixs.json', JSON.stringify(pref, null, 4));
+     findprefix = prefix;
+    }
+    if(message.channel.guild && pref[message.guild.id]){
+        findprefix = pref[message.guild.id].prefix;
+    }
+
   
   if (message.content.startsWith(prefix + "reply")) {
     if (message.author.bot || message.channel.type == "dm") return undefined;
@@ -2938,6 +3255,18 @@ client.on("message", async message => {
 });
 
 client.on("message", message => {
+      var findprefix;
+    if(message.channel.guild && !pref[message.guild.id]) {
+        pref[message.guild.id] = { 
+         prefix: prefix 
+        };
+     fs.writeFileSync('./prefixs.json', JSON.stringify(pref, null, 4));
+     findprefix = prefix;
+    }
+    if(message.channel.guild && pref[message.guild.id]){
+        findprefix = pref[message.guild.id].prefix;
+    }
+
 
   if (
     !replyMSG[message.author.id] ||
