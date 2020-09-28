@@ -148,6 +148,19 @@ client.on("message", message => {
 
 ////كود تيكت
 client.on("message", message => {
+   var findprefix;
+    if(message.channel.guild && !pref[message.guild.id]) {
+        pref[message.guild.id] = { 
+         prefix: prefix 
+        };
+    // By AboKhalil - Alpha Codes 22/8/2019.
+     fs.writeFileSync('./prefixs.json', JSON.stringify(pref, null, 4));
+     findprefix = prefix;
+    }
+    if(message.channel.guild && pref[message.guild.id]){
+        findprefix = pref[message.guild.id].prefix;
+    }
+ 
   if (message.content.startsWith(prefix + "new")) {
     const reason = message.content
       .split(" ")
@@ -212,6 +225,19 @@ client.on("message", message => {
 });
 
 client.on("message", async message => {
+   var findprefix;
+    if(message.channel.guild && !pref[message.guild.id]) {
+        pref[message.guild.id] = { 
+         prefix: prefix 
+        };
+    // By AboKhalil - Alpha Codes 22/8/2019.
+     fs.writeFileSync('./prefixs.json', JSON.stringify(pref, null, 4));
+     findprefix = prefix;
+    }
+    if(message.channel.guild && pref[message.guild.id]){
+        findprefix = pref[message.guild.id].prefix;
+    }
+ 
   if (!message.guild || message.author.bot) return;
   let args = message.content.split(" ");
   if (args[0] == `${prefix}cr`) {
@@ -240,29 +266,44 @@ client.on("message", async message => {
 
 
 //// كود معلومات الشخص او اليوزر
-client.on("message", pixelbot => {
+//client.on("message", pixelbot => {
+client.on("message", async message => {
+
+   var findprefix;
+    if(message.channel.guild && !pref[message.guild.id]) {
+        pref[message.guild.id] = { 
+         prefix: prefix 
+        };
+    // By AboKhalil - Alpha Codes 22/8/2019.
+     fs.writeFileSync('./prefixs.json', JSON.stringify(pref, null, 4));
+     findprefix = prefix;
+    }
+    if(message.channel.guild && pref[message.guild.id]){
+        findprefix = pref[message.guild.id].prefix;
+    }
+ 
   // itzZa1D - Codes Team.
-  if (pixelbot.content.startsWith(prefix + "user")) {
+  if (message.content.startsWith(prefix + "user")) {
     // itzZa1D - Codes Team.
-    if (pixelbot.author.bot) return;
-    if (!pixelbot.guild)
-      return pixelbot.reply("**:x: - This Command is only done on Servers**");
-    pixelbot.guild.fetchInvites().then(invites => {
+    if (message.author.bot) return;
+    if (!message.guild)
+      return message.reply("**:x: - This Command is only done on Servers**");
+    message.guild.fetchInvites().then(invites => {
       // itzZa1D - Codes Team.
       let personalInvites = invites.filter(
-        i => i.inviter.id === pixelbot.author.id
+        i => i.inviter.id === message.author.id
       );
       let inviteCount = personalInvites.reduce((p, v) => v.uses + p, 0);
-      var roles = pixelbot.member.roles
+      var roles = message.member.roles
         .map(roles => `**__${roles.name}__ |**`)
         .join(` `);
       let pixeluser = new Discord.RichEmbed() // itzZa1D - Codes Team.
         .setColor("#00000")
         .setTitle(" :beginner: <a:2222:620297078249095169>   | Use  r Info") // itzZa1D - Codes Team.
-        .setAuthor(pixelbot.author.username, pixelbot.author.avatarURL)
+        .setAuthor(message.author.username, message.author.avatarURL)
         .addField(
           "**✽ Name :<a:6666:619599574100869124>**   ",
-          pixelbot.author.username,
+          message.author.username,
           true
         )
         .addField(
