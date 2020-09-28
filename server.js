@@ -58,20 +58,18 @@ client.on("ready", () => {
 
 // هذه الأسطر توضع في السورس الاساسي
 const fs = require('fs');
-const prefix = "#"; 
+const prefix = "="; 
 
 var pref = require('./prefixs.json');
-
-// هذا كود الست بريفكس 
 client.on('message', message => {
     var args = message.content.split(" ")
-    var findprefix;
+    var findprefix = '=';
     if(message.channel.guild && !pref[message.guild.id]) {
         pref[message.guild.id] = { 
          prefix: prefix 
         };
      fs.writeFileSync('./prefixs.json', JSON.stringify(pref, null, 4));
-     findprefix = prefix;
+     findprefix = findprefix;
     }
     if(message.channel.guild && pref[message.guild.id]){
         findprefix = pref[message.guild.id].prefix;
@@ -83,7 +81,7 @@ client.on('message', message => {
             pref[message.guild.id].prefix = args[1];
         fs.writeFileSync('./prefixs.json', JSON.stringify(pref, null, 4));
         message.channel.send("Changed !");
-        message.channel.send("Your new Prefix : `" + args[1] +"`");
+        message.channel.send("Your new Prefix : " + args[1] +"");
     } else {
         message.channel.send("This Command Only For Server Owner");
     }
