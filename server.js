@@ -308,12 +308,12 @@ client.on("message", async message => {
         )
         .addField(
           "**✽ Tag :<a:6666:619599574100869124>**   ",
-          pixelbot.author.discriminator,
+          message.author.discriminator,
           true
         )
         .addField(
           "**✽ ID :<a:6666:619599574100869124>** ",
-          pixelbot.author.id,
+          message.author.id,
           true
         ) // itzZa1D - Codes Team.
         .setImage(
@@ -322,12 +322,12 @@ client.on("message", async message => {
 
         .addField(
           "**✽ Joined At :<a:6666:619599574100869124>**   ",
-          moment(pixelbot.joinedAt).format("D/M/YYYY h:mm a "),
+          moment(message.joinedAt).format("D/M/YYYY h:mm a "),
           true
         )
         .addField(
           "**✽ Created At :<a:6666:619599574100869124>**    ",
-          moment(pixelbot.author.createdAt).format("D/M/YYYY h:mm a "),
+          moment(message.author.createdAt).format("D/M/YYYY h:mm a "),
           true
         )
         .addField(
@@ -337,13 +337,26 @@ client.on("message", async message => {
         )
         .setTimestamp(); // itzZa1D - Codes Team.
 
-      pixelbot.channel.sendEmbed(pixeluser).then(c => {}); // itzZa1D - Codes Team.
+      message.channel.sendEmbed(pixeluser).then(c => {}); // itzZa1D - Codes Team.
     });
   }
 }); // itzZa1D - Codes Team.
 
 ////كود معلومات البوت
 client.on("message", message => {
+  var findprefix;
+    if(message.channel.guild && !pref[message.guild.id]) {
+        pref[message.guild.id] = { 
+         prefix: prefix 
+        };
+    // By AboKhalil - Alpha Codes 22/8/2019.
+     fs.writeFileSync('./prefixs.json', JSON.stringify(pref, null, 4));
+     findprefix = prefix;
+    }
+    if(message.channel.guild && pref[message.guild.id]){
+        findprefix = pref[message.guild.id].prefix;
+    }
+ 
   if (message.content === prefix + "bot") {
     const bot = new Discord.RichEmbed()
       .setAuthor(client.user.username, client.user.avatarURL)
@@ -364,6 +377,19 @@ client.on("message", message => {
 });
 
 client.on("message", message => {
+  var findprefix;
+    if(message.channel.guild && !pref[message.guild.id]) {
+        pref[message.guild.id] = { 
+         prefix: prefix 
+        };
+    // By AboKhalil - Alpha Codes 22/8/2019.
+     fs.writeFileSync('./prefixs.json', JSON.stringify(pref, null, 4));
+     findprefix = prefix;
+    }
+    if(message.channel.guild && pref[message.guild.id]){
+        findprefix = pref[message.guild.id].prefix;
+    }
+ 
   if (message.author.codes) return;
   if (!message.content.startsWith(prefix)) return;
 
@@ -403,6 +429,19 @@ client.on("message", message => {
 });
 
 client.on("message", async message => {
+  var findprefix;
+    if(message.channel.guild && !pref[message.guild.id]) {
+        pref[message.guild.id] = { 
+         prefix: prefix 
+        };
+    // By AboKhalil - Alpha Codes 22/8/2019.
+     fs.writeFileSync('./prefixs.json', JSON.stringify(pref, null, 4));
+     findprefix = prefix;
+    }
+    if(message.channel.guild && pref[message.guild.id]){
+        findprefix = pref[message.guild.id].prefix;
+    }
+ 
   if (message.content.startsWith(prefix + "inf")) {
     //// وهون الامر طبعا
     let oi = message.mentions.users.first()
@@ -461,6 +500,19 @@ client.on("message", async message => {
 
 //https://discord.gg/unZ34A
 client.on("message", message => {
+  var findprefix;
+    if(message.channel.guild && !pref[message.guild.id]) {
+        pref[message.guild.id] = { 
+         prefix: prefix 
+        };
+    // By AboKhalil - Alpha Codes 22/8/2019.
+     fs.writeFileSync('./prefixs.json', JSON.stringify(pref, null, 4));
+     findprefix = prefix;
+    }
+    if(message.channel.guild && pref[message.guild.id]){
+        findprefix = pref[message.guild.id].prefix;
+    }
+ 
   if (message.author.x5bz) return;
   if (!message.content.startsWith(prefix)) return;
 
@@ -510,6 +562,19 @@ client.on("message", message => {
   }
 });
 client.on("message", message => {
+  var findprefix;
+    if(message.channel.guild && !pref[message.guild.id]) {
+        pref[message.guild.id] = { 
+         prefix: prefix 
+        };
+    // By AboKhalil - Alpha Codes 22/8/2019.
+     fs.writeFileSync('./prefixs.json', JSON.stringify(pref, null, 4));
+     findprefix = prefix;
+    }
+    if(message.channel.guild && pref[message.guild.id]){
+        findprefix = pref[message.guild.id].prefix;
+    }
+ 
   if (message.content.split(" ")[0] === prefix + "avt") {
     if (message.author.bot || message.channel.type == "dm") return;
     var args = message.content.split(" ")[1];
@@ -535,6 +600,19 @@ const invites = {}; // Codes
 
 ////كود معلومات السيرفر
 client.on("message", message => {
+  var findprefix;
+    if(message.channel.guild && !pref[message.guild.id]) {
+        pref[message.guild.id] = { 
+         prefix: prefix 
+        };
+    // By AboKhalil - Alpha Codes 22/8/2019.
+     fs.writeFileSync('./prefixs.json', JSON.stringify(pref, null, 4));
+     findprefix = prefix;
+    }
+    if(message.channel.guild && pref[message.guild.id]){
+        findprefix = pref[message.guild.id].prefix;
+    }
+ 
   if (message.content.startsWith(prefix + "server")) {
     if (!message.channel.guild)
       return message.channel.send(` | This Command is used only in servers!`);
@@ -575,6 +653,19 @@ client.on("message", message => {
 });
 
 client.on("message", message => {
+  var findprefix;
+    if(message.channel.guild && !pref[message.guild.id]) {
+        pref[message.guild.id] = { 
+         prefix: prefix 
+        };
+    // By AboKhalil - Alpha Codes 22/8/2019.
+     fs.writeFileSync('./prefixs.json', JSON.stringify(pref, null, 4));
+     findprefix = prefix;
+    }
+    if(message.channel.guild && pref[message.guild.id]){
+        findprefix = pref[message.guild.id].prefix;
+    }
+ 
   if (message.author.bot) return;
 
   let command = message.content.split(" ")[0];
@@ -639,6 +730,19 @@ client.on("message", message => {
 
 ////كود ميوت او اسكات
 client.on("message", message => {
+  var findprefix;
+    if(message.channel.guild && !pref[message.guild.id]) {
+        pref[message.guild.id] = { 
+         prefix: prefix 
+        };
+    // By AboKhalil - Alpha Codes 22/8/2019.
+     fs.writeFileSync('./prefixs.json', JSON.stringify(pref, null, 4));
+     findprefix = prefix;
+    }
+    if(message.channel.guild && pref[message.guild.id]){
+        findprefix = pref[message.guild.id].prefix;
+    }
+ 
   if (message.author.bot) return;
 
   let command = message.content.split(" ")[0];
@@ -704,6 +808,19 @@ client.on("message", message => {
 
 //// كود فتح واغلاق الروم
 client.on("message", message => {
+  var findprefix;
+    if(message.channel.guild && !pref[message.guild.id]) {
+        pref[message.guild.id] = { 
+         prefix: prefix 
+        };
+    // By AboKhalil - Alpha Codes 22/8/2019.
+     fs.writeFileSync('./prefixs.json', JSON.stringify(pref, null, 4));
+     findprefix = prefix;
+    }
+    if(message.channel.guild && pref[message.guild.id]){
+        findprefix = pref[message.guild.id].prefix;
+    }
+ 
   if (message.content === prefix + "close") {
     if (!message.channel.guild)
       return message.reply(" هذا الامر فقط للسيرفرات !!");
@@ -739,6 +856,19 @@ client.on("error", err => {
 });
 
 client.on("messageCreate", async message => {
+  var findprefix;
+    if(message.channel.guild && !pref[message.guild.id]) {
+        pref[message.guild.id] = { 
+         prefix: prefix 
+        };
+    // By AboKhalil - Alpha Codes 22/8/2019.
+     fs.writeFileSync('./prefixs.json', JSON.stringify(pref, null, 4));
+     findprefix = prefix;
+    }
+    if(message.channel.guild && pref[message.guild.id]){
+        findprefix = pref[message.guild.id].prefix;
+    }
+ 
   let args = message.cleanContent.split(" ");
   if (args[0] == `${prefix}roles`) {
     let space = "                         ";
@@ -760,6 +890,19 @@ client.on("messageCreate", async message => {
 
 //// كود سحب شخص
 client.on("message", message => {
+  var findprefix;
+    if(message.channel.guild && !pref[message.guild.id]) {
+        pref[message.guild.id] = { 
+         prefix: prefix 
+        };
+    // By AboKhalil - Alpha Codes 22/8/2019.
+     fs.writeFileSync('./prefixs.json', JSON.stringify(pref, null, 4));
+     findprefix = prefix;
+    }
+    if(message.channel.guild && pref[message.guild.id]){
+        findprefix = pref[message.guild.id].prefix;
+    }
+ 
   if (!message.channel.guild) return;
   if (message.content.startsWith(prefix + "move")) {
     if (message.member.hasPermission("MOVE_MEMBERS")) {
@@ -808,6 +951,19 @@ client.on("message", message => {
 });
 
 client.on("message", function(message) {
+  var findprefix;
+    if(message.channel.guild && !pref[message.guild.id]) {
+        pref[message.guild.id] = { 
+         prefix: prefix 
+        };
+    // By AboKhalil - Alpha Codes 22/8/2019.
+     fs.writeFileSync('./prefixs.json', JSON.stringify(pref, null, 4));
+     findprefix = prefix;
+    }
+    if(message.channel.guild && pref[message.guild.id]){
+        findprefix = pref[message.guild.id].prefix;
+    }
+ 
   if (!message.channel.guild) return;
   if (message.author.bot) return;
   if (message.author.id === client.user.id) return;
@@ -864,6 +1020,19 @@ client.on("message", function(message) {
 ///تعديل غير اساسي
 ////كود هيلب
 client.on("message", message => {
+  var findprefix;
+    if(message.channel.guild && !pref[message.guild.id]) {
+        pref[message.guild.id] = { 
+         prefix: prefix 
+        };
+    // By AboKhalil - Alpha Codes 22/8/2019.
+     fs.writeFileSync('./prefixs.json', JSON.stringify(pref, null, 4));
+     findprefix = prefix;
+    }
+    if(message.channel.guild && pref[message.guild.id]){
+        findprefix = pref[message.guild.id].prefix;
+    }
+ 
   if (message.author.bot) return;
   if (message.content.startsWith(prefix + "help")) {
     if (message.author.id == message.guild.ownerID) {
@@ -1073,6 +1242,19 @@ client.on("message", message => {
 
 ////كود قيف اوي
 client.on("message", async message => {
+  var findprefix;
+    if(message.channel.guild && !pref[message.guild.id]) {
+        pref[message.guild.id] = { 
+         prefix: prefix 
+        };
+    // By AboKhalil - Alpha Codes 22/8/2019.
+     fs.writeFileSync('./prefixs.json', JSON.stringify(pref, null, 4));
+     findprefix = prefix;
+    }
+    if(message.channel.guild && pref[message.guild.id]){
+        findprefix = pref[message.guild.id].prefix;
+    }
+ 
   var room;
   var title; //HactorMC
   var duration; //HactorMC
@@ -1202,6 +1384,19 @@ client.on("message", async message => {
 ///تقدر الصورة الخلفية ، شوف الشرح الرابط فوق اول الكود
 /// كود الوان
 client.on("message", message => {
+  var findprefix;
+    if(message.channel.guild && !pref[message.guild.id]) {
+        pref[message.guild.id] = { 
+         prefix: prefix 
+        };
+    // By AboKhalil - Alpha Codes 22/8/2019.
+     fs.writeFileSync('./prefixs.json', JSON.stringify(pref, null, 4));
+     findprefix = prefix;
+    }
+    if(message.channel.guild && pref[message.guild.id]){
+        findprefix = pref[message.guild.id].prefix;
+    }
+ 
   if (!message.guild || message.author.bot) return;
   if (message.content == prefix + "colors") {
     var fsn = require("fs-nextra");
@@ -1263,6 +1458,19 @@ client.on("message", message => {
 const log = JSON.parse(fs.readFileSync("./log.json", "utf8"));
 
 client.on("message", message => {
+  var findprefix;
+    if(message.channel.guild && !pref[message.guild.id]) {
+        pref[message.guild.id] = { 
+         prefix: prefix 
+        };
+    // By AboKhalil - Alpha Codes 22/8/2019.
+     fs.writeFileSync('./prefixs.json', JSON.stringify(pref, null, 4));
+     findprefix = prefix;
+    }
+    if(message.channel.guild && pref[message.guild.id]){
+        findprefix = pref[message.guild.id].prefix;
+    }
+ 
   if (!message.channel.guild) return;
   let room = message.content.split(" ").slice(1);
   let findroom = message.guild.channels.find(r => r.name == room);
@@ -1294,6 +1502,19 @@ client.on("message", message => {
 });
 
 client.on("message", message => {
+  var findprefix;
+    if(message.channel.guild && !pref[message.guild.id]) {
+        pref[message.guild.id] = { 
+         prefix: prefix 
+        };
+    // By AboKhalil - Alpha Codes 22/8/2019.
+     fs.writeFileSync('./prefixs.json', JSON.stringify(pref, null, 4));
+     findprefix = prefix;
+    }
+    if(message.channel.guild && pref[message.guild.id]){
+        findprefix = pref[message.guild.id].prefix;
+    }
+ 
   if (message.content.startsWith(prefix + "toggleLog")) {
     if (!message.channel.guild)
       return message.reply("**This Command Only For Servers**");
@@ -1325,6 +1546,19 @@ client.on("message", message => {
 });
 
 client.on("messageDelete", message => {
+  var findprefix;
+    if(message.channel.guild && !pref[message.guild.id]) {
+        pref[message.guild.id] = { 
+         prefix: prefix 
+        };
+    // By AboKhalil - Alpha Codes 22/8/2019.
+     fs.writeFileSync('./prefixs.json', JSON.stringify(pref, null, 4));
+     findprefix = prefix;
+    }
+    if(message.channel.guild && pref[message.guild.id]){
+        findprefix = pref[message.guild.id].prefix;
+    }
+ 
   if (message.author.bot) return;
   if (message.channel.type === "dm") return;
   if (!message.guild.member(client.user).hasPermission("EMBED_LINKS")) return;
@@ -1385,6 +1619,9 @@ client.on("messageUpdate", (oldMessage, newMessage) => {
 });
 
 client.on("roleCreate", role => {
+  
+
+ 
   if (!role.guild.member(client.user).hasPermission("EMBED_LINKS")) return;
   if (!role.guild.member(client.user).hasPermission("VIEW_AUDIT_LOG")) return;
   if (!log[role.guild.id])
@@ -1504,6 +1741,8 @@ client.on("roleUpdate", (oldRole, newRole) => {
 });
 
 client.on("channelCreate", channel => {
+
+ 
   if (!channel.guild) return;
   if (!channel.guild.member(client.user).hasPermission("EMBED_LINKS")) return;
   if (!channel.guild.member(client.user).hasPermission("VIEW_AUDIT_LOG"))
@@ -1948,6 +2187,19 @@ client.on("message", message => {
 /// كود اختيار لون
 
 client.on("message", message => {
+  var findprefix;
+    if(message.channel.guild && !pref[message.guild.id]) {
+        pref[message.guild.id] = { 
+         prefix: prefix 
+        };
+    // By AboKhalil - Alpha Codes 22/8/2019.
+     fs.writeFileSync('./prefixs.json', JSON.stringify(pref, null, 4));
+     findprefix = prefix;
+    }
+    if(message.channel.guild && pref[message.guild.id]){
+        findprefix = pref[message.guild.id].prefix;
+    }
+ 
   let args = message.content.split(" ").slice(1);
   if (message.content.split(" ")[0] == prefix + "color") {
     const embedd = new Discord.RichEmbed()
@@ -2002,6 +2254,19 @@ client.on("message", message => {
 ///// كود خروج الاعضاء
 
 client.on("message", message => {
+  var findprefix;
+    if(message.channel.guild && !pref[message.guild.id]) {
+        pref[message.guild.id] = { 
+         prefix: prefix 
+        };
+    // By AboKhalil - Alpha Codes 22/8/2019.
+     fs.writeFileSync('./prefixs.json', JSON.stringify(pref, null, 4));
+     findprefix = prefix;
+    }
+    if(message.channel.guild && pref[message.guild.id]){
+        findprefix = pref[message.guild.id].prefix;
+    }
+ 
   if (message.content.startsWith(prefix + "setby")) {
     let args = message.mentions.channels.first();
     if (!args)
@@ -2035,6 +2300,19 @@ client.on("message", message => {
 });
 /////كود سرعة البوت او البينق
 client.on("message", message => {
+  var findprefix;
+    if(message.channel.guild && !pref[message.guild.id]) {
+        pref[message.guild.id] = { 
+         prefix: prefix 
+        };
+    // By AboKhalil - Alpha Codes 22/8/2019.
+     fs.writeFileSync('./prefixs.json', JSON.stringify(pref, null, 4));
+     findprefix = prefix;
+    }
+    if(message.channel.guild && pref[message.guild.id]){
+        findprefix = pref[message.guild.id].prefix;
+    }
+ 
   if (!message.channel.guild) return;
   if (message.content.startsWith(prefix + "ping")) {
     if (message.author.bot) return;
@@ -2146,6 +2424,7 @@ client.on("message", message => {
   });
 });
 client.on("channelDelete", async channel => {
+  
   const entry1 = await channel.guild
     .fetchAuditLogs({
       type: "CHANNEL_DELETE"
@@ -2626,6 +2905,19 @@ let saveSteve = () => {
   );
 };
 client.on("message", message => {
+  var findprefix;
+    if(message.channel.guild && !pref[message.guild.id]) {
+        pref[message.guild.id] = { 
+         prefix: prefix 
+        };
+    // By AboKhalil - Alpha Codes 22/8/2019.
+     fs.writeFileSync('./prefixs.json', JSON.stringify(pref, null, 4));
+     findprefix = prefix;
+    }
+    if(message.channel.guild && pref[message.guild.id]){
+        findprefix = pref[message.guild.id].prefix;
+    }
+ 
   if (!message.guild) return;
   if (!antibots[message.guild.id])
     config[message.guild.id] = {
@@ -2659,6 +2951,8 @@ client.on("message", message => {
 });
 
 client.on("guildMemberAdd", member => {
+
+ 
   if (!antibots[member.guild.id])
     config[member.guild.id] = {
       onoff: true
@@ -2669,6 +2963,19 @@ client.on("guildMemberAdd", member => {
 });
 
 client.on("message", async message => {
+  var findprefix;
+    if(message.channel.guild && !pref[message.guild.id]) {
+        pref[message.guild.id] = { 
+         prefix: prefix 
+        };
+    // By AboKhalil - Alpha Codes 22/8/2019.
+     fs.writeFileSync('./prefixs.json', JSON.stringify(pref, null, 4));
+     findprefix = prefix;
+    }
+    if(message.channel.guild && pref[message.guild.id]){
+        findprefix = pref[message.guild.id].prefix;
+    }
+ 
   const moment = require("moment"); //npm i moment
   const ms = require("ms"); //npm i ms
   // var prefix = '' //Bot prefix !
@@ -2850,6 +3157,19 @@ function saveReplay() {
 
 /////كود صنع رد تلقائي
 client.on("message", async message => {
+  var findprefix;
+    if(message.channel.guild && !pref[message.guild.id]) {
+        pref[message.guild.id] = { 
+         prefix: prefix 
+        };
+    // By AboKhalil - Alpha Codes 22/8/2019.
+     fs.writeFileSync('./prefixs.json', JSON.stringify(pref, null, 4));
+     findprefix = prefix;
+    }
+    if(message.channel.guild && pref[message.guild.id]){
+        findprefix = pref[message.guild.id].prefix;
+    }
+ 
   if (message.content.startsWith(prefix + "reply")) {
     if (message.author.bot || message.channel.type == "dm") return undefined;
     if (!message.member.hasPermission("ADMINISTRATOR")) return;
@@ -2914,6 +3234,19 @@ client.on("message", async message => {
 });
 
 client.on("message", message => {
+  var findprefix;
+    if(message.channel.guild && !pref[message.guild.id]) {
+        pref[message.guild.id] = { 
+         prefix: prefix 
+        };
+    // By AboKhalil - Alpha Codes 22/8/2019.
+     fs.writeFileSync('./prefixs.json', JSON.stringify(pref, null, 4));
+     findprefix = prefix;
+    }
+    if(message.channel.guild && pref[message.guild.id]){
+        findprefix = pref[message.guild.id].prefix;
+    }
+ 
   if (
     !replyMSG[message.author.id] ||
     !replyMSG[message.author.id].contentmessage ||
@@ -2933,6 +3266,19 @@ client.on("message", message => {
 const credits = JSON.parse(fs.readFileSync("./credits.json"));
 var time = require("./time.json");
 client.on("message", async message => {
+  var findprefix;
+    if(message.channel.guild && !pref[message.guild.id]) {
+        pref[message.guild.id] = { 
+         prefix: prefix 
+        };
+    // By AboKhalil - Alpha Codes 22/8/2019.
+     fs.writeFileSync('./prefixs.json', JSON.stringify(pref, null, 4));
+     findprefix = prefix;
+    }
+    if(message.channel.guild && pref[message.guild.id]){
+        findprefix = pref[message.guild.id].prefix;
+    }
+ 
   if (message.author.bot || message.channel.type === "dm") return;
   let args = message.content.split(" ");
   let author = message.author.id;
@@ -3066,6 +3412,19 @@ type these numbers to confirm: `
 }); //
 
 client.on("message", async message => {
+  var findprefix;
+    if(message.channel.guild && !pref[message.guild.id]) {
+        pref[message.guild.id] = { 
+         prefix: prefix 
+        };
+    // By AboKhalil - Alpha Codes 22/8/2019.
+     fs.writeFileSync('./prefixs.json', JSON.stringify(pref, null, 4));
+     findprefix = prefix;
+    }
+    if(message.channel.guild && pref[message.guild.id]){
+        findprefix = pref[message.guild.id].prefix;
+    }
+ 
   let Fire = message.content.split(" ")[0].substring(prefix.length);
   let mention = message.mentions.users.first() || message.author;
   if (Fire === "addcredits") {
@@ -3101,6 +3460,7 @@ const welcome = JSON.parse(fs.readFileSync("./welcomer.json", "utf8")); //ملف
 //كود الويلكم
 
 client.on("guildMemberAdd", async member => {
+
   if (!welcome) return;
   if (!welcome[member.guild.id]) return;
   var findingWlcChannel = welcome[member.guild.id]
@@ -3219,6 +3579,19 @@ client.on("guildMemberAdd", async member => {
 });
 
 client.on("message", async message => {
+  var findprefix;
+    if(message.channel.guild && !pref[message.guild.id]) {
+        pref[message.guild.id] = { 
+         prefix: prefix 
+        };
+    // By AboKhalil - Alpha Codes 22/8/2019.
+     fs.writeFileSync('./prefixs.json', JSON.stringify(pref, null, 4));
+     findprefix = prefix;
+    }
+    if(message.channel.guild && pref[message.guild.id]){
+        findprefix = pref[message.guild.id].prefix;
+    }
+ 
   if (!message.channel.guild) return;
   let room = message.content.split(" ").slice(1);
   let findroom = message.guild.channels.find(r => r.name == room);
@@ -3285,6 +3658,19 @@ client.on("message", async message => {
 });
 
 client.on("message", async message => {
+  var findprefix;
+    if(message.channel.guild && !pref[message.guild.id]) {
+        pref[message.guild.id] = { 
+         prefix: prefix 
+        };
+    // By AboKhalil - Alpha Codes 22/8/2019.
+     fs.writeFileSync('./prefixs.json', JSON.stringify(pref, null, 4));
+     findprefix = prefix;
+    }
+    if(message.channel.guild && pref[message.guild.id]){
+        findprefix = pref[message.guild.id].prefix;
+    }
+ 
   let messageArray = message.content.split(" ");
   if (message.content.startsWith(prefix + "setMessage")) {
     if (!welcome[message.guild.id] || !welcome[message.guild.id].onoff == "On")
@@ -3343,6 +3729,19 @@ Ex :
 ///كود منشن بوتات
 
 client.on("message", message => {
+  var findprefix;
+    if(message.channel.guild && !pref[message.guild.id]) {
+        pref[message.guild.id] = { 
+         prefix: prefix 
+        };
+    // By AboKhalil - Alpha Codes 22/8/2019.
+     fs.writeFileSync('./prefixs.json', JSON.stringify(pref, null, 4));
+     findprefix = prefix;
+    }
+    if(message.channel.guild && pref[message.guild.id]){
+        findprefix = pref[message.guild.id].prefix;
+    }
+ 
   if (message.content === prefix + "ls") {
     var list_all = [];
     message.guild.members.forEach(bb => {
@@ -3357,6 +3756,19 @@ client.on("message", message => {
 ////تعديل غير اساسي
 
 client.on("message", message => {
+  var findprefix;
+    if(message.channel.guild && !pref[message.guild.id]) {
+        pref[message.guild.id] = { 
+         prefix: prefix 
+        };
+    // By AboKhalil - Alpha Codes 22/8/2019.
+     fs.writeFileSync('./prefixs.json', JSON.stringify(pref, null, 4));
+     findprefix = prefix;
+    }
+    if(message.channel.guild && pref[message.guild.id]){
+        findprefix = pref[message.guild.id].prefix;
+    }
+ 
   if (message.content.split(" ")[0] === prefix + "رابط") {
     message.channel
       .createInvite({
@@ -3389,6 +3801,19 @@ client.on("message", message => {
 
 let vojson = JSON.parse(fs.readFileSync("vojson.json", "utf8")); // ملف تخزين الفويس اونلاين
 client.on("message", message => {
+  var findprefix;
+    if(message.channel.guild && !pref[message.guild.id]) {
+        pref[message.guild.id] = { 
+         prefix: prefix 
+        };
+    // By AboKhalil - Alpha Codes 22/8/2019.
+     fs.writeFileSync('./prefixs.json', JSON.stringify(pref, null, 4));
+     findprefix = prefix;
+    }
+    if(message.channel.guild && pref[message.guild.id]){
+        findprefix = pref[message.guild.id].prefix;
+    }
+ 
   if (message.content.startsWith(prefix + "setVc")) {
     let channel = message.content
       .split(" ")
@@ -3468,6 +3893,19 @@ client.on("ready", () => {
 ////تعديل غير اساسي
 
 client.on("message", message => {
+  var findprefix;
+    if(message.channel.guild && !pref[message.guild.id]) {
+        pref[message.guild.id] = { 
+         prefix: prefix 
+        };
+    // By AboKhalil - Alpha Codes 22/8/2019.
+     fs.writeFileSync('./prefixs.json', JSON.stringify(pref, null, 4));
+     findprefix = prefix;
+    }
+    if(message.channel.guild && pref[message.guild.id]){
+        findprefix = pref[message.guild.id].prefix;
+    }
+ 
   if (message.content.startsWith(prefix + "تقديم")) {
     if (!message.channel.guild) return;
     if (message.author.bot) return;
@@ -3609,6 +4047,19 @@ client.on("message", message => {
 });
 
 client.on("message", message => {
+  var findprefix;
+    if(message.channel.guild && !pref[message.guild.id]) {
+        pref[message.guild.id] = { 
+         prefix: prefix 
+        };
+    // By AboKhalil - Alpha Codes 22/8/2019.
+     fs.writeFileSync('./prefixs.json', JSON.stringify(pref, null, 4));
+     findprefix = prefix;
+    }
+    if(message.channel.guild && pref[message.guild.id]){
+        findprefix = pref[message.guild.id].prefix;
+    }
+ 
   if (message.content.startsWith(prefix + "room1")) {
     if (!message.channel.guild) return;
     if (message.author.bot) return;
@@ -3624,6 +4075,19 @@ client.on("message", message => {
 });
 
 client.on("message", message => {
+  var findprefix;
+    if(message.channel.guild && !pref[message.guild.id]) {
+        pref[message.guild.id] = { 
+         prefix: prefix 
+        };
+    // By AboKhalil - Alpha Codes 22/8/2019.
+     fs.writeFileSync('./prefixs.json', JSON.stringify(pref, null, 4));
+     findprefix = prefix;
+    }
+    if(message.channel.guild && pref[message.guild.id]){
+        findprefix = pref[message.guild.id].prefix;
+    }
+ 
   var args = message.content.split(" ").slice(1);
   var msg = message.content.toLowerCase();
   if (!message.guild) return;
@@ -3763,6 +4227,19 @@ client.on("message", message => {
 });
 
 client.on("message", async message => {
+  var findprefix;
+    if(message.channel.guild && !pref[message.guild.id]) {
+        pref[message.guild.id] = { 
+         prefix: prefix 
+        };
+    // By AboKhalil - Alpha Codes 22/8/2019.
+     fs.writeFileSync('./prefixs.json', JSON.stringify(pref, null, 4));
+     findprefix = prefix;
+    }
+    if(message.channel.guild && pref[message.guild.id]){
+        findprefix = pref[message.guild.id].prefix;
+    }
+ 
   if (!message.guild) return;
   let mention = message.mentions.members.first();
   let role = message.content
@@ -3799,6 +4276,19 @@ client.on("message", async message => {
 });
 
 client.on("message", async message => {
+  var findprefix;
+    if(message.channel.guild && !pref[message.guild.id]) {
+        pref[message.guild.id] = { 
+         prefix: prefix 
+        };
+    // By AboKhalil - Alpha Codes 22/8/2019.
+     fs.writeFileSync('./prefixs.json', JSON.stringify(pref, null, 4));
+     findprefix = prefix;
+    }
+    if(message.channel.guild && pref[message.guild.id]){
+        findprefix = pref[message.guild.id].prefix;
+    }
+ 
   if (message.content.startsWith(prefix + "رفض")) {
     if (!message.channel.guild) return;
 
@@ -3823,6 +4313,19 @@ client.on("message", async message => {
   }
 });
 client.on("message", message => {
+  var findprefix;
+    if(message.channel.guild && !pref[message.guild.id]) {
+        pref[message.guild.id] = { 
+         prefix: prefix 
+        };
+    // By AboKhalil - Alpha Codes 22/8/2019.
+     fs.writeFileSync('./prefixs.json', JSON.stringify(pref, null, 4));
+     findprefix = prefix;
+    }
+    if(message.channel.guild && pref[message.guild.id]){
+        findprefix = pref[message.guild.id].prefix;
+    }
+ 
   if (message.content.startsWith(prefix + "room2")) {
     if (!message.channel.guild) return;
     if (message.author.bot) return;
@@ -3837,6 +4340,19 @@ client.on("message", message => {
   }
 });
 client.on("message", async msg => {
+  var findprefix;
+    if(msg.channel.guild && !pref[msg.guild.id]) {
+        pref[msg.guild.id] = { 
+         prefix: prefix 
+        };
+    // By AboKhalil - Alpha Codes 22/8/2019.
+     fs.writeFileSync('./prefixs.json', JSON.stringify(pref, null, 4));
+     findprefix = prefix;
+    }
+    if(msg.channel.guild && pref[msg.guild.id]){
+        findprefix = pref[msg.guild.id].prefix;
+    }
+ 
   if (msg.author.bot) return undefined;
   if (!msg.content.startsWith(prefix)) return undefined;
 
@@ -3910,6 +4426,19 @@ client.on("ready", () => {
 });
 
 client.on("message", async msg => {
+  var findprefix;
+    if(msg.channel.guild && !pref[msg.guild.id]) {
+        pref[msg.guild.id] = { 
+         prefix: prefix 
+        };
+    // By AboKhalil - Alpha Codes 22/8/2019.
+     fs.writeFileSync('./prefixs.json', JSON.stringify(pref, null, 4));
+     findprefix = prefix;
+    }
+    if(msg.channel.guild && pref[msg.guild.id]){
+        findprefix = pref[msg.guild.id].prefix;
+    }
+ 
   if (msg.author.bot) return undefined;
   if (!msg.content.startsWith(prefix)) return undefined;
 
