@@ -1067,6 +1067,7 @@ client.on("message", message => {
         findprefix = pref[message.guild.id].prefix;
     }
 
+
  
  
   if (message.author.bot) return;
@@ -1079,45 +1080,45 @@ client.on("message", message => {
 \`${findprefix}bot\` : لعرض معلومات عن البوت 
 \`${findprefix}user\` : لعرض معلومات عنك 
 \`${findprefix}avt\` :يعرض لك صورت  اي شخص عن طريق الايدي 
-\`${prefix}avatar\` : لعرض صورتك أو صورة الي تمنشنه 
-\`${prefix}color\` : لأختيار لونك في السيرفر 
-\`${prefix}colors\` : غير لونك 
-\`${prefix}inf\` : عدد الدعوات للسيرفر
-\`${prefix}رابط\` : اكتب رابط بالشات يجيك رابط السيرفر خاص
-\`${prefix}short\` : 『 اختصار روابط 』
+\`${findprefix}avatar\` : لعرض صورتك أو صورة الي تمنشنه 
+\`${findprefix}color\` : لأختيار لونك في السيرفر 
+\`${findprefix}colors\` : غير لونك 
+\`${findprefix}inf\` : عدد الدعوات للسيرفر
+\`${findprefix}رابط\` : اكتب رابط بالشات يجيك رابط السيرفر خاص
+\`${findprefix}short\` : 『 اختصار روابط 』
 
 
 
 \`الاوامر الإدارية\` :stars: 
-\`${prefix}clear\` : لمسح الشات 
-\`${prefix}ban\` : لحظر شخص من السيرفر
-\`${prefix}kick\` : لطرد شخص من السيرفر
-\`${prefix}open\` : لفتح الشات
-\`${prefix}close\` : لقفل الشات 
-\`${prefix}mute\` : لإسكات شخص
-\`${prefix}unmute\` : لـ فك إسكات شخص
-\`${prefix}new\` : فتح التكت
-\`${prefix}closet\` : لحذف روم التكت
-\`${prefix}say\` : البوت يكرر كلامك
-\`${prefix}move\` : لسحب الشخص الى روومك
-\`${prefix}reply\` : لصنع رد تلقائي
-\`${prefix}setLog\` : لتحديد روم السجلات 
-\`${prefix}setby\` : تحديد روم المغادرة
-\`${prefix}setWelcomer <channel name>\` : لتحديد روم الولكم 
-\`${prefix}setMessage\` : لتحديد رسالة الترحيب 
-\`${prefix}setVc\` <channel name> : لتحديد روم الفويس اونلاين 
-\`${prefix}vc off\` : لإغلاق روم الفويس اونلاين
-\`${prefix}ls\` : لإظهار جميع بوتات السيرفر
-\`${prefix}role\` : لاعطاء شخص رتبة
-\`${prefix}role all\` : لـ إعطاء الجميع رتبة معينة
+\`${findprefix}clear\` : لمسح الشات 
+\`${findprefix}ban\` : لحظر شخص من السيرفر
+\`${findprefix}kick\` : لطرد شخص من السيرفر
+\`${findprefix}open\` : لفتح الشات
+\`${findprefix}close\` : لقفل الشات 
+\`${findprefix}mute\` : لإسكات شخص
+\`${findprefix}unmute\` : لـ فك إسكات شخص
+\`${findprefix}new\` : فتح التكت
+\`${findprefix}closet\` : لحذف روم التكت
+\`${findprefix}say\` : البوت يكرر كلامك
+\`${findprefix}move\` : لسحب الشخص الى روومك
+\`${findprefix}reply\` : لصنع رد تلقائي
+\`${findprefix}setLog\` : لتحديد روم السجلات 
+\`${findprefix}setby\` : تحديد روم المغادرة
+\`${findprefix}setWelcomer <channel name>\` : لتحديد روم الولكم 
+\`${findprefix}setMessage\` : لتحديد رسالة الترحيب 
+\`${findprefix}setVc\` <channel name> : لتحديد روم الفويس اونلاين 
+\`${findprefix}vc off\` : لإغلاق روم الفويس اونلاين
+\`${findprefix}ls\` : لإظهار جميع بوتات السيرفر
+\`${findprefix}role\` : لاعطاء شخص رتبة
+\`${findprefix}role all\` : لـ إعطاء الجميع رتبة معينة
 
 \`\`اوامر التقديم\`\` :pencil: 
-\`${prefix}room1\` : لعمل روم التقديمات
-\`${prefix}room2\` : لعمل روم القبول والرفض
-\`لقبول تقديم عضو : \`${prefix}قبول
-مثال: \`\`${prefix}قبول @منشن عضو \`\`
-لرفض عضو : ${prefix}رفض
-مثال: \`\`${prefix}رفض @منشن عضو لست متفاعل بشكل كافِ\`\`
+\`${findprefix}room1\` : لعمل روم التقديمات
+\`${findprefix}room2\` : لعمل روم القبول والرفض
+\`لقبول تقديم عضو : \`${findprefix}قبول
+مثال: \`\`${findprefix}قبول @منشن عضو \`\`
+لرفض عضو : ${findprefix}رفض
+مثال: \`\`${findprefix}رفض @منشن عضو لست متفاعل بشكل كافِ\`\`
 
   `
         )
@@ -1125,41 +1126,44 @@ client.on("message", message => {
           message.author.send(`
 
 \`أوامر الكريدت\` :credit_card: 
-\`${prefix}credits\` : لمعرفة رصيدك  
-\`${prefix}daily\` : لأخذ جائزة يومية
+\`${findprefix}credits\` : لمعرفة رصيدك  
+\`${findprefix}daily\` : لأخذ جائزة يومية
 \`يمكن التحويل من شخص لشخص + يزيد الكريدت فقط من امر دايلي\`
 
 \`أوامر الموسيقى \` :notes:
-\`${prefix}Play\` : تشغيل الاغنية او اضافتها للقائمة او اكمال الاغنية [p]
-\`${prefix}Pause\` : ايقاف مؤقت الاغنية
-\`${prefix}Resume\` : اكمال الاغنية 
-\`${prefix}stop\` : لأيقاف الأغنية وخروج البوت من الروم
-\`${prefix}forceskip\` : لتخطي الأغنية بشكل مباشر
-\`${prefix}Queue\` : عرض القائمة 
-\`${prefix}skipto\` : لتخطي الأغنية الى الأغنية القادمة في طابور الموسيقى القادمة
-\`${prefix}Skip\` : تخطي للاغنية التالية 
-\`${prefix}Volume\` : تغيير الصوت [vol] 
-\`${prefix}np\` : عرض مايتم تشغيله الان [np] 
-\`${prefix}repeat\` : تكرار الاغنية 
+\`${findprefix}Play\` : تشغيل الاغنية او اضافتها للقائمة او اكمال الاغنية [p]
+\`${findprefix}Pause\` : ايقاف مؤقت الاغنية
+\`${findprefix}Resume\` : اكمال الاغنية 
+\`${findprefix}stop\` : لأيقاف الأغنية وخروج البوت من الروم
+\`${findprefix}forceskip\` : لتخطي الأغنية بشكل مباشر
+\`${findprefix}Queue\` : عرض القائمة 
+\`${findprefix}skipto\` : لتخطي الأغنية الى الأغنية القادمة في طابور الموسيقى القادمة
+\`${findprefix}Skip\` : تخطي للاغنية التالية 
+\`${findprefix}Volume\` : تغيير الصوت [vol] 
+\`${findprefix}np\` : عرض مايتم تشغيله الان [np] 
+\`${findprefix}repeat\` : تكرار الاغنية 
 
 
-\`${prefix}cut\` : اسئله كت تويت 
-\`${prefix}لو خيروك\` : اسئله لو خيروك
-\`${prefix}فكك\`:يعطيك كلمه وتفككها
-\`${prefix}اسرع\`:يعطيك كلمه ولازم تكتبها بسرعه 
-\`${prefix}صراحة \`:يعطيك جمله تجاوب عليها بكل صراحه
+\`${findprefix}cut\` : اسئله كت تويت 
+\`${findprefix}لو خيروك\` : اسئله لو خيروك
+\`${findprefix}فكك\`:يعطيك كلمه وتفككها
+\`${findprefix}اسرع\`:يعطيك كلمه ولازم تكتبها بسرعه 
+\`${findprefix}صراحة \`:يعطيك جمله تجاوب عليها بكل صراحه
 
 
 
 \`أوامر الحماية\` :closed_lock_with_key: 
-\`${prefix}settings limitsban\` : تحدد العدد الي تبيه لو حد بند  البوت يبنده 
-\`${prefix}settings limitskick\` : تحدد العدد الي تبيه لو حد طرد 3 او 4 البوت يبنده 
-\`${prefix}settings limitsroleD\` : تحدد العدد الي تبيه لو حد مسح رول 3 او 4 البوت يبنده 
-\`${prefix}settings limitsroleC\` : تحدد العدد الي تبيه لو حد صنع روم 3 او 4 البوت يبنده 
-\`${prefix}settings limitschannelD\` : تحدد العدد الي تبيه لو حد مسح روم 3 او 4 البوت يبنده 
-\`${prefix}settings limitstime\` : تحديد الوقت الذي من خلالة يتم التبنيد كـ مثال اذا شخص بند 5 في دقيقة البوت يبنده
-\`${prefix}antibots on\` : منع دخول بوتات
-\`${prefix}antibots off\` : السماح للبوتات بالدخول
+
+
+\`${findprefix}setprefix\` : لي تغير البريفيكس 
+\`${findprefix}settings limitsban\` : تحدد العدد الي تبيه لو حد بند  البوت يبنده 
+\`${findprefix}settings limitskick\` : تحدد العدد الي تبيه لو حد طرد 3 او 4 البوت يبنده 
+\`${findprefix}settings limitsroleD\` : تحدد العدد الي تبيه لو حد مسح رول 3 او 4 البوت يبنده 
+\`${findprefix}settings limitsroleC\` : تحدد العدد الي تبيه لو حد صنع روم 3 او 4 البوت يبنده 
+\`${findprefix}settings limitschannelD\` : تحدد العدد الي تبيه لو حد مسح روم 3 او 4 البوت يبنده 
+\`${findprefix}settings limitstime\` : تحديد الوقت الذي من خلالة يتم التبنيد كـ مثال اذا شخص بند 5 في دقيقة البوت يبنده
+\`${findprefix}antibots on\` : منع دخول بوتات
+\`${findprefix}antibots off\` : السماح للبوتات بالدخول
 
 `);
         })
@@ -1180,48 +1184,48 @@ client.on("message", message => {
         .send(
           `   
 \`الاوامر العامة\` :postbox: 
-\`${prefix}bot\` : لعرض معلومات عن البوت 
-\`${prefix}user\` : لعرض معلومات عنك 
-\`${prefix}avt\` :يعرض لك صورت  اي شخص عن طريق الايدي
-\`${prefix}avatar\` : لعرض صورتك أو صورة الي تمنشنه 
-\`${prefix}color\` : لأختيار لونك في السيرفر 
-\`${prefix}colors\` : غير لونك 
-\`${prefix}inf\` : عدد الدعوات للسيرفر
-\`${prefix}رابط\` : اكتب رابط بالشات يجيك رابط السيرفر خاص
-\`${prefix}short\` : 『 اختصار روابط 』
+\`${findprefix}bot\` : لعرض معلومات عن البوت 
+\`${findprefix}user\` : لعرض معلومات عنك 
+\`${findprefix}avt\` :يعرض لك صورت  اي شخص عن طريق الايدي
+\`${findprefix}avatar\` : لعرض صورتك أو صورة الي تمنشنه 
+\`${findprefix}color\` : لأختيار لونك في السيرفر 
+\`${findprefix}colors\` : غير لونك 
+\`${findprefix}inf\` : عدد الدعوات للسيرفر
+\`${findprefix}رابط\` : اكتب رابط بالشات يجيك رابط السيرفر خاص
+\`${findprefix}short\` : 『 اختصار روابط 』
 
 
 
 \`الاوامر الإدارية\` 
-\`${prefix}clear\` : لمسح الشات 
-\`${prefix}ban\` : لحظر شخص من السيرفر
-\`${prefix}kick\` : لطرد شخص من السيرفر
-\`${prefix}open\` : لفتح الشات
-\`${prefix}close\` : لقفل الشات 
-\`${prefix}mute\` : لإسكات شخص
-\`${prefix}unmute\` : لـ فك إسكات شخص
-\`${prefix}new\` : فتح التكت
-\`${prefix}closet\` : لحذف روم التكت
-\`${prefix}say\` : البوت يكرر كلامك
-\`${prefix}move\` : لسحب الشخص الى روومك
-\`${prefix}reply\` : لصنع رد تلقائي
-\`${prefix}setLog\` : لتحديد روم السجلات 
-\`${prefix}setby\` : تحديد روم المغادرة
-\`${prefix}setWelcomer <channel name>\` : لتحديد روم الولكم 
-\`${prefix}setMessage\` : لتحديد رسالة الترحيب 
-\`${prefix}setVc\` <channel name> : لتحديد روم الفويس اونلاين 
-\`${prefix}vc off\` : لإغلاق روم الفويس اونلاين
-\`${prefix}ls\` : لإظهار جميع بوتات السيرفر
-\`${prefix}role\` : لاعطاء شخص رتبة
-\`${prefix}role all\` : لـ إعطاء الجميع رتبة معينة
+\`${findprefix}clear\` : لمسح الشات 
+\`${findprefix}ban\` : لحظر شخص من السيرفر
+\`${findprefix}kick\` : لطرد شخص من السيرفر
+\`${findprefix}open\` : لفتح الشات
+\`${findprefix}close\` : لقفل الشات 
+\`${findprefix}mute\` : لإسكات شخص
+\`${findprefix}unmute\` : لـ فك إسكات شخص
+\`${findprefix}new\` : فتح التكت
+\`${findprefix}closet\` : لحذف روم التكت
+\`${findprefix}say\` : البوت يكرر كلامك
+\`${findprefix}move\` : لسحب الشخص الى روومك
+\`${findprefix}reply\` : لصنع رد تلقائي
+\`${findprefix}setLog\` : لتحديد روم السجلات 
+\`${findprefix}setby\` : تحديد روم المغادرة
+\`${findprefix}setWelcomer <channel name>\` : لتحديد روم الولكم 
+\`${findprefix}setMessage\` : لتحديد رسالة الترحيب 
+\`${findprefix}setVc\` <channel name> : لتحديد روم الفويس اونلاين 
+\`${findprefix}vc off\` : لإغلاق روم الفويس اونلاين
+\`${findprefix}ls\` : لإظهار جميع بوتات السيرفر
+\`${findprefix}role\` : لاعطاء شخص رتبة
+\`${findprefix}role all\` : لـ إعطاء الجميع رتبة معينة
 
 \`\`اوامر التقديم\`\` :pencil: 
-\`${prefix}room1\` : لعمل روم التقديمات
-\`${prefix}room2\` : لعمل روم القبول والرفض
-\`${prefix}لقبول تقديم عضو : \`قبول
-مثال: \`\`${prefix}قبول @منشن عضو \`\`
- ${prefix}لرفض عضو : رفض
-مثال: \`\`${prefix}رفض @منشن عضو لست متفاعل بشكل كافِ\`\`
+\`${findprefix}room1\` : لعمل روم التقديمات
+\`${findprefix}room2\` : لعمل روم القبول والرفض
+\`${findprefix}لقبول تقديم عضو : \`قبول
+مثال: \`\`${findprefix}قبول @منشن عضو \`\`
+ ${findprefix}لرفض عضو : رفض
+مثال: \`\`${findprefix}رفض @منشن عضو لست متفاعل بشكل كافِ\`\`
 
 
 
@@ -1231,31 +1235,31 @@ client.on("message", message => {
           message.author.send(`
 
 \`أوامر الكريدت\` :credit_card: 
-\`${prefix}credits\` : لمعرفة رصيدك  
-\`${prefix}daily\` : لأخذ جائزة يومية
+\`${findprefix}credits\` : لمعرفة رصيدك  
+\`${findprefix}daily\` : لأخذ جائزة يومية
 \`يمكن التحويل من شخص لشخص + يزيد الكريدت فقط من امر دايلي\`
 
 \`أوامر الموسيقى \` :notes: 
-\`${prefix}Play\` : تشغيل الاغنية او اضافتها للقائمة او اكمال الاغنية [p]
-\`${prefix}Pause\` : ايقاف مؤقت الاغنية
-\`${prefix}Resume\` : اكمال الاغنية 
-\`${prefix}stop\` : لأيقاف الأغنية وخروج البوت من الروم
-\`${prefix}forceskip\` : لتخطي الأغنية بشكل مباشر
-\`${prefix}Queue\` : عرض القائمة 
-\`${prefix}skipto\` : لتخطي الأغنية الى الأغنية القادمة في طابور الموسيقى القادمة
-\`${prefix}Skip\` : تخطي للاغنية التالية 
-\`${prefix}Volume\` : تغيير الصوت [vol] 
-\`${prefix}np\` : عرض مايتم تشغيله الان [np] 
-\`${prefix}repeat\` : تكرار الاغنية 
+\`${findprefix}Play\` : تشغيل الاغنية او اضافتها للقائمة او اكمال الاغنية [p]
+\`${findprefix}Pause\` : ايقاف مؤقت الاغنية
+\`${findprefix}Resume\` : اكمال الاغنية 
+\`${findprefix}stop\` : لأيقاف الأغنية وخروج البوت من الروم
+\`${findprefix}forceskip\` : لتخطي الأغنية بشكل مباشر
+\`${findprefix}Queue\` : عرض القائمة 
+\`${findprefix}skipto\` : لتخطي الأغنية الى الأغنية القادمة في طابور الموسيقى القادمة
+\`${findprefix}Skip\` : تخطي للاغنية التالية 
+\`${findprefix}Volume\` : تغيير الصوت [vol] 
+\`${findprefix}np\` : عرض مايتم تشغيله الان [np] 
+\`${findprefix}repeat\` : تكرار الاغنية 
 
 
 
  (":shield: ***⦁⦓ العاب بوت ⦔⦁*** :shield:",' ‎ ')
-  ("✽-  **${prefix}cut  -->  『x اسئله كت تويت x』**",' ‎ ')
-   ("✽-  **${prefix}لو خيروك   -->  『x اسئله لو خيروك x』**",' ‎ ')
-    ("✽-  **${prefix}تفك -->  『x يعطيك كلمه وتفككها x』**",' ‎ ')
-	   ("✽-  **${prefix}اسرع  -->  『x يعطيك كلمه ولازم تكتبها بسرعه x』**",' ‎ ')
-	 	   ("✽-  **${prefix}صراحة    -->  『x يعطيك جمله تجاوب عليها بكل صراحه x』**",' ‎ ')
+  ("✽-  **${findprefix}cut  -->  『x اسئله كت تويت x』**",' ‎ ')
+   ("✽-  **${findprefix}لو خيروك   -->  『x اسئله لو خيروك x』**",' ‎ ')
+    ("✽-  **${findprefix}تفك -->  『x يعطيك كلمه وتفككها x』**",' ‎ ')
+	   ("✽-  **${findprefix}اسرع  -->  『x يعطيك كلمه ولازم تكتبها بسرعه x』**",' ‎ ')
+	 	   ("✽-  **${findprefix}صراحة    -->  『x يعطيك جمله تجاوب عليها بكل صراحه x』**",' ‎ ')
 
 
 `);
