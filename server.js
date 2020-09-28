@@ -26,7 +26,7 @@ var listener = app.listen(process.env.PORT, function() {
 const { Client, RichEmbed } = require("discord.js");
 const mongoose = require('mongoose');
 var { Util } = require("discord.js");
-const {  default_prefix, devs } = require("./config");
+const {  devs } = require("./config");
 const client = new Client({ disableEveryone: true });
 const ytdl = require("ytdl-core");
 const canvas = require("canvas");
@@ -56,10 +56,11 @@ client.on("ready", () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
 
-const db = require("quick.db")
+const db = require("db");
 
 
-
+const pref = require('./prefixs.json');
+const prefix = "#";
 
 
 client.on("ready", () => { //When bot is ready
@@ -68,13 +69,14 @@ client.on("ready", () => { //When bot is ready
 })
 
 
+
 //كود تغيير الحالة
 client.on("ready", () => {
   console.log(`Logged in as ${client.user.tag}!`);
   console.log(client.guilds.map(c => `${c.name} : ${c.me.hasPermission(8)}`));
   client.user.setStatus("online");
 
-  client.user.setActivity(`${default_prefix}help`, { type: "WATCHING" });
+  client.user.setActivity(`${prefix}help`, { type: "WATCHING" });
 });
 
 
@@ -84,10 +86,10 @@ client.on("ready", () => {
 
 client.on("message", message => {
   if (message.author.bot) return;
-  if (!message.content.startsWith(default_prefix)) return;
+  if (!message.content.startsWith(prefix)) return;
 
   let command = message.content.split(" ")[0];
-  command = command.slice(default_prefix.length);
+  command = command.slice(prefix.length);
 
   let args = message.content.split(" ").slice(1);
 
@@ -111,7 +113,7 @@ client.on("message", message => {
 
 ////كود تيكت
 client.on("message", message => {
-  if (message.content.startsWith(default_prefix + "new")) {
+  if (message.content.startsWith(prefix + "new")) {
     const reason = message.content
       .split(" ")
       .slice(1)
@@ -157,7 +159,7 @@ client.on("message", message => {
         });
       })
       .catch(console.error);
-  } else if (message.content.startsWith(default_prefix + "closet")) {
+  } else if (message.content.startsWith(prefix + "closet")) {
     if (!message.guild.roles.exists(gg => gg.name === "Support Team"))
       return message.channel.send(` لازم تسوي رتبة اسمها \`Support Team\`.`);
     if (!message.channel.name.startsWith("ticket-"))
@@ -177,7 +179,7 @@ client.on("message", message => {
 client.on("message", async message => {
   if (!message.guild || message.author.bot) return;
   let args = message.content.split(" ");
-  if (args[0] == `${default_prefix}cr`) {
+  if (args[0] == `${prefix}cr`) {
     if (
       !message.guild.me.hasPermission("MANAGE_ROLES") ||
       !message.member.hasPermission("MANAGE_ROLES")
@@ -205,7 +207,7 @@ client.on("message", async message => {
 //// كود معلومات الشخص او اليوزر
 client.on("message", pixelbot => {
   // itzZa1D - Codes Team.
-  if (pixelbot.content.startsWith(default_prefix + "user")) {
+  if (pixelbot.content.startsWith(prefix + "user")) {
     // itzZa1D - Codes Team.
     if (pixelbot.author.bot) return;
     if (!pixelbot.guild)
@@ -266,7 +268,7 @@ client.on("message", pixelbot => {
 
 ////كود معلومات البوت
 client.on("message", message => {
-  if (message.content === default_prefix + "bot") {
+  if (message.content === prefix + "bot") {
     const bot = new Discord.RichEmbed()
       .setAuthor(client.user.username, client.user.avatarURL)
       .setColor("#00000")
@@ -287,10 +289,10 @@ client.on("message", message => {
 
 client.on("message", message => {
   if (message.author.codes) return;
-  if (!message.content.startsWith(default_prefix)) return;
+  if (!message.content.startsWith(prefix)) return;
 
   let command = message.content.split(" ")[0];
-  command = command.slice(default_prefix.length);
+  command = command.slice(prefix.length);
 
   let args = message.content.split(" ").slice(1);
 
@@ -325,7 +327,7 @@ client.on("message", message => {
 });
 
 client.on("message", async message => {
-  if (message.content.startsWith(default_prefix + "inf")) {
+  if (message.content.startsWith(prefix + "inf")) {
     //// وهون الامر طبعا
     let oi = message.mentions.users.first()
       ? message.mentions.users.first().id
@@ -384,10 +386,10 @@ client.on("message", async message => {
 //https://discord.gg/unZ34A
 client.on("message", message => {
   if (message.author.x5bz) return;
-  if (!message.content.startsWith(default_prefix)) return;
+  if (!message.content.startsWith(prefix)) return;
 
   let command = message.content.split(" ")[0];
-  command = command.slice(default_prefix.length);
+  command = command.slice(prefix.length);
 
   let args = message.content.split(" ").slice(1);
 
@@ -432,7 +434,7 @@ client.on("message", message => {
   }
 });
 client.on("message", message => {
-  if (message.content.split(" ")[0] === default_prefix + "avt") {
+  if (message.content.split(" ")[0] === prefix + "avt") {
     if (message.author.bot || message.channel.type == "dm") return;
     var args = message.content.split(" ")[1];
     var avt = args || message.author.id;
@@ -457,7 +459,7 @@ const invites = {}; // Codes
 
 ////كود معلومات السيرفر
 client.on("message", message => {
-  if (message.content.startsWith(default_prefix + "server")) {
+  if (message.content.startsWith(prefix + "server")) {
     if (!message.channel.guild)
       return message.channel.send(` | This Command is used only in servers!`);
     const millis = new Date().getTime() - message.guild.createdAt.getTime();
@@ -501,7 +503,7 @@ client.on("message", message => {
 
   let command = message.content.split(" ")[0];
 
-  if (command === default_prefix + "unmute") {
+  if (command === prefix + "unmute") {
     if (message.author.bot) return;
     if (!message.member.hasPermission("MANAGE_ROLES"))
       return message
@@ -565,7 +567,7 @@ client.on("message", message => {
 
   let command = message.content.split(" ")[0];
 
-  if (command === default_prefix + "mute") {
+  if (command === prefix + "mute") {
     if (message.author.bot) return;
     if (!message.member.hasPermission("MANAGE_ROLES"))
       return message
@@ -626,7 +628,7 @@ client.on("message", message => {
 
 //// كود فتح واغلاق الروم
 client.on("message", message => {
-  if (message.content === default_prefix + "close") {
+  if (message.content === prefix + "close") {
     if (!message.channel.guild)
       return message.reply(" هذا الامر فقط للسيرفرات !!");
 
@@ -640,7 +642,7 @@ client.on("message", message => {
         message.reply("**تم قفل الشات :no_entry: **");
       });
   }
-  if (message.content === default_prefix + "open") {
+  if (message.content === prefix + "open") {
     if (!message.channel.guild)
       return message.reply(" هذا الامر فقط للسيرفرات !!");
 
@@ -662,7 +664,7 @@ client.on("error", err => {
 
 client.on("messageCreate", async message => {
   let args = message.cleanContent.split(" ");
-  if (args[0] == `${default_prefix}roles`) {
+  if (args[0] == `${prefix}roles`) {
     let space = "                         ";
     let roles = message.guild.roles
       .map(r => r)
@@ -683,10 +685,10 @@ client.on("messageCreate", async message => {
 //// كود سحب شخص
 client.on("message", message => {
   if (!message.channel.guild) return;
-  if (message.content.startsWith(default_prefix + "move")) {
+  if (message.content.startsWith(prefix + "move")) {
     if (message.member.hasPermission("MOVE_MEMBERS")) {
       if (message.mentions.users.size === 0) {
-        return message.channel.send("``Use : " + default_prefix + "move @User``");
+        return message.channel.send("``Use : " + prefix + "move @User``");
       }
       if (message.member.voiceChannel != null) {
         if (message.mentions.members.first().voiceChannel != null) {
@@ -734,9 +736,9 @@ client.on("message", function(message) {
   if (message.author.bot) return;
   if (message.author.id === client.user.id) return;
   if (message.author.equals(client.user)) return;
-  if (!message.content.startsWith(default_prefix)) return;
+  if (!message.content.startsWith(prefix)) return;
 
-  var args = message.content.substring(default_prefix.length).split(" ");
+  var args = message.content.substring(prefix.length).split(" ");
   switch (args[0].toLocaleLowerCase()) {
     case "clear":
       message.delete();
@@ -787,54 +789,54 @@ client.on("message", function(message) {
 ////كود هيلب
 client.on("message", message => {
   if (message.author.bot) return;
-  if (message.content.startsWith(default_prefix + "help")) {
+  if (message.content.startsWith(prefix + "help")) {
     if (message.author.id == message.guild.ownerID) {
       message.author
         .send(
           `   
 \`الاوامر العامة\` 
-\`${default_prefix}bot\` : لعرض معلومات عن البوت 
-\`${default_prefix}user\` : لعرض معلومات عنك 
-\`${default_prefix}avt\` :يعرض لك صورت  اي شخص عن طريق الايدي 
-\`${default_prefix}avatar\` : لعرض صورتك أو صورة الي تمنشنه 
-\`${default_prefix}color\` : لأختيار لونك في السيرفر 
-\`${default_prefix}colors\` : غير لونك 
-\`${default_prefix}inf\` : عدد الدعوات للسيرفر
-\`${default_prefix}رابط\` : اكتب رابط بالشات يجيك رابط السيرفر خاص
-\`${default_prefix}short\` : 『 اختصار روابط 』
+\`${prefix}bot\` : لعرض معلومات عن البوت 
+\`${prefix}user\` : لعرض معلومات عنك 
+\`${prefix}avt\` :يعرض لك صورت  اي شخص عن طريق الايدي 
+\`${prefix}avatar\` : لعرض صورتك أو صورة الي تمنشنه 
+\`${prefix}color\` : لأختيار لونك في السيرفر 
+\`${prefix}colors\` : غير لونك 
+\`${prefix}inf\` : عدد الدعوات للسيرفر
+\`${prefix}رابط\` : اكتب رابط بالشات يجيك رابط السيرفر خاص
+\`${prefix}short\` : 『 اختصار روابط 』
 
 
 
 \`الاوامر الإدارية\` :stars: 
-\`${default_prefix}clear\` : لمسح الشات 
-\`${default_prefix}ban\` : لحظر شخص من السيرفر
-\`${default_prefix}kick\` : لطرد شخص من السيرفر
-\`${default_prefix}open\` : لفتح الشات
-\`${default_prefix}close\` : لقفل الشات 
-\`${default_prefix}mute\` : لإسكات شخص
-\`${default_prefix}unmute\` : لـ فك إسكات شخص
-\`${default_prefix}new\` : فتح التكت
-\`${default_prefix}closet\` : لحذف روم التكت
-\`${default_prefix}say\` : البوت يكرر كلامك
-\`${default_prefix}move\` : لسحب الشخص الى روومك
-\`${default_prefix}reply\` : لصنع رد تلقائي
-\`${default_prefix}setLog\` : لتحديد روم السجلات 
-\`${default_prefix}setby\` : تحديد روم المغادرة
-\`${default_prefix}setWelcomer <channel name>\` : لتحديد روم الولكم 
-\`${default_prefix}setMessage\` : لتحديد رسالة الترحيب 
-\`${default_prefix}setVc\` <channel name> : لتحديد روم الفويس اونلاين 
-\`${default_prefix}vc off\` : لإغلاق روم الفويس اونلاين
-\`${default_prefix}ls\` : لإظهار جميع بوتات السيرفر
-\`${default_prefix}role\` : لاعطاء شخص رتبة
-\`${default_prefix}role all\` : لـ إعطاء الجميع رتبة معينة
+\`${prefix}clear\` : لمسح الشات 
+\`${prefix}ban\` : لحظر شخص من السيرفر
+\`${prefix}kick\` : لطرد شخص من السيرفر
+\`${prefix}open\` : لفتح الشات
+\`${prefix}close\` : لقفل الشات 
+\`${prefix}mute\` : لإسكات شخص
+\`${prefix}unmute\` : لـ فك إسكات شخص
+\`${prefix}new\` : فتح التكت
+\`${prefix}closet\` : لحذف روم التكت
+\`${prefix}say\` : البوت يكرر كلامك
+\`${prefix}move\` : لسحب الشخص الى روومك
+\`${prefix}reply\` : لصنع رد تلقائي
+\`${prefix}setLog\` : لتحديد روم السجلات 
+\`${prefix}setby\` : تحديد روم المغادرة
+\`${prefix}setWelcomer <channel name>\` : لتحديد روم الولكم 
+\`${prefix}setMessage\` : لتحديد رسالة الترحيب 
+\`${prefix}setVc\` <channel name> : لتحديد روم الفويس اونلاين 
+\`${prefix}vc off\` : لإغلاق روم الفويس اونلاين
+\`${prefix}ls\` : لإظهار جميع بوتات السيرفر
+\`${prefix}role\` : لاعطاء شخص رتبة
+\`${prefix}role all\` : لـ إعطاء الجميع رتبة معينة
 
 \`\`اوامر التقديم\`\` :pencil: 
-\`${default_prefix}room1\` : لعمل روم التقديمات
-\`${default_prefix}room2\` : لعمل روم القبول والرفض
-\`لقبول تقديم عضو : \`${default_prefix}قبول
-مثال: \`\`${default_prefix}قبول @منشن عضو \`\`
-لرفض عضو : ${default_prefix}رفض
-مثال: \`\`${default_prefix}رفض @منشن عضو لست متفاعل بشكل كافِ\`\`
+\`${prefix}room1\` : لعمل روم التقديمات
+\`${prefix}room2\` : لعمل روم القبول والرفض
+\`لقبول تقديم عضو : \`${prefix}قبول
+مثال: \`\`${prefix}قبول @منشن عضو \`\`
+لرفض عضو : ${prefix}رفض
+مثال: \`\`${prefix}رفض @منشن عضو لست متفاعل بشكل كافِ\`\`
 
   `
         )
@@ -842,41 +844,41 @@ client.on("message", message => {
           message.author.send(`
 
 \`أوامر الكريدت\` :credit_card: 
-\`${default_prefix}credits\` : لمعرفة رصيدك  
-\`${default_prefix}daily\` : لأخذ جائزة يومية
+\`${prefix}credits\` : لمعرفة رصيدك  
+\`${prefix}daily\` : لأخذ جائزة يومية
 \`يمكن التحويل من شخص لشخص + يزيد الكريدت فقط من امر دايلي\`
 
 \`أوامر الموسيقى \` :notes:
-\`${default_prefix}Play\` : تشغيل الاغنية او اضافتها للقائمة او اكمال الاغنية [p]
-\`${default_prefix}Pause\` : ايقاف مؤقت الاغنية
-\`${default_prefix}Resume\` : اكمال الاغنية 
-\`${default_prefix}stop\` : لأيقاف الأغنية وخروج البوت من الروم
-\`${default_prefix}forceskip\` : لتخطي الأغنية بشكل مباشر
-\`${default_prefix}Queue\` : عرض القائمة 
-\`${default_prefix}skipto\` : لتخطي الأغنية الى الأغنية القادمة في طابور الموسيقى القادمة
-\`${default_prefix}Skip\` : تخطي للاغنية التالية 
-\`${default_prefix}Volume\` : تغيير الصوت [vol] 
-\`${default_prefix}np\` : عرض مايتم تشغيله الان [np] 
-\`${default_prefix}repeat\` : تكرار الاغنية 
+\`${prefix}Play\` : تشغيل الاغنية او اضافتها للقائمة او اكمال الاغنية [p]
+\`${prefix}Pause\` : ايقاف مؤقت الاغنية
+\`${prefix}Resume\` : اكمال الاغنية 
+\`${prefix}stop\` : لأيقاف الأغنية وخروج البوت من الروم
+\`${prefix}forceskip\` : لتخطي الأغنية بشكل مباشر
+\`${prefix}Queue\` : عرض القائمة 
+\`${prefix}skipto\` : لتخطي الأغنية الى الأغنية القادمة في طابور الموسيقى القادمة
+\`${prefix}Skip\` : تخطي للاغنية التالية 
+\`${prefix}Volume\` : تغيير الصوت [vol] 
+\`${prefix}np\` : عرض مايتم تشغيله الان [np] 
+\`${prefix}repeat\` : تكرار الاغنية 
 
 
-\`${default_prefix}cut\` : اسئله كت تويت 
-\`${default_prefix}لو خيروك\` : اسئله لو خيروك
-\`${default_prefix}فكك\`:يعطيك كلمه وتفككها
-\`${default_prefix}اسرع\`:يعطيك كلمه ولازم تكتبها بسرعه 
-\`${default_prefix}صراحة \`:يعطيك جمله تجاوب عليها بكل صراحه
+\`${prefix}cut\` : اسئله كت تويت 
+\`${prefix}لو خيروك\` : اسئله لو خيروك
+\`${prefix}فكك\`:يعطيك كلمه وتفككها
+\`${prefix}اسرع\`:يعطيك كلمه ولازم تكتبها بسرعه 
+\`${prefix}صراحة \`:يعطيك جمله تجاوب عليها بكل صراحه
 
 
 
 \`أوامر الحماية\` :closed_lock_with_key: 
-\`${default_prefix}settings limitsban\` : تحدد العدد الي تبيه لو حد بند  البوت يبنده 
-\`${default_prefix}settings limitskick\` : تحدد العدد الي تبيه لو حد طرد 3 او 4 البوت يبنده 
-\`${default_prefix}settings limitsroleD\` : تحدد العدد الي تبيه لو حد مسح رول 3 او 4 البوت يبنده 
-\`${default_prefix}settings limitsroleC\` : تحدد العدد الي تبيه لو حد صنع روم 3 او 4 البوت يبنده 
-\`${default_prefix}settings limitschannelD\` : تحدد العدد الي تبيه لو حد مسح روم 3 او 4 البوت يبنده 
-\`${default_prefix}settings limitstime\` : تحديد الوقت الذي من خلالة يتم التبنيد كـ مثال اذا شخص بند 5 في دقيقة البوت يبنده
-\`${default_prefix}antibots on\` : منع دخول بوتات
-\`${default_prefix}antibots off\` : السماح للبوتات بالدخول
+\`${prefix}settings limitsban\` : تحدد العدد الي تبيه لو حد بند  البوت يبنده 
+\`${prefix}settings limitskick\` : تحدد العدد الي تبيه لو حد طرد 3 او 4 البوت يبنده 
+\`${prefix}settings limitsroleD\` : تحدد العدد الي تبيه لو حد مسح رول 3 او 4 البوت يبنده 
+\`${prefix}settings limitsroleC\` : تحدد العدد الي تبيه لو حد صنع روم 3 او 4 البوت يبنده 
+\`${prefix}settings limitschannelD\` : تحدد العدد الي تبيه لو حد مسح روم 3 او 4 البوت يبنده 
+\`${prefix}settings limitstime\` : تحديد الوقت الذي من خلالة يتم التبنيد كـ مثال اذا شخص بند 5 في دقيقة البوت يبنده
+\`${prefix}antibots on\` : منع دخول بوتات
+\`${prefix}antibots off\` : السماح للبوتات بالدخول
 
 `);
         })
@@ -897,48 +899,48 @@ client.on("message", message => {
         .send(
           `   
 \`الاوامر العامة\` :postbox: 
-\`${default_prefix}bot\` : لعرض معلومات عن البوت 
-\`${default_prefix}user\` : لعرض معلومات عنك 
-\`${default_prefix}avt\` :يعرض لك صورت  اي شخص عن طريق الايدي
-\`${default_prefix}avatar\` : لعرض صورتك أو صورة الي تمنشنه 
-\`${default_prefix}color\` : لأختيار لونك في السيرفر 
-\`${default_prefix}colors\` : غير لونك 
-\`${default_prefix}inf\` : عدد الدعوات للسيرفر
-\`${default_prefix}رابط\` : اكتب رابط بالشات يجيك رابط السيرفر خاص
-\`${default_prefix}short\` : 『 اختصار روابط 』
+\`${prefix}bot\` : لعرض معلومات عن البوت 
+\`${prefix}user\` : لعرض معلومات عنك 
+\`${prefix}avt\` :يعرض لك صورت  اي شخص عن طريق الايدي
+\`${prefix}avatar\` : لعرض صورتك أو صورة الي تمنشنه 
+\`${prefix}color\` : لأختيار لونك في السيرفر 
+\`${prefix}colors\` : غير لونك 
+\`${prefix}inf\` : عدد الدعوات للسيرفر
+\`${prefix}رابط\` : اكتب رابط بالشات يجيك رابط السيرفر خاص
+\`${prefix}short\` : 『 اختصار روابط 』
 
 
 
 \`الاوامر الإدارية\` 
-\`${default_prefix}clear\` : لمسح الشات 
-\`${default_prefix}ban\` : لحظر شخص من السيرفر
-\`${default_prefix}kick\` : لطرد شخص من السيرفر
-\`${default_prefix}open\` : لفتح الشات
-\`${default_prefix}close\` : لقفل الشات 
-\`${default_prefix}mute\` : لإسكات شخص
-\`${default_prefix}unmute\` : لـ فك إسكات شخص
-\`${default_prefix}new\` : فتح التكت
-\`${default_prefix}closet\` : لحذف روم التكت
-\`${default_prefix}say\` : البوت يكرر كلامك
-\`${default_prefix}move\` : لسحب الشخص الى روومك
-\`${default_prefix}reply\` : لصنع رد تلقائي
-\`${default_prefix}setLog\` : لتحديد روم السجلات 
-\`${default_prefix}setby\` : تحديد روم المغادرة
-\`${default_prefix}setWelcomer <channel name>\` : لتحديد روم الولكم 
-\`${default_prefix}setMessage\` : لتحديد رسالة الترحيب 
-\`${default_prefix}setVc\` <channel name> : لتحديد روم الفويس اونلاين 
-\`${default_prefix}vc off\` : لإغلاق روم الفويس اونلاين
-\`${default_prefix}ls\` : لإظهار جميع بوتات السيرفر
-\`${default_prefix}role\` : لاعطاء شخص رتبة
-\`${default_prefix}role all\` : لـ إعطاء الجميع رتبة معينة
+\`${prefix}clear\` : لمسح الشات 
+\`${prefix}ban\` : لحظر شخص من السيرفر
+\`${prefix}kick\` : لطرد شخص من السيرفر
+\`${prefix}open\` : لفتح الشات
+\`${prefix}close\` : لقفل الشات 
+\`${prefix}mute\` : لإسكات شخص
+\`${prefix}unmute\` : لـ فك إسكات شخص
+\`${prefix}new\` : فتح التكت
+\`${prefix}closet\` : لحذف روم التكت
+\`${prefix}say\` : البوت يكرر كلامك
+\`${prefix}move\` : لسحب الشخص الى روومك
+\`${prefix}reply\` : لصنع رد تلقائي
+\`${prefix}setLog\` : لتحديد روم السجلات 
+\`${prefix}setby\` : تحديد روم المغادرة
+\`${prefix}setWelcomer <channel name>\` : لتحديد روم الولكم 
+\`${prefix}setMessage\` : لتحديد رسالة الترحيب 
+\`${prefix}setVc\` <channel name> : لتحديد روم الفويس اونلاين 
+\`${prefix}vc off\` : لإغلاق روم الفويس اونلاين
+\`${prefix}ls\` : لإظهار جميع بوتات السيرفر
+\`${prefix}role\` : لاعطاء شخص رتبة
+\`${prefix}role all\` : لـ إعطاء الجميع رتبة معينة
 
 \`\`اوامر التقديم\`\` :pencil: 
-\`${default_prefix}room1\` : لعمل روم التقديمات
-\`${default_prefix}room2\` : لعمل روم القبول والرفض
-\`${default_prefix}لقبول تقديم عضو : \`قبول
-مثال: \`\`${default_prefix}قبول @منشن عضو \`\`
- ${default_prefix}لرفض عضو : رفض
-مثال: \`\`${default_prefix}رفض @منشن عضو لست متفاعل بشكل كافِ\`\`
+\`${prefix}room1\` : لعمل روم التقديمات
+\`${prefix}room2\` : لعمل روم القبول والرفض
+\`${prefix}لقبول تقديم عضو : \`قبول
+مثال: \`\`${prefix}قبول @منشن عضو \`\`
+ ${prefix}لرفض عضو : رفض
+مثال: \`\`${prefix}رفض @منشن عضو لست متفاعل بشكل كافِ\`\`
 
 
 
@@ -948,31 +950,31 @@ client.on("message", message => {
           message.author.send(`
 
 \`أوامر الكريدت\` :credit_card: 
-\`${default_prefix}credits\` : لمعرفة رصيدك  
-\`${default_prefix}daily\` : لأخذ جائزة يومية
+\`${prefix}credits\` : لمعرفة رصيدك  
+\`${prefix}daily\` : لأخذ جائزة يومية
 \`يمكن التحويل من شخص لشخص + يزيد الكريدت فقط من امر دايلي\`
 
 \`أوامر الموسيقى \` :notes: 
-\`${default_prefix}Play\` : تشغيل الاغنية او اضافتها للقائمة او اكمال الاغنية [p]
-\`${default_prefix}Pause\` : ايقاف مؤقت الاغنية
-\`${default_prefix}Resume\` : اكمال الاغنية 
-\`${default_prefix}stop\` : لأيقاف الأغنية وخروج البوت من الروم
-\`${default_prefix}forceskip\` : لتخطي الأغنية بشكل مباشر
-\`${default_prefix}Queue\` : عرض القائمة 
-\`${default_prefix}skipto\` : لتخطي الأغنية الى الأغنية القادمة في طابور الموسيقى القادمة
-\`${default_prefix}Skip\` : تخطي للاغنية التالية 
-\`${default_prefix}Volume\` : تغيير الصوت [vol] 
-\`${default_prefix}np\` : عرض مايتم تشغيله الان [np] 
-\`${default_prefix}repeat\` : تكرار الاغنية 
+\`${prefix}Play\` : تشغيل الاغنية او اضافتها للقائمة او اكمال الاغنية [p]
+\`${prefix}Pause\` : ايقاف مؤقت الاغنية
+\`${prefix}Resume\` : اكمال الاغنية 
+\`${prefix}stop\` : لأيقاف الأغنية وخروج البوت من الروم
+\`${prefix}forceskip\` : لتخطي الأغنية بشكل مباشر
+\`${prefix}Queue\` : عرض القائمة 
+\`${prefix}skipto\` : لتخطي الأغنية الى الأغنية القادمة في طابور الموسيقى القادمة
+\`${prefix}Skip\` : تخطي للاغنية التالية 
+\`${prefix}Volume\` : تغيير الصوت [vol] 
+\`${prefix}np\` : عرض مايتم تشغيله الان [np] 
+\`${prefix}repeat\` : تكرار الاغنية 
 
 
 
  (":shield: ***⦁⦓ العاب بوت ⦔⦁*** :shield:",' ‎ ')
-  ("✽-  **${default_prefix}cut  -->  『x اسئله كت تويت x』**",' ‎ ')
-   ("✽-  **${default_prefix}لو خيروك   -->  『x اسئله لو خيروك x』**",' ‎ ')
-    ("✽-  **${default_prefix}تفك -->  『x يعطيك كلمه وتفككها x』**",' ‎ ')
-	   ("✽-  **${default_prefix}اسرع  -->  『x يعطيك كلمه ولازم تكتبها بسرعه x』**",' ‎ ')
-	 	   ("✽-  **${default_prefix}صراحة    -->  『x يعطيك جمله تجاوب عليها بكل صراحه x』**",' ‎ ')
+  ("✽-  **${prefix}cut  -->  『x اسئله كت تويت x』**",' ‎ ')
+   ("✽-  **${prefix}لو خيروك   -->  『x اسئله لو خيروك x』**",' ‎ ')
+    ("✽-  **${prefix}تفك -->  『x يعطيك كلمه وتفككها x』**",' ‎ ')
+	   ("✽-  **${prefix}اسرع  -->  『x يعطيك كلمه ولازم تكتبها بسرعه x』**",' ‎ ')
+	 	   ("✽-  **${prefix}صراحة    -->  『x يعطيك جمله تجاوب عليها بكل صراحه x』**",' ‎ ')
 
 
 `);
@@ -1000,7 +1002,7 @@ client.on("message", async message => {
   var duration; //HactorMC
   var gMembers;
   var filter = m => m.author.id === message.author.id;
-  if (message.content.startsWith(default_prefix + "giveaway")) {
+  if (message.content.startsWith(prefix + "giveaway")) {
     //return message.channel.send('**في مشكله ببعض الاساسيات من فضلك انتظر شوي**');
     if (!message.guild.member(message.author).hasPermission("MANAGE_GUILD"))
       return message.channel.send(
@@ -1125,7 +1127,7 @@ client.on("message", async message => {
 /// كود الوان
 client.on("message", message => {
   if (!message.guild || message.author.bot) return;
-  if (message.content == default_prefix + "colors") {
+  if (message.content == prefix + "colors") {
     var fsn = require("fs-nextra");
     fs.readdir("./colors", async (err, files) => {
       var f = files[Math.floor(Math.random() * files.length)];
@@ -1188,7 +1190,7 @@ client.on("message", message => {
   if (!message.channel.guild) return;
   let room = message.content.split(" ").slice(1);
   let findroom = message.guild.channels.find(r => r.name == room);
-  if (message.content.startsWith(default_prefix + "setLog")) {
+  if (message.content.startsWith(prefix + "setLog")) {
     if (!message.channel.guild)
       return message.reply("**This Command Only For Servers**");
     if (!message.member.hasPermission("MANAGE_GUILD"))
@@ -1216,7 +1218,7 @@ client.on("message", message => {
 });
 
 client.on("message", message => {
-  if (message.content.startsWith(default_prefix + "toggleLog")) {
+  if (message.content.startsWith(prefix + "toggleLog")) {
     if (!message.channel.guild)
       return message.reply("**This Command Only For Servers**");
     if (!message.member.hasPermission("MANAGE_GUILD"))
@@ -1871,7 +1873,7 @@ client.on("message", message => {
 
 client.on("message", message => {
   let args = message.content.split(" ").slice(1);
-  if (message.content.split(" ")[0] == default_prefix + "color") {
+  if (message.content.split(" ")[0] == prefix + "color") {
     const embedd = new Discord.RichEmbed()
       .setFooter(
         "Requested by " + message.author.username,
@@ -1924,7 +1926,7 @@ client.on("message", message => {
 ///// كود خروج الاعضاء
 
 client.on("message", message => {
-  if (message.content.startsWith(default_prefix + "setby")) {
+  if (message.content.startsWith(prefix + "setby")) {
     let args = message.mentions.channels.first();
     if (!args)
       message.channel.send("** منشن روم . ❌**").then(m => {
@@ -1958,7 +1960,7 @@ client.on("message", message => {
 /////كود سرعة البوت او البينق
 client.on("message", message => {
   if (!message.channel.guild) return;
-  if (message.content.startsWith(default_prefix + "ping")) {
+  if (message.content.startsWith(prefix + "ping")) {
     if (message.author.bot) return;
     if (!message.channel.guild) return;
     var Bping = `${Math.round(client.ping)}`;
@@ -1998,12 +2000,12 @@ client.on("message", message => {
       roleCrLimits: 3,
       time: 30
     };
-  if (message.content.startsWith(default_prefix + "settings")) {
+  if (message.content.startsWith(prefix + "settings")) {
     if (message.author.id !== message.guild.owner.user.id)
       return message.channel.send(
         "**:closed_lock_with_key: لأسباب تتعلق بالحماية تم حصر أوامر الحماية فقط للأونر**"
       );
-    if (message.content.startsWith(default_prefix + "settings limitsban")) {
+    if (message.content.startsWith(prefix + "settings limitsban")) {
       if (!num) return message.channel.send("**:1234: | أرسل رقم ! **");
       if (isNaN(num)) return message.channel.send("**:1234: | أرقام فقط ! **");
       config[message.guild.id].banLimit = num;
@@ -2011,7 +2013,7 @@ client.on("message", message => {
         `**:lock: | تم التغيير اِلي : ${config[message.guild.id].banLimit} **`
       );
     }
-    if (message.content.startsWith(default_prefix + "settings limitskick")) {
+    if (message.content.startsWith(prefix + "settings limitskick")) {
       if (!num) return message.channel.send("**:1234: | أرسل رقم ! **");
       if (isNaN(num)) return message.channel.send("**:1234: | أرقام فقط ! **");
       config[message.guild.id].kickLimits = num;
@@ -2019,7 +2021,7 @@ client.on("message", message => {
         `**:lock: | تم التغيير اِلي : ${config[message.guild.id].kickLimits}**`
       );
     }
-    if (message.content.startsWith(default_prefix + "settings limitsroleD")) {
+    if (message.content.startsWith(prefix + "settings limitsroleD")) {
       if (!num) return message.channel.send("**:1234: | أرسل رقم ! **");
       if (isNaN(num)) return message.channel.send("**:1234: | أرقام فقط ! **");
       config[message.guild.id].roleDelLimit = num;
@@ -2027,7 +2029,7 @@ client.on("message", message => {
         `**:lock: | تم التغيير اِلي : ${config[message.guild.id].roleDelLimit}**`
       );
     }
-    if (message.content.startsWith(default_prefix + "settings limitsroleC")) {
+    if (message.content.startsWith(prefix + "settings limitsroleC")) {
       if (!num) return message.channel.send("**:1234: | أرسل رقم ! **");
       if (isNaN(num)) return message.channel.send("**:1234: | أرقام فقط ! **");
       config[message.guild.id].roleCrLimits = num;
@@ -2035,7 +2037,7 @@ client.on("message", message => {
         `**:lock: | تم التغيير اِلي : ${config[message.guild.id].roleCrLimits}**`
       );
     }
-    if (message.content.startsWith(default_prefix + "settings limitschannelD")) {
+    if (message.content.startsWith(prefix + "settings limitschannelD")) {
       if (!num) return message.channel.send("**:1234: | أرسل رقم ! **");
       if (isNaN(num)) return message.channel.send("**:1234: | أرقام فقط ! **");
       config[message.guild.id].chaDelLimit = num;
@@ -2043,7 +2045,7 @@ client.on("message", message => {
         `**:lock: | تم التغيير اِلي : ${config[message.guild.id].chaDelLimit}**`
       );
     }
-    if (message.content.startsWith(default_prefix + "settings limitschannelC")) {
+    if (message.content.startsWith(prefix + "settings limitschannelC")) {
       if (!num) return message.channel.send("**:1234: | أرسل رقم ! **");
       if (isNaN(num)) return message.channel.send("**:1234: | أرقام فقط ! **");
       config[message.guild.id].chaCrLimit = num;
@@ -2051,7 +2053,7 @@ client.on("message", message => {
         `**:lock: | تم التغيير اِلي : ${config[message.guild.id].chaCrLimit}**`
       );
     }
-    if (message.content.startsWith(default_prefix + "settings limitstime")) {
+    if (message.content.startsWith(prefix + "settings limitstime")) {
       if (!num) return message.channel.send("**:1234: | أرسل رقم ! **");
       if (isNaN(num)) return message.channel.send("**:1234: | أرقام فقط ! **");
       config[message.guild.id].time = num;
@@ -2553,7 +2555,7 @@ client.on("message", message => {
     config[message.guild.id] = {
       onoff: true
     };
-  if (message.content.startsWith(default_prefix + "antibots on")) {
+  if (message.content.startsWith(prefix + "antibots on")) {
     if (message.author.bot || !message.channel.guild) return;
     if (message.author.id !== message.guild.owner.user.id)
       return message.channel.send(
@@ -2565,7 +2567,7 @@ client.on("message", message => {
     saveSteve();
     message.channel.send("**AntiBots Join Is On :closed_lock_with_key: **");
   }
-  if (message.content.startsWith(default_prefix + "antibots off")) {
+  if (message.content.startsWith(prefix + "antibots off")) {
     if (message.author.bot || !message.channel.guild) return;
     if (message.author.id !== message.guild.owner.user.id)
       return message.channel.send(
@@ -2593,7 +2595,7 @@ client.on("guildMemberAdd", member => {
 client.on("message", async message => {
   const moment = require("moment"); //npm i moment
   const ms = require("ms"); //npm i ms
-  // var default_prefix = '' //Bot default_prefix !
+  // var prefix = '' //Bot prefix !
   var time = moment().format("Do MMMM YYYY , hh:mm");
   var room;
   var title;
@@ -2616,7 +2618,7 @@ client.on("message", async message => {
   }
 
   var filter = m => m.author.id === message.author.id;
-  if (message.content.startsWith(default_prefix + "gcreate")) {
+  if (message.content.startsWith(prefix + "gcreate")) {
     let embed1 = new Discord.RichEmbed()
       .setColor()
       .setDescription("Missing the following permission `MANAGE_GUILD`");
@@ -2772,7 +2774,7 @@ function saveReplay() {
 
 /////كود صنع رد تلقائي
 client.on("message", async message => {
-  if (message.content.startsWith(default_prefix + "reply")) {
+  if (message.content.startsWith(prefix + "reply")) {
     if (message.author.bot || message.channel.type == "dm") return undefined;
     if (!message.member.hasPermission("ADMINISTRATOR")) return;
     if (!replyMSG[message.author.id])
@@ -2863,7 +2865,7 @@ client.on("message", async message => {
       credits: 0
     };
   fs.writeFileSync("./credits.json", JSON.stringify(credits, null, 4));
-  if (args[0].toLowerCase() == `${default_prefix}credits`) {
+  if (args[0].toLowerCase() == `${prefix}credits`) {
     const mention = message.mentions.users.first() || message.author;
     const mentionn = message.mentions.users.first();
     if (!args[2]) {
@@ -2954,11 +2956,11 @@ type these numbers to confirm: `
         });
     } else {
       message.channel.send(
-        `**:x: | Error , Please Command True Ex: \`${default_prefix}credits [MentionUser] [Balance]\`**`
+        `**:x: | Error , Please Command True Ex: \`${prefix}credits [MentionUser] [Balance]\`**`
       );
     }
   }
-  if (args[0].toLowerCase() === `${default_prefix}daily`) {
+  if (args[0].toLowerCase() === `${prefix}daily`) {
     let cooldown = 8.64e7;
     let Daily = time[message.author.id];
     if (Daily !== null && cooldown - (Date.now() - Daily) > 0) {
@@ -2988,7 +2990,7 @@ type these numbers to confirm: `
 }); //
 
 client.on("message", async message => {
-  let Fire = message.content.split(" ")[0].substring(default_prefix.length);
+  let Fire = message.content.split(" ")[0].substring(prefix.length);
   let mention = message.mentions.users.first() || message.author;
   if (Fire === "addcredits") {
     let args = message.content.split(" ");
@@ -3144,7 +3146,7 @@ client.on("message", async message => {
   if (!message.channel.guild) return;
   let room = message.content.split(" ").slice(1);
   let findroom = message.guild.channels.find(r => r.name == room);
-  if (message.content.startsWith(default_prefix + "setWelcomer")) {
+  if (message.content.startsWith(prefix + "setWelcomer")) {
     if (!welcome[message.guild.id]) {
       if (!message.channel.guild)
         return message.reply("**This Command Only For Servers**");
@@ -3208,10 +3210,10 @@ client.on("message", async message => {
 
 client.on("message", async message => {
   let messageArray = message.content.split(" ");
-  if (message.content.startsWith(default_prefix + "setMessage")) {
+  if (message.content.startsWith(prefix + "setMessage")) {
     if (!welcome[message.guild.id] || !welcome[message.guild.id].onoff == "On")
       return message.channel.send(
-        `**please type \`${default_prefix}setWelcomer\` first **`
+        `**please type \`${prefix}setWelcomer\` first **`
       );
     let filter = m => m.author.id === message.author.id;
     let thisMessage;
@@ -3265,7 +3267,7 @@ Ex :
 ///كود منشن بوتات
 
 client.on("message", message => {
-  if (message.content === default_prefix + "ls") {
+  if (message.content === prefix + "ls") {
     var list_all = [];
     message.guild.members.forEach(bb => {
       if (!bb.user.bot) return;
@@ -3279,7 +3281,7 @@ client.on("message", message => {
 ////تعديل غير اساسي
 
 client.on("message", message => {
-  if (message.content.split(" ")[0] === default_prefix + "رابط") {
+  if (message.content.split(" ")[0] === prefix + "رابط") {
     message.channel
       .createInvite({
         thing: true,
@@ -3311,7 +3313,7 @@ client.on("message", message => {
 
 let vojson = JSON.parse(fs.readFileSync("vojson.json", "utf8")); // ملف تخزين الفويس اونلاين
 client.on("message", message => {
-  if (message.content.startsWith(default_prefix + "setVc")) {
+  if (message.content.startsWith(prefix + "setVc")) {
     let channel = message.content
       .split(" ")
       .slice(1)
@@ -3324,7 +3326,7 @@ client.on("message", message => {
     if (!channel)
       return message.channel.send(
         "Please Type The Voice Channel Name Example: " +
-          `${default_prefix}setVc <Channel name>`
+          `${prefix}setVc <Channel name>`
       );
     if (!channelfind)
       return message.channel.send(`I can't find this channel \`${channel}\``);
@@ -3338,7 +3340,7 @@ client.on("message", message => {
     );
     message.channel.send("**Done The Voice Online  Is Turned On**");
   }
-  if (message.content.startsWith(default_prefix + "vc off")) {
+  if (message.content.startsWith(prefix + "vc off")) {
     // ايقاف الفويس اونلاين
     if (!message.member.hasPermission("MANAGE_GUILD"))
       return message.channel.send(
@@ -3390,13 +3392,13 @@ client.on("ready", () => {
 ////تعديل غير اساسي
 
 client.on("message", message => {
-  if (message.content.startsWith(default_prefix + "تقديم")) {
+  if (message.content.startsWith(prefix + "تقديم")) {
     if (!message.channel.guild) return;
     if (message.author.bot) return;
     let channel = message.guild.channels.find(gg => gg.name === "التقديمات");
     if (!channel)
       return message.reply(
-        "**لانشاء روم التقديمات ${default_prefix}room1 من فضلك اكتب الامر**"
+        "**لانشاء روم التقديمات ${prefix}room1 من فضلك اكتب الامر**"
       );
     if (channel) {
       message.channel.send(message.member + ", **:timer:**").then(m => {
@@ -3531,7 +3533,7 @@ client.on("message", message => {
 });
 
 client.on("message", message => {
-  if (message.content.startsWith(default_prefix + "room1")) {
+  if (message.content.startsWith(prefix + "room1")) {
     if (!message.channel.guild) return;
     if (message.author.bot) return;
     if (!message.member.hasPermission("`MANAGE_CHANNELS"))
@@ -3549,10 +3551,10 @@ client.on("message", message => {
   var args = message.content.split(" ").slice(1);
   var msg = message.content.toLowerCase();
   if (!message.guild) return;
-  if (!msg.startsWith(default_prefix + "role")) return;
+  if (!msg.startsWith(prefix + "role")) return;
   if (!message.member.hasPermission("MANAGE_ROLES"))
     return message.channel.send(" **ليس لديك صلاحيات :rolling_eyes:**");
-  if (msg.toLowerCase().startsWith(default_prefix + "rrole")) {
+  if (msg.toLowerCase().startsWith(prefix + "rrole")) {
     if (!args[0])
       return message.reply("**:x: يرجى وضع الشخص المراد سحب منه الرتبة**");
     if (!args[1])
@@ -3692,11 +3694,11 @@ client.on("message", async message => {
     .slice(2)
     .join(" ");
   let mySupport = message.guild.roles.find(gg => gg.name === role);
-  if (message.content.startsWith(default_prefix + "قبول")) {
+  if (message.content.startsWith(prefix + "قبول")) {
     let acRoom = message.guild.channels.find(gg => gg.name === "القبول-الرفض");
     if (!acRoom)
       return message.reply(
-        `${default_prefix}room2 من فضلك انشاء روم **القبول-الرفض** او اكتب الامر`
+        `${prefix}room2 من فضلك انشاء روم **القبول-الرفض** او اكتب الامر`
       );
     if (acRoom) {
       if (!message.guild.member(message.author).hasPermission("MANAGE_ROLES"))
@@ -3721,7 +3723,7 @@ client.on("message", async message => {
 });
 
 client.on("message", async message => {
-  if (message.content.startsWith(default_prefix + "رفض")) {
+  if (message.content.startsWith(prefix + "رفض")) {
     if (!message.channel.guild) return;
 
     let mention = message.mentions.members.first();
@@ -3730,7 +3732,7 @@ client.on("message", async message => {
     let reason = rrrr.join(" ");
     if (!acRoom)
       return message.reply(
-        `${default_prefix}room2 من فضلك انشاء روم **القبول-الرفض** او اكتب الامر`
+        `${prefix}room2 من فضلك انشاء روم **القبول-الرفض** او اكتب الامر`
       );
     if (!message.guild.member(message.author).hasPermission("MANAGE_ROLES"))
       return;
@@ -3745,7 +3747,7 @@ client.on("message", async message => {
   }
 });
 client.on("message", message => {
-  if (message.content.startsWith(default_prefix + "room2")) {
+  if (message.content.startsWith(prefix + "room2")) {
     if (!message.channel.guild) return;
     if (message.author.bot) return;
     if (!message.member.hasPermission("MANAGE_CHANNELS"))
@@ -3760,12 +3762,12 @@ client.on("message", message => {
 });
 client.on("message", async msg => {
   if (msg.author.bot) return undefined;
-  if (!msg.content.startsWith(default_prefix)) return undefined;
+  if (!msg.content.startsWith(prefix)) return undefined;
 
   let args = msg.content.split(" ");
 
   let command = msg.content.toLowerCase().split(" ")[0];
-  command = command.slice(default_prefix.length);
+  command = command.slice(prefix.length);
 
   if (command === `avatar`) {
     if (msg.channel.type === "dm")
@@ -3833,10 +3835,10 @@ client.on("ready", () => {
 
 client.on("message", async msg => {
   if (msg.author.bot) return undefined;
-  if (!msg.content.startsWith(default_prefix)) return undefined;
+  if (!msg.content.startsWith(prefix)) return undefined;
 
   const args = msg.content
-    .slice(default_prefix.length)
+    .slice(prefix.length)
     .trim()
     .split(/ +/g);
   const command = args.shift().toLowerCase();
@@ -4028,7 +4030,7 @@ client.on("message", async msg => {
     if (queue.repeating)
       return msg.channel.send(
         "Repeating Mode is on, you can't stop the music, run `" +
-          `${default_prefix}repeat` +
+          `${prefix}repeat` +
           "` to turn off it."
       );
     queue.songs = [];
@@ -4051,7 +4053,7 @@ client.on("message", async msg => {
     if (queue.repeating)
       return msg.channel.send(
         "You can't skip it, because repeating mode is on, run " +
-          `\`${default_prefix}forceskip\``
+          `\`${prefix}forceskip\``
       );
 
     // let req = vCh.members.size - 1;
@@ -4105,7 +4107,7 @@ client.on("message", async msg => {
     queue.playing = false;
 
     msg.channel.send(
-      ":notes: Paused " + args + ". **Type** `" + default_prefix + "resume` to unpause!"
+      ":notes: Paused " + args + ". **Type** `" + prefix + "resume` to unpause!"
     );
   } else if (cmd === "resume") {
     let queue = active.get(msg.guild.id);
@@ -4244,13 +4246,13 @@ client.on("message", async msg => {
     if (queue.repeating)
       return msg.channel.send(
         "You can't skip, because repeating mode is on, run " +
-          `\`${default_prefix}repeat\` to turn off.`
+          `\`${prefix}repeat\` to turn off.`
       );
 
     if (!args[0] || isNaN(args[0]))
       return msg.channel.send(
         "Please input song number to skip to it, run " +
-          default_prefix +
+          prefix +
           `queue` +
           " to see songs numbers."
       );
@@ -4433,14 +4435,14 @@ client.on("message", message => {
 
 const shorten = require("isgd");
 client.on("message", message => {
-  if (message.content.startsWith(default_prefix + "short")) {
+  if (message.content.startsWith(prefix + "short")) {
     let args = message.content.split(" ").slice(1);
     if (!args[0])
-      return message.channel.send("**استعمل**: " + default_prefix + "short <رابط>");
+      return message.channel.send("**استعمل**: " + prefix + "short <رابط>");
     if (!args[1]) {
       shorten.shorten(args[0], function(res) {
         if (res.startsWith("Error:"))
-          return message.channel.send("**Usage**: " + default_prefix + "short <link>");
+          return message.channel.send("**Usage**: " + prefix + "short <link>");
         message.channel.send(`اختصار الرابط:**${res}**`);
       });
     } else {
@@ -4461,7 +4463,7 @@ client.on("message", message => {
 });
 
 client.on("message", message => {
-  if (message.content.startsWith(default_prefix + "obc")) {
+  if (message.content.startsWith(prefix + "obc")) {
     if (!message.member.hasPermission("ADMINISTRATOR")) return;
     let args = message.content.split(" ").slice(1);
     var argresult = args.join(" "); //جميع حقوق البوت محفوضة لدى بترولي
@@ -4482,7 +4484,7 @@ client.on("message", message => {
 client.on("message", message => {
   //جميع حقوق البوت محفوضة لدى بترولي
 
-  if (message.content.startsWith(default_prefix + "bc")) {
+  if (message.content.startsWith(prefix + "bc")) {
     if (!message.member.hasPermission("ADMINISTRATOR")) return;
     let args = message.content.split(" ").slice(1);
     var argresult = args.join(" ");
@@ -4502,7 +4504,7 @@ client.on("message", message => {
 }); //جميع حقوق البوت محفوضة لدى بترولي
 
 client.on("message", message => {
-  if (message.content.startsWith(default_prefix + "baned")) {
+  if (message.content.startsWith(prefix + "baned")) {
     message.guild
       .fetchBans()
       .then(bans =>
@@ -4518,7 +4520,7 @@ client.on("message", message => {
   //جميع حقوق البوت محفوضة لدى بترولي
   if (message.author.bot) return;
 
-  if (message.content.startsWith(default_prefix + "rbc")) {
+  if (message.content.startsWith(prefix + "rbc")) {
     //جميع حقوق البوت محفوضة لدى بترولي
     if (!message.member.hasPermission("ADMINISTRATOR")) return;
     let args = message.content.split(" ").slice(2);
@@ -4563,7 +4565,7 @@ client.on("message", message => {
 
 client.on("message", message => {
   if (!message.channel.guild) return;
-  if (message.content.startsWith(default_prefix + "eb")) {
+  if (message.content.startsWith(prefix + "eb")) {
     if (!message.channel.guild)
       return message.channel
         .send("**This Command Only For Servers**")
@@ -4573,7 +4575,7 @@ client.on("message", message => {
     let args = message.content
       .split(" ")
       .join(" ")
-      .slice(2 + default_prefix.length);
+      .slice(2 + prefix.length);
     let copy = "Speed Bot";
     let request = `Requested By ${message.author.username}`;
     if (!args) return message.reply("**Write Some Things To Broadcast**");
@@ -4626,7 +4628,7 @@ client.on("message", message => {
 });
 
 client.on("message", async message => {
-  if (message.content.startsWith(default_prefix + "Owner")) {
+  if (message.content.startsWith(prefix + "Owner")) {
     let i = client.users.size;
     if (message.author.id !== "407882511784607748")
       return message.channel.send(
@@ -4640,17 +4642,17 @@ client.on("message", async message => {
 
 /////show guild emojis
 client.on("message", message => {
-  if (message.content.toLowerCase() === default_prefix + "emojis") {
+  if (message.content.toLowerCase() === prefix + "emojis") {
     let emojis = message.guild.emojis.cache.map(e => ` ${e}`).join("\n");
     let embed = new Discord.MessageEmbed()
       .setTitle("Server Emojis")
       .setDescription(emojis);
     message.channel.send(embed);
   }
-  if (message.content.toLowerCase() === default_prefix + "help emojis") {
+  if (message.content.toLowerCase() === prefix + "help emojis") {
     let emojis = new Discord.MessageEmbed()
       .setTitle(`Command: emojis `)
-      .addField("Usage", `${default_prefix}emojis`)
+      .addField("Usage", `${prefix}emojis`)
       .addField("Information", "Show All Emojis For Server");
     message.channel.send(emojis);
   }
@@ -4716,7 +4718,7 @@ const cuttweets = [
 client.on("message", async toxicc => {
   if (!toxicc.guild || toxicc.author.bot) return false;
   switch (toxicc.content.split(" ")[0]) {
-    case default_prefix + "cut":
+    case prefix + "cut":
       var embed = new Discord.RichEmbed()
         .setTitle("Cut Tweet")
         .setDescription(cuttweets[Math.floor(Math.random() * cuttweets.length)])
@@ -4746,7 +4748,7 @@ var viper = [
 ];
 client.on("message", message => {
   var args = message.content.split(" ").slice(1);
-  if (message.content.startsWith(default_prefix + "لوخيروك")) {
+  if (message.content.startsWith(prefix + "لوخيروك")) {
     if (!message.channel.guild)
       return message.reply("** ممنوع كتابة الاوامر في خاص البوت**");
     var lo = new Discord.RichEmbed().setImage(
@@ -4773,7 +4775,7 @@ var memes = [
   "https://cdn.discordapp.com/attachments/422454766468202511/426488491359338516/fkk14.png"
 ];
 client.on("message", message => {
-  if (message.content.startsWith(default_prefix + "فكك")) {
+  if (message.content.startsWith(prefix + "فكك")) {
     if (!message.channel.guild)
       return message.reply("** ممنوع كتابة الاوامر في خاص البوت**");
     var embed = new Discord.RichEmbed()
@@ -4797,7 +4799,7 @@ var viper = [
 ];
 client.on("message", message => {
   var args = message.content.split(" ").slice(1);
-  if (message.content.startsWith(default_prefix + "اسرع")) {
+  if (message.content.startsWith(prefix + "اسرع")) {
     if (!message.channel.guild)
       return message.reply("** ممنوع كتابة الاوامر في خاص البوت**");
     var lo = new Discord.RichEmbed().setImage(
@@ -4870,7 +4872,7 @@ const Sra7a = [
   "صراحه | هل قبلت فتاه؟"
 ];
 client.on("message", message => {
-  if (message.content.startsWith(default_prefix + "صراحه")) {
+  if (message.content.startsWith(prefix + "صراحه")) {
     if (!message.channel.guild)
       return message.reply("** ممنوع كتابة الاوامر في خاص البوت**");
     var client = new Discord.RichEmbed()
