@@ -35,7 +35,6 @@ const fetchVideoInfo = require("youtube-info");
 const botversion = require("./package.json").version;
 const simpleytapi = require("simple-youtube-api");
 const moment = require("moment");
-const fs = require("fs");
 const util = require("util");
 const gif = require("gif-search");
 const opus = require("node-opus");
@@ -57,31 +56,27 @@ client.on("ready", () => {
 });
 
 
-
+// هذه الأسطر توضع في السورس الاساسي
 const pref = require('./prefixs.json');
-const prefix = "=";
-const kk = "=";
-
+const fs = require('fs');
+const prefix = "#"; 
 
 
 // هذا كود الست بريفكس 
 client.on('message', message => {
-
     var args = message.content.split(" ")
     var findprefix;
     if(message.channel.guild && !pref[message.guild.id]) {
         pref[message.guild.id] = { 
-         prefix: kk 
+         prefix: prefix 
         };
-    // By AboKhalil - Alpha Codes 22/8/2019.
      fs.writeFileSync('./prefixs.json', JSON.stringify(pref, null, 4));
-     findprefix = kk;
+     findprefix = prefix;
     }
     if(message.channel.guild && pref[message.guild.id]){
         findprefix = pref[message.guild.id].prefix;
     }
     if (args[0] === findprefix + "setprefix") {
-        // By AboKhalil - Alpha Codes 22/8/2019.
         if (!args[1]){
             message.channel.send("Insert a new prefix");
         }else if (message.guild.member(message.author).hasPermission("SERVER_OWNER")){
@@ -107,7 +102,24 @@ client.on("ready", () => {
 
 
  
-
+client.on('message', message =>{
+ var findprefix;
+    if(message.channel.guild && !pref[message.guild.id]) {
+        pref[message.guild.id] = { 
+         prefix: prefix 
+        };
+    // By AboKhalil - Alpha Codes 22/8/2019.
+     fs.writeFileSync('./prefixs.json', JSON.stringify(pref, null, 4));
+     findprefix = prefix;
+    }
+    if(message.channel.guild && pref[message.guild.id]){
+        findprefix = pref[message.guild.id].prefix;
+    }
+// هنا شلنا كلمة البريفكس وخلينا بدلها findprefix
+    if (message.content === findprefix +  "kk"){
+        message.channel.send("AboKhalil");
+    }
+});
 
 client.on("message", message => {
    var findprefix;
@@ -122,7 +134,6 @@ client.on("message", message => {
     if(message.channel.guild && pref[message.guild.id]){
         findprefix = pref[message.guild.id].prefix;
     }
- 
   if (message.author.bot) return;
   if (!message.content.startsWith(prefix)) return;
 
