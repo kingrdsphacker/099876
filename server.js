@@ -57,10 +57,10 @@ client.on("ready", () => {
 
 
 // هذه الأسطر توضع في السورس الاساسي
-const pref = require('./prefixs.json');
 const fs = require('fs');
 const prefix = "#"; 
 
+var pref = require('./prefixs.json');
 
 // هذا كود الست بريفكس 
 client.on('message', message => {
